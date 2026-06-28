@@ -31,6 +31,7 @@ const CATEGORIES = [
   {
     id: "security-services",
     key: "security",
+    badge: "Static & Mobile Guarding",
     title: "Security Services",
     description:
       "Professional trained security personnel for commercial, industrial, residential, institutional and corporate environments.",
@@ -38,6 +39,7 @@ const CATEGORIES = [
   {
     id: "bouncer-services",
     key: "bouncer",
+    badge: "Event & Crowd Control",
     title: "Bouncer Services",
     description:
       "Professional event security and crowd management for hotels, clubs, weddings, VIP events and private functions.",
@@ -45,6 +47,7 @@ const CATEGORIES = [
   {
     id: "housekeeping-services",
     key: "housekeeping",
+    badge: "Facility Support",
     title: "Housekeeping Services",
     description:
       "Reliable housekeeping and facility support services for offices, commercial buildings and residential properties.",
@@ -99,7 +102,7 @@ const Services = (): React.JSX.Element => {
               className="services-category-section scroll-mt-24 py-20 border-b border-slate-100 last:border-0"
             >
               <div className="container mx-auto px-6 mb-12">
-                <SectionHeader badge={cat.title} title={cat.title} subtitle={cat.description} />
+                <SectionHeader badge={cat.badge} title={cat.title} subtitle={cat.description} />
               </div>
 
               <motion.div

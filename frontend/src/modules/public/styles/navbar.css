@@ -37,7 +37,7 @@
 }
 
 .nav-item-link {
-  @apply text-sm font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
+  @apply text-base font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
 }
 
 .nav-item-link::after {
@@ -55,7 +55,7 @@
 
 /* Navbar CTA button */
 .nav-cta-btn {
-  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-xs uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
+  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
 }
 
 /* Mobile Toggle Hamburger */

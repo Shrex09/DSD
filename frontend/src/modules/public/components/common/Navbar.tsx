@@ -68,7 +68,7 @@ const Navbar = (): React.JSX.Element => {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${companyConfig.contact.phoneRaw}`}
-              className="text-slate-700 hover:text-accent flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
+              className="text-slate-700 hover:text-accent flex items-center gap-2 text-base font-semibold transition-colors duration-200"
               aria-label={`Call us at ${companyConfig.contact.phone}`}
             >
               <Phone className="w-4 h-4 text-accent" aria-hidden="true" />

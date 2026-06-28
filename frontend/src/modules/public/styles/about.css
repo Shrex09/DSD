@@ -4,7 +4,7 @@
 .about-header-hero {
   @apply py-20 text-center text-white relative overflow-hidden;
   background-color: var(--primary-color);
-  background-image: url("/images/about/flag-ceremony.jpg");
+  background-image: url("/images/guards/guard-assembly.jpg");
   background-size: cover;
   background-position: center 25%;
 }
@@ -156,7 +156,7 @@
 }
 
 .about-hero-subtitle {
-  @apply text-base text-slate-300 max-w-xl leading-relaxed;
+  @apply text-lg text-slate-300 max-w-xl leading-relaxed;
 }
 
 /* 2. Story */
@@ -186,7 +186,7 @@
 }
 
 .about-para-text {
-  @apply text-sm text-slate-500 leading-relaxed;
+  @apply text-base text-slate-500 leading-relaxed;
 }
 
 /* 3. Mission & Vision */
@@ -232,7 +232,7 @@
 }
 
 .about-mv-desc {
-  @apply text-sm leading-relaxed opacity-90;
+  @apply text-base leading-relaxed opacity-90;
 }
 
 /* 4. Core Values */
@@ -261,11 +261,11 @@
 }
 
 .about-value-title-new {
-  @apply text-sm font-extrabold uppercase tracking-wider text-primary;
+  @apply text-base font-extrabold uppercase tracking-wider text-primary;
 }
 
 .about-value-desc-new {
-  @apply text-xs text-slate-500 leading-relaxed;
+  @apply text-sm text-slate-500 leading-relaxed;
 }
 
 /* 5. Certifications */
@@ -282,7 +282,7 @@
 }
 
 .about-cert-card {
-  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
+  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-base font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
 }
 
 .about-cert-icon {
@@ -303,7 +303,7 @@
 }
 
 .about-cta-subtitle {
-  @apply text-sm text-slate-300 leading-relaxed max-w-xl;
+  @apply text-base text-slate-300 leading-relaxed max-w-xl;
 }
 
 /* ── FLIP CARDS (Mission & Vision) ── */
@@ -357,7 +357,7 @@
   @apply text-xs opacity-50 mt-1;
 }
 .flip-card-desc {
-  @apply text-sm leading-relaxed font-medium;
+  @apply text-base leading-relaxed font-medium;
 }
 
 /* ── STORY DUAL PHOTOS ── */
@@ -372,12 +372,68 @@
   @apply absolute -bottom-6 -right-6 w-40 h-28 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block;
 }
 
-/* ── PHOTO STRIP ── */
-.about-photo-strip {
-  @apply grid grid-cols-2 md:grid-cols-4 gap-1;
+/* ── PHOTO MARQUEE (news-ticker) ── */
+.about-photo-marquee {
+  @apply relative w-full overflow-hidden bg-slate-100 py-3;
+  /* fade edges so images slide into/out of view smoothly */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 80px,
+    #000 calc(100% - 80px),
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 80px,
+    #000 calc(100% - 80px),
+    transparent 100%
+  );
 }
-.about-strip-img {
-  @apply w-full object-cover;
+
+.about-marquee-track {
+  display: flex;
+  width: max-content;
+  animation-name: marqueeLeftScroll;
+  animation-duration: 45s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.about-photo-marquee:hover .about-marquee-track {
+  animation-play-state: paused;
+}
+
+.about-marquee-row {
+  display: flex;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.about-marquee-img {
+  width: 360px;
   height: 240px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
 }
-.about-strip-img:first-child { @apply md:col-span-1; }
+
+@keyframes marqueeLeftScroll {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 640px) {
+  .about-marquee-img { width: 260px; height: 180px; }
+  .about-marquee-track { animation-duration: 35s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-marquee-track { animation: none; }
+}
