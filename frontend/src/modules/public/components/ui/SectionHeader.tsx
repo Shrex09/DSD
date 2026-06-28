@@ -25,7 +25,7 @@ const SectionHeader = ({
     <div className={cn("flex flex-col gap-3", centered && "text-center items-center", className)}>
       <span className="section-tag-gold">{badge}</span>
       <h2 className="section-headline-dark">{title}</h2>
-      {subtitle && <p className="text-sm text-slate-500 max-w-lg leading-relaxed">{subtitle}</p>}
+      {subtitle && <p className="text-base text-slate-500 max-w-lg leading-relaxed">{subtitle}</p>}
     </div>
   );
 };

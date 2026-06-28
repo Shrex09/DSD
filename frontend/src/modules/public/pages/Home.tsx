@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { Phone, ArrowRight, Star } from "lucide-react";
@@ -29,6 +29,55 @@ const staggerContainer: Variants = {
     opacity: 1,
     transition: { staggerChildren: 0.12 },
   },
+};
+
+/**
+ * Animated counter that ticks from 0 → target when scrolled into view.
+ * Leaves non-numeric values (e.g. "24/7") untouched.
+ */
+const CountUp = ({ value, duration = 1800 }: { value: string; duration?: number }): React.JSX.Element => {
+  const match = value.match(/^(\d+)(\D*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState<number>(match ? 0 : NaN);
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    if (!match) return;
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !startedRef.current) {
+            startedRef.current = true;
+            const startTime = performance.now();
+            const tick = (now: number) => {
+              const progress = Math.min((now - startTime) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              setDisplay(Math.round(target * eased));
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [match, target, duration]);
+
+  if (!match) return <span ref={ref}>{value}</span>;
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
 };
 
 /** Renders n filled star icons */
@@ -340,7 +389,9 @@ const Home = (): React.JSX.Element => {
               return (
                 <motion.div key={stat.id} className="stat-item-box" variants={fadeInUp}>
                   <Icon className="stat-icon" aria-hidden="true" />
-                  <span className="stat-number">{stat.value}</span>
+                  <span className="stat-number">
+                    <CountUp value={stat.value} />
+                  </span>
                   <span className="stat-label">{stat.label}</span>
                 </motion.div>
               );

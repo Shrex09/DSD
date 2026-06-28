@@ -145,7 +145,7 @@ const About = (): React.JSX.Element => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <SectionHeader badge={content.story.badge} title="Our Story" />
+            <SectionHeader badge={content.story.badge} title={content.story.title} />
             {content.story.paragraphs.map((p, idx) => (
               <p key={idx} className="about-para-text">{p}</p>
             ))}
@@ -232,12 +232,22 @@ const About = (): React.JSX.Element => {
         </div>
       </section>
 
-      {/* ── 5b. PHOTO STRIP ── */}
-      <section className="about-photo-strip">
-        <img src="/images/guards/guard-assembly.jpg" alt="DSD Security guards in formation" className="about-strip-img" />
-        <img src="/images/about/flag-ceremony.jpg" alt="DSD Security flag ceremony" className="about-strip-img" />
-        <img src="/images/services/guard-line.jpg" alt="DSD Security guard line" className="about-strip-img" />
-        <img src="/images/gallery/ceremonial-red.jpg" alt="DSD Security ceremonial event" className="about-strip-img" />
+      {/* ── 5b. PHOTO MARQUEE (news-ticker style) ── */}
+      <section className="about-photo-marquee" aria-label="DSD Security photo gallery">
+        <div
+          className="about-marquee-track"
+          style={{ animation: "marqueeLeftScroll 45s linear infinite" }}
+        >
+          {[...Array(2)].map((_, copyIdx) => (
+            <div className="about-marquee-row" key={copyIdx} aria-hidden={copyIdx === 1}>
+              <img src="/images/gallery/parade-1.jpg" alt="DSD Security ceremonial formation" className="about-marquee-img" />
+              <img src="/images/gallery/parade-2.jpg" alt="DSD Security officers lineup" className="about-marquee-img" />
+              <img src="/images/gallery/parade-3.jpg" alt="DSD Security flag hoisting" className="about-marquee-img" />
+              <img src="/images/gallery/parade-4.jpg" alt="DSD Security flag tribute" className="about-marquee-img" />
+              <img src="/images/gallery/parade-5.jpg" alt="DSD Security guard drill" className="about-marquee-img" />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ── 6. CTA BANNER ── */}

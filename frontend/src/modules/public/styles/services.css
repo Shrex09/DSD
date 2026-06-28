@@ -61,7 +61,7 @@
 }
 
 .service-card-title {
-  @apply text-base font-bold uppercase tracking-wider text-primary transition-colors duration-300;
+  @apply text-lg font-bold uppercase tracking-wider text-primary transition-colors duration-300;
 }
 
 .service-catalog-card:hover .service-card-title {
@@ -69,11 +69,11 @@
 }
 
 .service-card-desc {
-  @apply text-[12px] leading-relaxed text-slate-500 mb-4 flex-grow line-clamp-2;
+  @apply text-sm leading-relaxed text-slate-500 mb-4 flex-grow line-clamp-2;
 }
 
 .service-card-enquire-btn {
-  @apply w-full py-3.5 mt-auto flex items-center justify-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest bg-accent rounded transition-all duration-300 hover:bg-accent-hover;
+  @apply w-full py-3.5 mt-auto flex items-center justify-center gap-2 text-xs font-bold text-primary uppercase tracking-widest bg-accent rounded transition-all duration-300 hover:bg-accent-hover;
   box-shadow: 0 4px 12px rgba(214, 175, 55, 0.15);
 }
 

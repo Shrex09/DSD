@@ -11,10 +11,9 @@ import type { SEOProps } from "@/types";
  */
 const SEO = ({ title, description }: SEOProps): null => {
   useEffect(() => {
-    // Set document title
-    document.title = title
-      ? `${title} | ${companyConfig.name}`
-      : `${companyConfig.name} | ${companyConfig.tagline}`;
+    // Always show the brand name in the tab — page-specific titles are kept
+    // only for accessibility/SEO via the meta description below.
+    document.title = companyConfig.name;
 
     // Manage meta description tag
     let metaDescription = document.querySelector<HTMLMetaElement>('meta[name="description"]');

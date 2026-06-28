@@ -74,18 +74,7 @@
   @apply flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto items-start sm:items-center;
 }
 
-.btn-glow-gold {
-  @apply px-8 py-4 bg-accent hover:bg-accent-hover text-primary font-bold uppercase tracking-widest text-[11px] rounded transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 select-none;
-  box-shadow: 0 0 20px rgba(214, 175, 55, 0.2);
-}
-
-.btn-glow-gold:hover {
-  box-shadow: 0 0 30px rgba(214, 175, 55, 0.45);
-}
-
-.btn-outline-white {
-  @apply px-8 py-4 bg-transparent border border-white/15 hover:border-white text-white font-bold uppercase tracking-widest text-[11px] rounded transition-all duration-300 hover:bg-white/5 hover:-translate-y-0.5 flex items-center justify-center gap-2 select-none;
-}
+/* .btn-glow-gold and .btn-outline-white now live in global.css (shared across pages) */
 
 .btn-inline-play {
   @apply text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white flex items-center gap-2.5 transition-colors duration-200 py-2 sm:ml-4 select-none;
@@ -192,12 +181,10 @@
 }
 
 .about-paragraph-text {
-  @apply text-sm text-slate-600 leading-relaxed;
+  @apply text-base text-slate-600 leading-relaxed;
 }
 
-.btn-inline-accent {
-  @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:text-accent-hover transition-colors duration-200 mt-2 self-start;
-}
+/* .btn-inline-accent now lives in global.css */
 
 /* ==========================================
    4. SERVICE PORTFOLIO SECTION
@@ -274,7 +261,7 @@
 }
 
 .portfolio-card-desc {
-  @apply text-[13px] leading-relaxed text-slate-300 transition-colors duration-300;
+  @apply text-sm leading-relaxed text-slate-300 transition-colors duration-300;
 }
 
 .portfolio-card:hover .portfolio-card-desc {
@@ -317,11 +304,11 @@
 }
 
 .why-choose-card-title {
-  @apply text-base font-bold uppercase tracking-wider text-primary;
+  @apply text-lg font-bold uppercase tracking-wider text-primary;
 }
 
 .why-choose-card-desc {
-  @apply text-xs text-slate-500 leading-relaxed;
+  @apply text-sm text-slate-500 leading-relaxed;
 }
 
 /* ==========================================
@@ -349,7 +336,7 @@
 }
 
 .stat-label {
-  @apply text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400;
+  @apply text-sm md:text-base font-bold uppercase tracking-wider text-slate-400;
 }
 
 /* ==========================================
@@ -372,7 +359,7 @@
 }
 
 .testimonial-quote {
-  @apply text-sm text-slate-600 italic leading-relaxed flex-grow;
+  @apply text-base text-slate-600 italic leading-relaxed flex-grow;
 }
 
 .testimonial-author-box {
@@ -386,7 +373,7 @@
 }
 
 .testimonial-author-name {
-  @apply text-sm font-bold text-primary;
+  @apply text-base font-bold text-primary;
 }
 
 .testimonial-author-role {
@@ -411,7 +398,7 @@
 }
 
 .cta-banner-subtitle {
-  @apply text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed;
+  @apply text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed;
 }
 
 .cta-banner-group {
@@ -442,11 +429,11 @@
 }
 
 .industry-card-title {
-  @apply text-sm font-bold uppercase tracking-wider text-primary;
+  @apply text-base font-bold uppercase tracking-wider text-primary;
 }
 
 .industry-card-desc {
-  @apply text-xs text-slate-500 leading-relaxed;
+  @apply text-sm text-slate-500 leading-relaxed;
 }
 
 /* ==========================================
