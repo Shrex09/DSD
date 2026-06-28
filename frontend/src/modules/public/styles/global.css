@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+@import "variables.css";
+@import "tailwindcss";
+
+@theme {
+  /* Mapping tailwind classes to our CSS variables */
+  --color-primary: var(--primary-color);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-secondary: var(--secondary-color);
+  --color-secondary-dark: var(--secondary-dark);
+
+  --color-accent: var(--accent-color);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+
+  --color-brand-bg: var(--bg-color);
+  --color-brand-bg-light: var(--bg-light);
+
+  --color-brand-text: var(--text-color);
+  --color-brand-text-muted: var(--text-muted);
+  --color-brand-text-light: var(--text-light);
+  --color-brand-text-white: var(--text-white);
+
+  --font-sans: var(--font-primary), system-ui, -apple-system, sans-serif;
+
+  /* Custom Shadows */
+  --shadow-gold: var(--shadow-gold);
+
+  /* Custom Animations */
+  --animate-radar: radar 4s linear infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes radar {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/* Global resets and base layout styling */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    font-family:
+      var(--font-primary),
+      system-ui,
+      -apple-system,
+      sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+  }
+
+  /* Focus outline styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+}
+
+/* Base Utility Classes */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-navy {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

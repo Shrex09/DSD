@@ -1,0 +1,118 @@
+@reference "./global.css";
+
+/* Navbar styling classes */
+.navbar-header {
+  @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent bg-white;
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Translucent backdrop filter when scrolled */
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  @apply container mx-auto px-6 py-4 flex items-center justify-between transition-all duration-300;
+}
+
+.navbar-scrolled .navbar-container {
+  @apply py-3;
+}
+
+/* Logo styling */
+.nav-logo-link {
+  @apply flex items-center gap-2 font-bold text-lg tracking-wider text-primary select-none;
+}
+
+.logo-icon-gold {
+  color: var(--primary-color);
+}
+
+/* Menu links */
+.nav-menu-desktop {
+  @apply hidden lg:flex items-center gap-8;
+}
+
+.nav-item-link {
+  @apply text-sm font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
+}
+
+.nav-item-link::after {
+  content: "";
+  @apply absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-0 scale-0 transition-all duration-300;
+}
+
+.nav-item-link.nav-active-link {
+  @apply text-primary font-bold;
+}
+
+.nav-item-link.nav-active-link::after {
+  @apply opacity-100 scale-100;
+}
+
+/* Navbar CTA button */
+.nav-cta-btn {
+  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-xs uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-toggle-btn {
+  @apply lg:hidden text-primary hover:text-accent p-1 transition-colors duration-200;
+}
+
+/* Mobile Menu Panel Drawer */
+.mobile-menu-drawer {
+  @apply fixed inset-y-0 right-0 w-full max-w-sm z-50 flex flex-col p-6 shadow-2xl;
+  background-color: var(--primary-color);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-overlay {
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden;
+}
+
+.mobile-nav-logo {
+  @apply flex items-center justify-between pb-6 border-b border-white/10;
+}
+
+.mobile-nav-links {
+  @apply flex flex-col gap-6 py-8;
+}
+
+.mobile-nav-item {
+  @apply text-lg font-semibold tracking-wider text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5;
+}
+
+.mobile-nav-item.nav-active-link {
+  color: var(--accent-color);
+  border-b-color: rgba(214, 175, 55, 0.3);
+}
+
+.mobile-nav-cta {
+  @apply mt-auto flex flex-col gap-4 pt-6 border-t border-white/10;
+}
+
+.mobile-cta-btn {
+  @apply w-full text-center py-3.5 text-sm uppercase tracking-wider font-bold rounded;
+}
+
+.mobile-cta-primary {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.mobile-cta-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.mobile-cta-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+}
+
+.mobile-cta-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,486 @@
+@reference "./global.css";
+
+/* ==========================================
+   1. HERO SECTION (Asymmetric Left-Aligned Layout)
+   ========================================== */
+.home-hero {
+  @apply relative min-h-screen flex flex-col justify-center overflow-hidden py-24;
+}
+
+.home-hero-video {
+  @apply absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none select-none;
+}
+
+.home-hero-overlay {
+  @apply absolute inset-0 z-10;
+  background: linear-gradient(
+    105deg,
+    rgba(8, 14, 35, 0.92) 0%,
+    rgba(8, 14, 35, 0.78) 40%,
+    rgba(8, 14, 35, 0.3) 75%,
+    rgba(8, 14, 35, 0.1) 100%
+  );
+}
+
+.home-hero-container {
+  @apply container ml-0 md:ml-12 lg:ml-20 xl:ml-32 px-6 relative z-20 flex flex-col items-start text-left gap-8 max-w-5xl;
+}
+
+.hero-label-uppercase {
+  @apply text-[11px] md:text-xs font-bold uppercase tracking-[0.3em] text-accent;
+}
+
+.hero-company-name {
+  @apply text-5xl md:text-7xl font-black text-white tracking-wider leading-none uppercase;
+}
+
+.hero-tagline-lead {
+  @apply text-2xl md:text-4xl font-extrabold uppercase tracking-wide text-slate-100 leading-tight max-w-3xl;
+}
+
+.hero-description-short {
+  @apply text-sm md:text-base text-slate-300 max-w-xl leading-relaxed;
+}
+
+/* Capsule badge: EST / Protector info */
+.hero-capsule {
+  @apply inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-slate-300;
+}
+
+.capsule-badge-gold {
+  @apply px-2 py-0.5 rounded-full bg-accent text-primary text-[9px] font-black tracking-widest;
+}
+
+.capsule-status-dot {
+  @apply w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-slow;
+}
+
+/* Headline segments styling */
+.hero-headline-large {
+  @apply text-4xl md:text-6xl font-black uppercase tracking-wider text-white leading-tight max-w-3xl;
+}
+
+.text-gold-accent {
+  color: var(--accent-color);
+  text-shadow: 0 0 30px rgba(214, 175, 55, 0.25);
+}
+
+.hero-subtitle-lead {
+  @apply text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed;
+}
+
+/* Action button configurations with drop shadow gold glow */
+.hero-cta-btn-group {
+  @apply flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto items-start sm:items-center;
+}
+
+.btn-glow-gold {
+  @apply px-8 py-4 bg-accent hover:bg-accent-hover text-primary font-bold uppercase tracking-widest text-[11px] rounded transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 select-none;
+  box-shadow: 0 0 20px rgba(214, 175, 55, 0.2);
+}
+
+.btn-glow-gold:hover {
+  box-shadow: 0 0 30px rgba(214, 175, 55, 0.45);
+}
+
+.btn-outline-white {
+  @apply px-8 py-4 bg-transparent border border-white/15 hover:border-white text-white font-bold uppercase tracking-widest text-[11px] rounded transition-all duration-300 hover:bg-white/5 hover:-translate-y-0.5 flex items-center justify-center gap-2 select-none;
+}
+
+.btn-inline-play {
+  @apply text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white flex items-center gap-2.5 transition-colors duration-200 py-2 sm:ml-4 select-none;
+}
+
+.play-icon-circle {
+  @apply w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent hover:text-white transition-colors duration-200;
+}
+
+/* Vertical Command Center tag */
+.hero-side-status-bar {
+  @apply absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden xl:flex items-center gap-3 text-[10px] font-bold tracking-widest text-slate-400 select-none uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.status-dot-blinking {
+  @apply w-1.5 h-1.5 bg-accent rounded-full animate-ping mt-1;
+}
+
+/* ==========================================
+   2. FLOATING TRUST INDICATORS (Hero bottom overlap)
+   ========================================== */
+.hero-trust-cards-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-12;
+}
+
+.hero-trust-card {
+  @apply p-5 rounded bg-primary-light/20 backdrop-blur-md border border-white/5 flex flex-col items-start gap-1.5 text-left transition-all duration-300 hover:bg-primary-light/30 hover:border-white/10;
+}
+
+.trust-card-icon-gold {
+  @apply text-accent w-5 h-5 mb-1;
+}
+
+.trust-card-badge-upper {
+  @apply text-[9px] font-black tracking-widest text-accent/80 uppercase;
+}
+
+.trust-card-headline,
+.hero-trust-card-headline {
+  @apply text-sm font-bold text-white uppercase tracking-wider;
+}
+
+.trust-card-detail {
+  @apply text-[11px] text-slate-400 leading-relaxed;
+}
+
+/* ==========================================
+   3. ABOUT PREVIEW SECTION
+   ========================================== */
+.about-preview-section {
+  @apply py-24 bg-brand-bg;
+}
+
+.about-preview-container {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+}
+
+.about-preview-visual {
+  @apply lg:col-span-5 relative flex items-center justify-center;
+}
+
+.about-visual-box {
+  @apply relative w-full aspect-square max-w-md rounded bg-primary-light border border-slate-200/50 shadow-2xl overflow-hidden flex items-center justify-center;
+  background-image: url("/images/gallery/ceremonial-red.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-visual-box::before {
+  content: "";
+  @apply absolute inset-0 z-0;
+  background: linear-gradient(180deg, rgba(10, 17, 40, 0.2) 0%, rgba(10, 17, 40, 0.6) 100%);
+}
+
+.about-visual-shield {
+  @apply w-32 h-32 text-accent/25 animate-pulse-slow relative z-10;
+}
+
+.about-visual-overlay-card {
+  @apply absolute bottom-6 left-6 right-6 p-4 rounded bg-primary/95 backdrop-blur border border-white/10 flex items-center gap-4 text-left shadow-2xl z-10;
+}
+
+.about-visual-overlay-icon {
+  @apply text-accent w-10 h-10 shrink-0;
+}
+
+.about-preview-content {
+  @apply lg:col-span-7 flex flex-col gap-4 text-left;
+}
+
+.section-tag-gold {
+  @apply text-xs font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-2;
+}
+
+.section-tag-gold::before {
+  content: "";
+  @apply w-6 h-0.5 bg-accent inline-block;
+}
+
+.section-headline-dark {
+  @apply text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-primary leading-tight;
+}
+
+.about-paragraph-text {
+  @apply text-sm text-slate-600 leading-relaxed;
+}
+
+.btn-inline-accent {
+  @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:text-accent-hover transition-colors duration-200 mt-2 self-start;
+}
+
+/* ==========================================
+   4. SERVICE PORTFOLIO SECTION
+   ========================================== */
+.service-portfolio-section {
+  @apply py-24 bg-brand-bg-light;
+}
+
+.portfolio-header-box {
+  @apply text-center max-w-2xl mx-auto flex flex-col gap-3 mb-16;
+}
+
+.portfolio-header-box .section-tag-gold {
+  @apply justify-center;
+}
+
+.portfolio-header-box .section-tag-gold::before {
+  @apply hidden;
+}
+
+.portfolio-header-box .section-tag-gold::after {
+  content: "";
+  @apply w-6 h-0.5 bg-accent inline-block;
+}
+
+.portfolio-grid-wrapper {
+  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.portfolio-card {
+  @apply relative rounded overflow-hidden shadow-md bg-primary min-h-[400px] flex flex-col transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+}
+
+.portfolio-card-link-wrapper {
+  @apply absolute inset-0 w-full h-full flex flex-col justify-end;
+}
+
+.portfolio-card-bg-wrap {
+  @apply absolute inset-0 w-full h-full z-0 overflow-hidden;
+}
+
+.portfolio-card-img {
+  @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+}
+
+.portfolio-card:hover .portfolio-card-img {
+  @apply scale-110;
+}
+
+.portfolio-card-overlay {
+  @apply absolute inset-0 transition-opacity duration-300;
+  background: linear-gradient(
+    to top,
+    rgba(8, 14, 35, 0.95) 0%,
+    rgba(8, 14, 35, 0.6) 50%,
+    rgba(8, 14, 35, 0.1) 100%
+  );
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+  @apply opacity-90;
+}
+
+.portfolio-card-content {
+  @apply relative z-10 p-8 flex flex-col gap-3 text-left justify-end h-full;
+}
+
+.portfolio-card-title {
+  @apply text-xl md:text-2xl font-bold uppercase tracking-wider text-white transition-colors duration-300;
+}
+
+.portfolio-card:hover .portfolio-card-title {
+  @apply text-accent;
+}
+
+.portfolio-card-desc {
+  @apply text-[13px] leading-relaxed text-slate-300 transition-colors duration-300;
+}
+
+.portfolio-card:hover .portfolio-card-desc {
+  @apply text-slate-200;
+}
+
+.portfolio-card-btn {
+  @apply inline-flex items-center gap-2 text-[10px] font-bold text-accent uppercase tracking-widest mt-2 transition-transform duration-300;
+}
+
+.portfolio-card:hover .portfolio-card-btn {
+  @apply translate-x-1 text-accent-hover;
+}
+
+/* ==========================================
+   5. WHY CHOOSE US SECTION
+   ========================================== */
+.why-choose-section {
+  @apply py-24 bg-brand-bg;
+}
+
+.why-choose-container {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+}
+
+.why-choose-content {
+  @apply lg:col-span-5 flex flex-col gap-4 text-left;
+}
+
+.why-choose-grid {
+  @apply lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.why-choose-card {
+  @apply p-6 rounded bg-slate-50 border border-slate-100 flex flex-col gap-3 text-left transition-all duration-300 hover:bg-white hover:shadow-md hover:border-slate-200;
+}
+
+.why-choose-card-icon {
+  @apply text-accent w-8 h-8;
+}
+
+.why-choose-card-title {
+  @apply text-base font-bold uppercase tracking-wider text-primary;
+}
+
+.why-choose-card-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* ==========================================
+   6. STATISTICS SECTION
+   ========================================== */
+.stats-section {
+  @apply relative py-20 overflow-hidden;
+  background-color: var(--primary-color);
+}
+
+.stats-grid-wrapper {
+  @apply container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 text-center;
+}
+
+.stat-item-box {
+  @apply flex flex-col items-center gap-2;
+}
+
+.stat-icon {
+  @apply text-accent/30 w-10 h-10 mb-2;
+}
+
+.stat-number {
+  @apply text-4xl md:text-5xl font-black text-white tracking-tight;
+}
+
+.stat-label {
+  @apply text-xs md:text-sm font-bold uppercase tracking-wider text-slate-400;
+}
+
+/* ==========================================
+   7. TESTIMONIALS SECTION
+   ========================================== */
+.testimonials-section {
+  @apply py-24 bg-brand-bg-light;
+}
+
+.testimonials-grid-wrapper {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+.testimonial-card {
+  @apply p-8 rounded bg-white border border-slate-100 shadow-sm flex flex-col gap-6 text-left relative transition-all duration-300 hover:shadow-md;
+}
+
+.testimonial-stars {
+  @apply flex gap-1 text-accent;
+}
+
+.testimonial-quote {
+  @apply text-sm text-slate-600 italic leading-relaxed flex-grow;
+}
+
+.testimonial-author-box {
+  @apply flex items-center gap-3 border-t border-slate-100 pt-4;
+}
+
+.testimonial-avatar-placeholder,
+.testimonial-avatar-initials {
+  @apply w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold text-sm text-white uppercase shrink-0;
+  border: 1px solid rgba(214, 175, 55, 0.4);
+}
+
+.testimonial-author-name {
+  @apply text-sm font-bold text-primary;
+}
+
+.testimonial-author-role {
+  @apply text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5;
+}
+
+/* ==========================================
+   9. FINAL CTA BANNER
+   ========================================== */
+.cta-banner-section {
+  @apply py-24 text-center text-white relative overflow-hidden;
+  background-color: var(--primary-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-banner-container {
+  @apply container mx-auto px-6 relative z-10 max-w-3xl flex flex-col items-center gap-6;
+}
+
+.cta-banner-title {
+  @apply text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-white leading-tight;
+}
+
+.cta-banner-subtitle {
+  @apply text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed;
+}
+
+.cta-banner-group {
+  @apply flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto justify-center;
+}
+
+/* ==========================================
+   10. INDUSTRIES WE PROTECT
+   ========================================== */
+.industries-protect-section {
+  @apply py-24 bg-brand-bg;
+}
+
+.industries-grid-wrapper {
+  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12;
+}
+
+.industry-card-item {
+  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md hover:border-accent/15;
+}
+
+.industry-card-icon-box {
+  @apply p-3 bg-primary/5 text-primary rounded-sm w-fit transition-colors duration-300;
+}
+
+.industry-card-item:hover .industry-card-icon-box {
+  @apply bg-accent text-primary;
+}
+
+.industry-card-title {
+  @apply text-sm font-bold uppercase tracking-wider text-primary;
+}
+
+.industry-card-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* ==========================================
+   HOME ABOUT SECTION IMPROVEMENTS
+   ========================================== */
+.home-about-img-wrap {
+  @apply relative w-full max-w-md;
+}
+
+.home-about-main-img {
+  @apply w-full rounded-2xl object-cover shadow-xl;
+  height: 400px;
+}
+
+.home-about-float-img {
+  @apply absolute -bottom-8 -right-8 w-44 h-36 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block;
+}
+
+.about-visual-overlay-card {
+  @apply absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-primary/95 backdrop-blur border border-white/10 flex items-center gap-4 text-left shadow-2xl z-10;
+}
+
+.home-about-stat-row {
+  @apply flex flex-wrap gap-4 mt-2;
+}
+
+.home-about-stat-pill {
+  @apply flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-100;
+}
+
+.home-about-stat-num {
+  @apply text-xl font-extrabold text-primary;
+}
+
+.home-about-stat-label {
+  @apply text-[10px] uppercase tracking-widest text-slate-500 font-semibold;
+}

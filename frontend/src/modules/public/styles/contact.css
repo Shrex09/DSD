@@ -1,0 +1,102 @@
+@reference "./global.css";
+
+/* ── HERO ── */
+.contact-hero {
+  @apply relative w-full flex items-center justify-center overflow-hidden;
+  min-height: 380px;
+}
+.contact-hero-bg {
+  @apply absolute inset-0 w-full h-full object-cover object-center;
+}
+.contact-hero-overlay {
+  @apply absolute inset-0 z-10;
+  background: linear-gradient(160deg, rgba(8,14,35,0.88) 0%, rgba(8,14,35,0.70) 100%);
+}
+.contact-hero-content {
+  @apply relative z-20 flex flex-col items-center text-center gap-4 px-6 py-20 max-w-2xl mx-auto;
+}
+.contact-hero-badge {
+  @apply text-xs font-bold uppercase tracking-widest text-accent border border-accent/30 px-4 py-1.5 rounded-full;
+}
+.contact-hero-title {
+  @apply text-4xl md:text-5xl font-extrabold text-white leading-tight;
+}
+.contact-hero-subtitle {
+  @apply text-sm text-slate-300 max-w-md leading-relaxed;
+}
+
+/* ── QUICK CARDS ── */
+.contact-quick-section {
+  @apply py-8 bg-slate-50 border-b border-slate-100;
+}
+.contact-quick-grid {
+  @apply container mx-auto px-6 max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+.contact-quick-card {
+  @apply flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm transition-all duration-200 hover:shadow-md hover:border-accent/20 no-underline cursor-pointer;
+}
+.contact-quick-card.plain { @apply cursor-default; }
+.contact-quick-icon {
+  @apply w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center shrink-0;
+}
+.contact-quick-icon.whatsapp { @apply bg-green-50 text-green-600; }
+.contact-quick-label { @apply text-[10px] uppercase tracking-widest text-slate-400 font-semibold; }
+.contact-quick-value { @apply text-xs font-bold text-primary leading-snug mt-0.5; }
+
+/* ── BODY ── */
+.contact-body {
+  @apply py-16 bg-white;
+}
+.contact-body-grid {
+  @apply container mx-auto px-6 max-w-5xl grid grid-cols-1 lg:grid-cols-5 gap-10 items-start;
+}
+
+/* FORM — takes 3 cols */
+.contact-form-wrap {
+  @apply lg:col-span-3 bg-white border border-slate-100 rounded-2xl shadow-sm p-8 flex flex-col gap-6;
+}
+.contact-form-header { @apply border-b border-slate-100 pb-5; }
+.contact-form-title { @apply text-lg font-extrabold text-primary uppercase tracking-wide; }
+.contact-form-subtitle { @apply text-xs text-slate-400 mt-1 leading-relaxed; }
+.contact-form { @apply flex flex-col gap-4; }
+.contact-form-row { @apply grid grid-cols-1 sm:grid-cols-2 gap-4; }
+.form-field-group { @apply flex flex-col gap-1.5; }
+.form-label { @apply text-xs font-bold uppercase tracking-widest text-slate-500; }
+.form-input {
+  @apply w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-primary bg-white outline-none transition-all duration-200 focus:border-accent focus:ring-1 focus:ring-accent/30;
+}
+.form-input-error { @apply border-red-300 focus:border-red-400 focus:ring-red-100; }
+.form-textarea { @apply resize-y min-h-[100px]; }
+.form-error-msg { @apply text-xs text-red-500 font-medium; }
+.contact-submit-btn {
+  @apply w-full flex items-center justify-center gap-2 bg-accent text-primary font-bold uppercase tracking-widest text-sm py-3.5 rounded-lg transition-all duration-200 hover:bg-accent/90 hover:shadow-md disabled:opacity-60 disabled:cursor-not-allowed mt-1;
+}
+.contact-success-box { @apply flex flex-col items-center text-center gap-4 py-10; }
+.contact-success-title { @apply text-lg font-extrabold text-primary; }
+.contact-success-desc { @apply text-sm text-slate-500 max-w-xs leading-relaxed; }
+.contact-back-btn {
+  @apply mt-2 text-xs font-bold uppercase tracking-widest text-accent underline underline-offset-4 hover:text-accent/70 transition-colors;
+}
+
+/* INFO PANEL — takes 2 cols */
+.contact-info-wrap {
+  @apply lg:col-span-2 flex flex-col gap-5;
+}
+.contact-info-card {
+  @apply bg-primary rounded-2xl p-7 flex flex-col gap-5;
+}
+.contact-info-heading {
+  @apply text-sm font-extrabold uppercase tracking-widest text-white border-b border-white/10 pb-4;
+}
+.contact-info-items { @apply flex flex-col gap-4; }
+.contact-info-row { @apply flex items-start gap-3; }
+.contact-info-icon { @apply w-4 h-4 text-accent shrink-0 mt-0.5; }
+.contact-info-label { @apply text-[10px] uppercase tracking-widest text-slate-400 font-semibold; }
+.contact-info-val { @apply text-sm font-semibold text-white leading-snug; }
+.contact-info-link { @apply hover:text-accent transition-colors; }
+.contact-info-sub { @apply text-xs text-slate-400 mt-0.5; }
+.contact-map-wrap {
+  @apply rounded-2xl overflow-hidden border border-slate-100 shadow-sm;
+  height: 220px;
+}
+.contact-map-iframe { @apply w-full h-full border-0; }

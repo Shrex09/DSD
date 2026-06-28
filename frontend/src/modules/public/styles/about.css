@@ -1,0 +1,383 @@
+@reference "./global.css";
+
+/* About Page Sections */
+.about-header-hero {
+  @apply py-20 text-center text-white relative overflow-hidden;
+  background-color: var(--primary-color);
+  background-image: url("/images/about/flag-ceremony.jpg");
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.about-header-hero::before {
+  content: "";
+  @apply absolute inset-0 z-0;
+  background: linear-gradient(180deg, rgba(10, 17, 40, 0.65) 0%, rgba(10, 17, 40, 0.85) 100%);
+}
+
+.about-header-container {
+  @apply container mx-auto px-6 relative z-10 max-w-2xl flex flex-col items-center gap-4;
+}
+
+/* Company Story Timeline */
+.about-story-row {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+}
+
+/* Mission & Vision cards */
+.about-mv-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 container mx-auto px-6 py-16;
+}
+
+.about-mv-card {
+  @apply p-8 rounded bg-white border border-slate-100 shadow-sm flex flex-col gap-3 text-left transition-shadow duration-300 hover:shadow-md;
+}
+
+.about-mv-card-title {
+  @apply text-lg font-bold uppercase tracking-wider text-primary border-b border-slate-100 pb-2 flex items-center gap-2;
+}
+
+.about-mv-card-desc {
+  @apply text-sm text-slate-500 leading-relaxed;
+}
+
+/* Core Values Grid */
+.about-values-section {
+  @apply py-20 bg-brand-bg-light;
+}
+
+.about-values-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto px-6 mt-12;
+}
+
+.about-value-card {
+  @apply p-6 rounded bg-white border border-slate-100 shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/10;
+}
+
+.about-value-icon {
+  @apply p-3 bg-primary/5 text-primary rounded-full w-fit shrink-0;
+}
+
+.about-value-card:hover .about-value-icon {
+  @apply bg-accent/20 text-accent-hover;
+}
+
+.about-value-title {
+  @apply text-base font-bold uppercase tracking-wider text-primary;
+}
+
+.about-value-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* Leadership Grid */
+.about-team-section {
+  @apply py-20 bg-brand-bg;
+}
+
+.about-team-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-6 mt-12;
+}
+
+.about-team-card {
+  @apply rounded overflow-hidden bg-white border border-slate-100 shadow-sm text-left flex flex-col transition-all duration-300 hover:shadow-md hover:border-slate-200;
+}
+
+.about-team-avatar-box {
+  @apply h-48 bg-primary-light text-white font-extrabold text-5xl flex items-center justify-center uppercase select-none border-b border-slate-100;
+}
+
+.about-team-info {
+  @apply p-6 flex flex-col gap-2;
+}
+
+.about-team-name {
+  @apply text-base font-bold text-primary;
+}
+
+.about-team-role {
+  @apply text-xs font-bold text-accent uppercase tracking-widest;
+}
+
+.about-team-bio {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* Certifications Listing */
+.about-cert-section {
+  @apply py-20 bg-brand-bg-light;
+}
+
+.about-cert-box {
+  @apply max-w-3xl mx-auto px-6 flex flex-col gap-6 text-left;
+}
+
+.about-cert-list {
+  @apply flex flex-col gap-4 mt-4;
+}
+
+.about-cert-item {
+  @apply flex items-start gap-3 p-4 rounded bg-white border border-slate-100 shadow-sm text-sm text-slate-600 font-semibold;
+}
+
+.about-cert-check {
+  @apply text-accent w-5 h-5 shrink-0 mt-0.5;
+}
+
+/* ============================================
+   NEW ABOUT PAGE STYLES
+   ============================================ */
+
+/* 1. Hero */
+.about-hero-section {
+  @apply relative w-full flex items-center justify-center overflow-hidden;
+  min-height: 520px;
+}
+
+.about-hero-bg-img {
+  @apply absolute inset-0 w-full h-full object-cover object-center;
+}
+
+.about-hero-overlay {
+  @apply absolute inset-0 z-10;
+  background: linear-gradient(160deg, rgba(8,14,35,0.82) 0%, rgba(8,14,35,0.65) 100%);
+}
+
+.about-hero-content {
+  @apply relative z-20 flex flex-col items-center text-center gap-5 px-6 py-24 max-w-3xl mx-auto;
+}
+
+.about-hero-badge {
+  @apply text-xs font-bold uppercase tracking-widest text-accent border border-accent/30 px-4 py-1.5 rounded-full;
+}
+
+.about-hero-title {
+  @apply text-4xl md:text-5xl font-extrabold text-white leading-tight;
+}
+
+.about-hero-subtitle {
+  @apply text-base text-slate-300 max-w-xl leading-relaxed;
+}
+
+/* 2. Story */
+.about-story-section {
+  @apply py-20 bg-white;
+}
+
+.about-story-container {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center max-w-6xl;
+}
+
+.about-story-image-col {
+  @apply relative;
+}
+
+.about-story-photo {
+  @apply w-full rounded-2xl object-cover shadow-xl;
+  max-height: 440px;
+}
+
+.about-story-badge-pill {
+  @apply absolute -bottom-4 left-6 flex items-center gap-2 bg-primary text-white text-xs font-bold px-5 py-3 rounded-full shadow-lg;
+}
+
+.about-story-text-col {
+  @apply flex flex-col gap-5;
+}
+
+.about-para-text {
+  @apply text-sm text-slate-500 leading-relaxed;
+}
+
+/* 3. Mission & Vision */
+.about-mv-section {
+  @apply py-20 bg-slate-50;
+}
+
+.about-mv-inner {
+  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl;
+}
+
+.about-mv-card {
+  @apply rounded-2xl p-10 flex flex-col gap-4 shadow-sm border;
+}
+
+.about-mv-card.mission {
+  @apply bg-primary border-primary/10 text-white;
+}
+
+.about-mv-card.vision {
+  @apply bg-white border-slate-100 text-primary;
+}
+
+.about-mv-icon-box {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center mb-2;
+  background: rgba(255,255,255,0.12);
+}
+
+.about-mv-card.vision .about-mv-icon-box {
+  @apply bg-accent/10 text-accent;
+}
+
+.about-mv-card.mission .about-mv-icon-box {
+  @apply text-white;
+}
+
+.about-mv-heading {
+  @apply text-xl font-extrabold uppercase tracking-wide;
+}
+
+.about-mv-card.vision .about-mv-heading {
+  @apply text-primary;
+}
+
+.about-mv-desc {
+  @apply text-sm leading-relaxed opacity-90;
+}
+
+/* 4. Core Values */
+.about-values-section-new {
+  @apply py-20 bg-white;
+}
+
+.about-values-inner {
+  @apply container mx-auto px-6 max-w-6xl flex flex-col gap-12;
+}
+
+.about-values-grid-new {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.about-value-card-new {
+  @apply flex flex-col gap-3 p-7 rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/20;
+}
+
+.about-value-icon-new {
+  @apply w-11 h-11 rounded-xl bg-primary/5 text-primary flex items-center justify-center mb-1 transition-colors duration-300;
+}
+
+.about-value-card-new:hover .about-value-icon-new {
+  @apply bg-accent/15 text-accent;
+}
+
+.about-value-title-new {
+  @apply text-sm font-extrabold uppercase tracking-wider text-primary;
+}
+
+.about-value-desc-new {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* 5. Certifications */
+.about-cert-section-new {
+  @apply py-20 bg-slate-50;
+}
+
+.about-cert-inner {
+  @apply container mx-auto px-6 max-w-5xl flex flex-col gap-12;
+}
+
+.about-cert-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+}
+
+.about-cert-card {
+  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
+}
+
+.about-cert-icon {
+  @apply w-5 h-5 text-accent shrink-0;
+}
+
+/* 6. CTA */
+.about-cta-section {
+  @apply py-20 bg-primary relative overflow-hidden;
+}
+
+.about-cta-inner {
+  @apply container mx-auto px-6 max-w-3xl text-center flex flex-col items-center gap-6;
+}
+
+.about-cta-title {
+  @apply text-3xl md:text-4xl font-extrabold text-white;
+}
+
+.about-cta-subtitle {
+  @apply text-sm text-slate-300 leading-relaxed max-w-xl;
+}
+
+/* ── FLIP CARDS (Mission & Vision) ── */
+.flip-cards-section {
+  @apply py-20 bg-slate-50;
+}
+.flip-cards-inner {
+  @apply container mx-auto px-6 max-w-5xl flex flex-col gap-12;
+}
+.flip-cards-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+.flip-card-wrap {
+  perspective: 1000px;
+  @apply h-64 cursor-pointer;
+}
+.flip-card-inner {
+  @apply relative w-full h-full transition-transform duration-700;
+  transform-style: preserve-3d;
+}
+.flip-card-wrap:hover .flip-card-inner,
+.flip-card-wrap.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  @apply absolute inset-0 w-full h-full rounded-2xl flex flex-col items-center justify-center gap-4 p-8 text-center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-front {
+  @apply bg-primary text-white;
+}
+.flip-card-back {
+  @apply bg-accent text-primary;
+  transform: rotateY(180deg);
+}
+.flip-card-icon {
+  @apply w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent;
+}
+.flip-card-back .flip-card-icon {
+  @apply bg-primary/10 text-primary;
+}
+.flip-card-label {
+  @apply text-[10px] uppercase tracking-widest font-bold opacity-60;
+}
+.flip-card-title {
+  @apply text-xl font-extrabold uppercase tracking-wide;
+}
+.flip-card-hint {
+  @apply text-xs opacity-50 mt-1;
+}
+.flip-card-desc {
+  @apply text-sm leading-relaxed font-medium;
+}
+
+/* ── STORY DUAL PHOTOS ── */
+.about-story-photos-wrap {
+  @apply relative w-full;
+}
+.about-story-photo-main {
+  @apply w-full rounded-2xl object-cover shadow-xl;
+  height: 420px;
+}
+.about-story-photo-thumb {
+  @apply absolute -bottom-6 -right-6 w-40 h-28 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block;
+}
+
+/* ── PHOTO STRIP ── */
+.about-photo-strip {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-1;
+}
+.about-strip-img {
+  @apply w-full object-cover;
+  height: 240px;
+}
+.about-strip-img:first-child { @apply md:col-span-1; }

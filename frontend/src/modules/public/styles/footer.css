@@ -1,0 +1,107 @@
+@reference "./global.css";
+
+/* Footer Styling */
+.footer-wrapper {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  @apply border-t border-white/10 pt-16 pb-8;
+}
+
+.footer-grid {
+  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 max-w-5xl;
+}
+
+/* Brand column */
+.footer-brand-col {
+  @apply flex flex-col gap-4;
+}
+
+.footer-brand-logo {
+  @apply flex items-center gap-2 font-bold text-xl tracking-wider text-white;
+}
+
+.footer-brand-desc {
+  @apply text-sm text-slate-400 leading-relaxed;
+}
+
+/* Link Columns */
+.footer-col-title {
+  @apply text-base font-bold uppercase tracking-wider text-white mb-4 relative pb-2;
+}
+
+.footer-col-title::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-8 h-0.5 bg-accent;
+}
+
+.footer-links-list {
+  @apply flex flex-col gap-3;
+}
+
+.footer-link-item {
+  @apply text-sm text-slate-400 hover:text-accent transition-all duration-200 flex items-center gap-2;
+}
+
+.footer-link-item svg {
+  @apply w-3.5 h-3.5 opacity-60 transition-transform duration-200;
+}
+
+.footer-link-item:hover svg {
+  @apply translate-x-1 opacity-100;
+}
+
+/* Contact/CTA Column */
+.footer-contact-details {
+  @apply flex flex-col gap-4 text-sm text-slate-400;
+}
+
+.footer-contact-item {
+  @apply flex gap-3 items-start;
+}
+
+.footer-contact-icon {
+  @apply text-accent w-5 h-5 shrink-0 mt-0.5;
+}
+
+/* Footer CTAs */
+.footer-cta-group {
+  @apply mt-6 flex flex-col gap-2.5;
+}
+
+.footer-cta-link {
+  @apply flex items-center justify-between p-3 rounded bg-white/5 border border-white/10 hover:border-accent hover:bg-white/10 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300;
+}
+
+.footer-cta-link svg {
+  @apply text-accent transition-transform duration-300;
+}
+
+.footer-cta-link:hover svg {
+  @apply translate-x-0.5 scale-110;
+}
+
+/* Social Media list */
+.footer-socials {
+  @apply flex items-center gap-3 mt-4;
+}
+
+.footer-social-btn {
+  @apply w-9 h-9 rounded flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:text-primary hover:bg-accent hover:border-accent transition-all duration-300;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  @apply border-t border-white/5 pt-8 mt-8 text-center text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between container mx-auto px-6 gap-4;
+}
+
+.footer-copyright {
+  @apply text-slate-500;
+}
+
+.footer-legal-links {
+  @apply flex gap-6 text-slate-500;
+}
+
+.footer-legal-link {
+  @apply hover:text-accent transition-colors duration-200;
+}

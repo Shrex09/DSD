@@ -1,0 +1,189 @@
+@reference "./global.css";
+
+/* Guards page styling */
+.guards-header-hero {
+  @apply py-20 text-center text-white relative overflow-hidden;
+  background-color: var(--primary-color);
+  background-image: url("/images/guards/guard-assembly.jpg");
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.guards-header-hero::before {
+  content: "";
+  @apply absolute inset-0 z-0;
+  background: linear-gradient(180deg, rgba(10, 17, 40, 0.65) 0%, rgba(10, 17, 40, 0.85) 100%);
+}
+
+.guards-header-container {
+  @apply container mx-auto px-6 relative z-10 max-w-2xl flex flex-col items-center gap-4;
+}
+
+/* Guard Showcase Grid */
+.guards-showcase-section {
+  @apply py-24 bg-brand-bg-light;
+}
+
+.guards-showcase-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-6 mt-12;
+}
+
+.guard-roster-card {
+  @apply rounded overflow-hidden bg-white border border-slate-100 shadow-md text-left flex flex-col transition-all duration-300 hover:shadow-lg hover:border-slate-200;
+}
+
+.guard-avatar-box {
+  @apply h-64 bg-primary text-white font-extrabold text-5xl flex items-center justify-center uppercase select-none border-b border-slate-100 relative;
+}
+
+.guard-badge-pill {
+  @apply absolute top-4 right-4 px-2 py-1 rounded bg-accent text-[10px] font-bold uppercase tracking-wider text-primary shadow;
+}
+
+.guard-card-info {
+  @apply p-6 flex flex-col gap-4;
+}
+
+.guard-card-header {
+  @apply border-b border-slate-100 pb-3 flex flex-col gap-0.5;
+}
+
+.guard-card-name {
+  @apply text-base font-bold text-primary;
+}
+
+.guard-card-rank {
+  @apply text-xs text-slate-400 font-semibold;
+}
+
+.guard-card-details {
+  @apply flex flex-col gap-2 text-xs text-slate-500;
+}
+
+.guard-detail-row {
+  @apply flex justify-between border-b border-slate-50 pb-1.5;
+}
+
+.guard-detail-label {
+  @apply font-semibold;
+}
+
+.guard-detail-val {
+  @apply text-primary font-bold;
+}
+
+.guard-skills-box {
+  @apply flex flex-wrap gap-1.5 mt-2;
+}
+
+.guard-skill-badge {
+  @apply px-2 py-0.5 rounded bg-slate-100 text-[10px] text-slate-600 font-semibold uppercase;
+}
+
+/* Qualifications vetting grid */
+.guards-qual-section {
+  @apply py-20 bg-brand-bg border-t border-slate-100;
+}
+
+.guards-qual-row {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+}
+
+.guards-qual-left {
+  @apply lg:col-span-5 flex flex-col gap-4 text-left;
+}
+
+.guards-qual-grid {
+  @apply lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.qual-item-card {
+  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-2 transition-colors duration-200 hover:bg-white hover:border-slate-200;
+}
+
+.qual-item-title {
+  @apply text-sm font-bold uppercase tracking-wider text-primary border-b border-slate-100 pb-1.5;
+}
+
+.qual-item-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* Training Section Grid */
+.guards-training-section {
+  @apply py-24 bg-brand-bg-light border-y border-slate-100;
+}
+
+.guards-training-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto px-6 mt-12;
+}
+
+.guards-training-card {
+  @apply p-6 rounded bg-white border border-slate-100 shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/15;
+}
+
+.guards-training-icon {
+  @apply p-3 bg-primary/5 text-primary rounded w-fit shrink-0;
+}
+
+.guards-training-card:hover .guards-training-icon {
+  @apply bg-accent text-primary;
+}
+
+.guards-training-title {
+  @apply text-base font-bold uppercase tracking-wider text-primary;
+}
+
+.guards-training-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* Hiring Stages Timeline */
+.guards-hiring-section {
+  @apply py-20 bg-brand-bg;
+}
+
+.guards-hiring-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto px-6 mt-12 relative;
+}
+
+.hiring-stage-card {
+  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-3 relative transition-all duration-300 hover:bg-white hover:shadow-md;
+}
+
+.hiring-stage-num {
+  @apply text-3xl font-black text-accent/40;
+}
+
+.hiring-stage-title {
+  @apply text-sm font-bold uppercase tracking-wider text-primary;
+}
+
+.hiring-stage-desc {
+  @apply text-xs text-slate-500 leading-relaxed;
+}
+
+/* Professionalism Section */
+.guards-professional-section {
+  @apply py-20 bg-brand-bg-light border-t border-slate-100;
+}
+
+.guards-prof-grid {
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+}
+
+.guards-prof-left {
+  @apply lg:col-span-6 flex flex-col gap-4 text-left;
+}
+
+.guards-prof-right {
+  @apply lg:col-span-6 flex flex-col gap-3;
+}
+
+.prof-rule-item {
+  @apply flex items-center gap-3 p-4 rounded bg-white border border-slate-100 text-xs text-slate-600 font-semibold text-left shadow-sm;
+}
+
+.prof-rule-check {
+  @apply text-accent w-4 h-4 shrink-0;
+}

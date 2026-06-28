@@ -1,0 +1,34 @@
+:root {
+  /* Color Palette - Security / Corporate Premium Theme */
+  --primary-color: #0a1128; /* Deep Navy Blue */
+  --primary-light: #1c2541; /* Medium Navy Blue */
+  --primary-dark: #000814; /* Pitch Dark Navy */
+
+  --secondary-color: #f4f5f7; /* Light Slate Gray */
+  --secondary-dark: #e2e8f0; /* Border Gray */
+
+  --accent-color: #d4af37; /* Gold Accent */
+  --accent-hover: #aa800b; /* Darker Gold */
+  --accent-light: #f3e5ab; /* Soft Light Gold */
+
+  --bg-color: #ffffff; /* Pure White */
+  --bg-light: #f8fafc; /* Off-White */
+
+  --text-color: #1e293b; /* Slate Dark Text */
+  --text-muted: #64748b; /* Gray Text */
+  --text-light: #f8fafc; /* Light Gray Text for Navy Bg */
+  --text-white: #ffffff; /* White Text */
+
+  /* Layout and Styling Helpers */
+  --font-primary: "Outfit", sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-gold: 0 10px 15px -3px rgba(212, 175, 55, 0.15), 0 4px 6px -2px rgba(212, 175, 55, 0.05);
+}
