@@ -4,7 +4,7 @@
    1. HERO SECTION (Asymmetric Left-Aligned Layout)
    ========================================== */
 .home-hero {
-  @apply relative min-h-screen flex flex-col justify-center overflow-hidden py-24;
+  @apply relative min-h-screen flex flex-col justify-center overflow-hidden py-32;
 }
 
 .home-hero-video {
@@ -27,28 +27,28 @@
 }
 
 .hero-label-uppercase {
-  @apply text-[11px] md:text-xs font-bold uppercase tracking-[0.3em] text-accent;
+  @apply text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-accent;
 }
 
 .hero-company-name {
-  @apply text-5xl md:text-7xl font-black text-white tracking-wider leading-none uppercase;
+  @apply text-[44px] md:text-[70px] font-black text-white tracking-wider leading-[0.95] uppercase max-w-[600px];
 }
 
 .hero-tagline-lead {
-  @apply text-2xl md:text-4xl font-extrabold uppercase tracking-wide text-slate-100 leading-tight max-w-3xl;
+  @apply text-[26px] md:text-[44px] font-extrabold uppercase tracking-wide text-slate-100 leading-tight max-w-[600px];
 }
 
 .hero-description-short {
-  @apply text-sm md:text-base text-slate-300 max-w-xl leading-relaxed;
+  @apply text-[19px] md:text-[22px] text-slate-300 max-w-[600px] leading-[1.7];
 }
 
 /* Capsule badge: EST / Protector info */
 .hero-capsule {
-  @apply inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-slate-300;
+  @apply inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-[11px] font-bold uppercase tracking-wider text-slate-300;
 }
 
 .capsule-badge-gold {
-  @apply px-2 py-0.5 rounded-full bg-accent text-primary text-[9px] font-black tracking-widest;
+  @apply px-2 py-0.5 rounded-full bg-accent text-primary text-[11px] font-black tracking-widest;
 }
 
 .capsule-status-dot {
@@ -57,7 +57,7 @@
 
 /* Headline segments styling */
 .hero-headline-large {
-  @apply text-4xl md:text-6xl font-black uppercase tracking-wider text-white leading-tight max-w-3xl;
+  @apply text-5xl md:text-7xl font-black uppercase tracking-wider text-white leading-tight max-w-3xl;
 }
 
 .text-gold-accent {
@@ -66,7 +66,7 @@
 }
 
 .hero-subtitle-lead {
-  @apply text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed;
+  @apply text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed;
 }
 
 /* Action button configurations with drop shadow gold glow */
@@ -77,7 +77,7 @@
 /* .btn-glow-gold and .btn-outline-white now live in global.css (shared across pages) */
 
 .btn-inline-play {
-  @apply text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white flex items-center gap-2.5 transition-colors duration-200 py-2 sm:ml-4 select-none;
+  @apply text-sm font-bold uppercase tracking-widest text-slate-300 hover:text-white flex items-center gap-2.5 transition-colors duration-200 py-2 sm:ml-4 select-none;
 }
 
 .play-icon-circle {
@@ -111,23 +111,23 @@
 }
 
 .trust-card-badge-upper {
-  @apply text-[9px] font-black tracking-widest text-accent/80 uppercase;
+  @apply text-[11px] font-black tracking-widest text-accent/80 uppercase;
 }
 
 .trust-card-headline,
 .hero-trust-card-headline {
-  @apply text-sm font-bold text-white uppercase tracking-wider;
+  @apply text-base font-bold text-white uppercase tracking-wider;
 }
 
 .trust-card-detail {
-  @apply text-[11px] text-slate-400 leading-relaxed;
+  @apply text-sm text-slate-400 leading-relaxed;
 }
 
 /* ==========================================
    3. ABOUT PREVIEW SECTION
    ========================================== */
 .about-preview-section {
-  @apply py-24 bg-brand-bg;
+  @apply py-28 bg-brand-bg;
 }
 
 .about-preview-container {
@@ -168,7 +168,7 @@
 }
 
 .section-tag-gold {
-  @apply text-xs font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-2;
+  @apply text-sm font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-2;
 }
 
 .section-tag-gold::before {
@@ -177,11 +177,11 @@
 }
 
 .section-headline-dark {
-  @apply text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-primary leading-tight;
+  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-primary leading-tight;
 }
 
 .about-paragraph-text {
-  @apply text-base text-slate-600 leading-relaxed;
+  @apply text-lg text-slate-600 leading-relaxed;
 }
 
 /* .btn-inline-accent now lives in global.css */
@@ -190,7 +190,7 @@
    4. SERVICE PORTFOLIO SECTION
    ========================================== */
 .service-portfolio-section {
-  @apply py-24 bg-brand-bg-light;
+  @apply py-28 bg-brand-bg-light;
 }
 
 .portfolio-header-box {
@@ -249,11 +249,11 @@
 }
 
 .portfolio-card-content {
-  @apply relative z-10 p-8 flex flex-col gap-3 text-left justify-end h-full;
+  @apply relative z-10 p-10 flex flex-col gap-4 text-left justify-end h-full;
 }
 
 .portfolio-card-title {
-  @apply text-xl md:text-2xl font-bold uppercase tracking-wider text-white transition-colors duration-300;
+  @apply text-2xl md:text-3xl font-bold uppercase tracking-wider text-white transition-colors duration-300;
 }
 
 .portfolio-card:hover .portfolio-card-title {
@@ -261,7 +261,7 @@
 }
 
 .portfolio-card-desc {
-  @apply text-sm leading-relaxed text-slate-300 transition-colors duration-300;
+  @apply text-base leading-relaxed text-slate-300 transition-colors duration-300;
 }
 
 .portfolio-card:hover .portfolio-card-desc {
@@ -269,7 +269,7 @@
 }
 
 .portfolio-card-btn {
-  @apply inline-flex items-center gap-2 text-[10px] font-bold text-accent uppercase tracking-widest mt-2 transition-transform duration-300;
+  @apply inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-widest mt-2 transition-transform duration-300;
 }
 
 .portfolio-card:hover .portfolio-card-btn {
@@ -280,7 +280,7 @@
    5. WHY CHOOSE US SECTION
    ========================================== */
 .why-choose-section {
-  @apply py-24 bg-brand-bg;
+  @apply py-28 bg-brand-bg;
 }
 
 .why-choose-container {
@@ -296,7 +296,7 @@
 }
 
 .why-choose-card {
-  @apply p-6 rounded bg-slate-50 border border-slate-100 flex flex-col gap-3 text-left transition-all duration-300 hover:bg-white hover:shadow-md hover:border-slate-200;
+  @apply p-8 rounded bg-slate-50 border border-slate-100 flex flex-col gap-4 text-left transition-all duration-300 hover:bg-white hover:shadow-md hover:border-slate-200;
 }
 
 .why-choose-card-icon {
@@ -304,18 +304,18 @@
 }
 
 .why-choose-card-title {
-  @apply text-lg font-bold uppercase tracking-wider text-primary;
+  @apply text-xl font-bold uppercase tracking-wider text-primary;
 }
 
 .why-choose-card-desc {
-  @apply text-sm text-slate-500 leading-relaxed;
+  @apply text-base text-slate-500 leading-relaxed;
 }
 
 /* ==========================================
    6. STATISTICS SECTION
    ========================================== */
 .stats-section {
-  @apply relative py-20 overflow-hidden;
+  @apply relative py-28 overflow-hidden;
   background-color: var(--primary-color);
 }
 
@@ -332,18 +332,18 @@
 }
 
 .stat-number {
-  @apply text-4xl md:text-5xl font-black text-white tracking-tight;
+  @apply text-5xl md:text-6xl font-black text-white tracking-tight;
 }
 
 .stat-label {
-  @apply text-sm md:text-base font-bold uppercase tracking-wider text-slate-400;
+  @apply text-base md:text-lg font-bold uppercase tracking-wider text-slate-400;
 }
 
 /* ==========================================
    7. TESTIMONIALS SECTION
    ========================================== */
 .testimonials-section {
-  @apply py-24 bg-brand-bg-light;
+  @apply py-28 bg-brand-bg-light;
 }
 
 .testimonials-grid-wrapper {
@@ -351,7 +351,7 @@
 }
 
 .testimonial-card {
-  @apply p-8 rounded bg-white border border-slate-100 shadow-sm flex flex-col gap-6 text-left relative transition-all duration-300 hover:shadow-md;
+  @apply p-10 rounded bg-white border border-slate-100 shadow-sm flex flex-col gap-8 text-left relative transition-all duration-300 hover:shadow-md;
 }
 
 .testimonial-stars {
@@ -359,7 +359,7 @@
 }
 
 .testimonial-quote {
-  @apply text-base text-slate-600 italic leading-relaxed flex-grow;
+  @apply text-lg text-slate-600 italic leading-relaxed flex-grow;
 }
 
 .testimonial-author-box {
@@ -373,18 +373,18 @@
 }
 
 .testimonial-author-name {
-  @apply text-base font-bold text-primary;
+  @apply text-lg font-bold text-primary;
 }
 
 .testimonial-author-role {
-  @apply text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5;
+  @apply text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5;
 }
 
 /* ==========================================
    9. FINAL CTA BANNER
    ========================================== */
 .cta-banner-section {
-  @apply py-24 text-center text-white relative overflow-hidden;
+  @apply py-28 text-center text-white relative overflow-hidden;
   background-color: var(--primary-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -394,11 +394,11 @@
 }
 
 .cta-banner-title {
-  @apply text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-white leading-tight;
+  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-white leading-tight;
 }
 
 .cta-banner-subtitle {
-  @apply text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed;
+  @apply text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed;
 }
 
 .cta-banner-group {
@@ -409,7 +409,7 @@
    10. INDUSTRIES WE PROTECT
    ========================================== */
 .industries-protect-section {
-  @apply py-24 bg-brand-bg;
+  @apply py-28 bg-brand-bg;
 }
 
 .industries-grid-wrapper {
@@ -417,7 +417,7 @@
 }
 
 .industry-card-item {
-  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md hover:border-accent/15;
+  @apply p-8 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md hover:border-accent/15;
 }
 
 .industry-card-icon-box {
@@ -429,11 +429,11 @@
 }
 
 .industry-card-title {
-  @apply text-base font-bold uppercase tracking-wider text-primary;
+  @apply text-lg font-bold uppercase tracking-wider text-primary;
 }
 
 .industry-card-desc {
-  @apply text-sm text-slate-500 leading-relaxed;
+  @apply text-base text-slate-500 leading-relaxed;
 }
 
 /* ==========================================
@@ -465,9 +465,9 @@
 }
 
 .home-about-stat-num {
-  @apply text-xl font-extrabold text-primary;
+  @apply text-2xl font-extrabold text-primary;
 }
 
 .home-about-stat-label {
-  @apply text-[10px] uppercase tracking-widest text-slate-500 font-semibold;
+  @apply text-xs uppercase tracking-widest text-slate-500 font-semibold;
 }

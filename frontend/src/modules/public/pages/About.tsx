@@ -131,6 +131,11 @@ const About = (): React.JSX.Element => {
                 alt="DSD Security ceremonial event"
                 className="about-story-photo-thumb"
               />
+              <img
+                src="/images/gallery/parade-1.jpg"
+                alt="DSD Security parade event"
+                className="about-story-photo-thumb-2"
+              />
             </div>
             <div className="about-story-badge-pill">
               <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
@@ -240,8 +245,10 @@ const About = (): React.JSX.Element => {
         >
           {[...Array(2)].map((_, copyIdx) => (
             <div className="about-marquee-row" key={copyIdx} aria-hidden={copyIdx === 1}>
+              <img src="/images/gallery/ceremonial-red.jpg" alt="DSD Security ceremonial event" className="about-marquee-img" />
               <img src="/images/gallery/parade-1.jpg" alt="DSD Security ceremonial formation" className="about-marquee-img" />
               <img src="/images/gallery/parade-2.jpg" alt="DSD Security officers lineup" className="about-marquee-img" />
+              <img src="/images/guards/guard-assembly.jpg" alt="DSD Security guards assembly" className="about-marquee-img" />
               <img src="/images/gallery/parade-3.jpg" alt="DSD Security flag hoisting" className="about-marquee-img" />
               <img src="/images/gallery/parade-4.jpg" alt="DSD Security flag tribute" className="about-marquee-img" />
               <img src="/images/gallery/parade-5.jpg" alt="DSD Security guard drill" className="about-marquee-img" />

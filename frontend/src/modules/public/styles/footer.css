@@ -31,15 +31,15 @@
 }
 
 .footer-brand-logo {
-  @apply flex items-center gap-2 font-extrabold uppercase tracking-widest text-2xl text-white select-none;
+  @apply flex items-center gap-2 font-extrabold uppercase tracking-widest text-3xl text-white select-none;
 }
 
 .footer-brand-desc {
-  @apply text-sm text-slate-400 leading-relaxed max-w-sm;
+  @apply text-base text-slate-400 leading-relaxed max-w-sm;
 }
 
 .footer-licensed-pill {
-  @apply inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full bg-accent/10 border border-accent/25 text-accent text-[11px] font-bold uppercase tracking-widest;
+  @apply inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full bg-accent/10 border border-accent/25 text-accent text-xs font-bold uppercase tracking-widest;
 }
 
 /* ── Column generic ── */
@@ -48,7 +48,7 @@
 }
 
 .footer-col-title {
-  @apply text-base font-bold uppercase tracking-widest text-white mb-5 relative pb-3;
+  @apply text-lg font-bold uppercase tracking-widest text-white mb-5 relative pb-3;
 }
 
 .footer-col-title::after {
@@ -62,7 +62,7 @@
 }
 
 .footer-link-item {
-  @apply text-sm text-slate-400 hover:text-accent transition-all duration-200 flex items-center gap-2;
+  @apply text-base text-slate-400 hover:text-accent transition-all duration-200 flex items-center gap-2;
 }
 
 .footer-link-arrow {
@@ -83,16 +83,16 @@
 }
 
 .footer-hours-label {
-  @apply text-[11px] font-bold uppercase tracking-widest text-slate-500;
+  @apply text-xs font-bold uppercase tracking-widest text-slate-500;
 }
 
 .footer-hours-value {
-  @apply text-sm text-slate-300 mt-0.5;
+  @apply text-base text-slate-300 mt-0.5;
 }
 
 /* ── Contact column ── */
 .footer-contact-details {
-  @apply flex flex-col gap-4 text-sm text-slate-400;
+  @apply flex flex-col gap-4 text-base text-slate-400;
 }
 
 .footer-contact-item {
@@ -122,7 +122,7 @@
 .footer-bottom-bar {
   @apply container mx-auto px-6 max-w-6xl pt-6 mt-6 border-t border-white/10
          flex flex-col md:flex-row items-center justify-between gap-3
-         text-xs text-slate-500;
+         text-sm text-slate-500;
 }
 
 .footer-copyright {
@@ -136,13 +136,13 @@
 .footer-back-top {
   @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/10
          text-slate-400 hover:text-accent hover:border-accent/40 hover:bg-white/5
-         transition-all duration-300 text-[11px] font-bold uppercase tracking-widest cursor-pointer;
+         transition-all duration-300 text-xs font-bold uppercase tracking-widest cursor-pointer;
 }
 
 /* ── Credit line ── */
 .footer-credit-line {
   @apply container mx-auto px-6 max-w-6xl pt-5 mt-5 border-t border-white/5
-         text-center text-[11px] tracking-wider text-slate-600;
+         text-center text-xs tracking-wider text-slate-600;
 }
 
 .footer-credit-brand {

@@ -148,20 +148,20 @@
 }
 
 .about-hero-badge {
-  @apply text-xs font-bold uppercase tracking-widest text-accent border border-accent/30 px-4 py-1.5 rounded-full;
+  @apply text-sm font-bold uppercase tracking-widest text-accent border border-accent/30 px-4 py-1.5 rounded-full;
 }
 
 .about-hero-title {
-  @apply text-4xl md:text-5xl font-extrabold text-white leading-tight;
+  @apply text-5xl md:text-6xl font-extrabold text-white leading-tight;
 }
 
 .about-hero-subtitle {
-  @apply text-lg text-slate-300 max-w-xl leading-relaxed;
+  @apply text-xl text-slate-300 max-w-xl leading-relaxed;
 }
 
 /* 2. Story */
 .about-story-section {
-  @apply py-20 bg-white;
+  @apply py-28 bg-white;
 }
 
 .about-story-container {
@@ -178,7 +178,7 @@
 }
 
 .about-story-badge-pill {
-  @apply absolute -bottom-4 left-6 flex items-center gap-2 bg-primary text-white text-xs font-bold px-5 py-3 rounded-full shadow-lg;
+  @apply absolute -bottom-4 left-6 flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-3 rounded-full shadow-lg;
 }
 
 .about-story-text-col {
@@ -186,12 +186,12 @@
 }
 
 .about-para-text {
-  @apply text-base text-slate-500 leading-relaxed;
+  @apply text-lg text-slate-500 leading-relaxed;
 }
 
 /* 3. Mission & Vision */
 .about-mv-section {
-  @apply py-20 bg-slate-50;
+  @apply py-28 bg-slate-50;
 }
 
 .about-mv-inner {
@@ -224,7 +224,7 @@
 }
 
 .about-mv-heading {
-  @apply text-xl font-extrabold uppercase tracking-wide;
+  @apply text-2xl font-extrabold uppercase tracking-wide;
 }
 
 .about-mv-card.vision .about-mv-heading {
@@ -232,12 +232,12 @@
 }
 
 .about-mv-desc {
-  @apply text-base leading-relaxed opacity-90;
+  @apply text-lg leading-relaxed opacity-90;
 }
 
 /* 4. Core Values */
 .about-values-section-new {
-  @apply py-20 bg-white;
+  @apply py-28 bg-white;
 }
 
 .about-values-inner {
@@ -249,7 +249,7 @@
 }
 
 .about-value-card-new {
-  @apply flex flex-col gap-3 p-7 rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/20;
+  @apply flex flex-col gap-4 p-9 rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/20;
 }
 
 .about-value-icon-new {
@@ -261,16 +261,16 @@
 }
 
 .about-value-title-new {
-  @apply text-base font-extrabold uppercase tracking-wider text-primary;
+  @apply text-lg font-extrabold uppercase tracking-wider text-primary;
 }
 
 .about-value-desc-new {
-  @apply text-sm text-slate-500 leading-relaxed;
+  @apply text-base text-slate-500 leading-relaxed;
 }
 
 /* 5. Certifications */
 .about-cert-section-new {
-  @apply py-20 bg-slate-50;
+  @apply py-28 bg-slate-50;
 }
 
 .about-cert-inner {
@@ -282,7 +282,7 @@
 }
 
 .about-cert-card {
-  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-base font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
+  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-lg font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
 }
 
 .about-cert-icon {
@@ -291,7 +291,7 @@
 
 /* 6. CTA */
 .about-cta-section {
-  @apply py-20 bg-primary relative overflow-hidden;
+  @apply py-28 bg-primary relative overflow-hidden;
 }
 
 .about-cta-inner {
@@ -299,16 +299,16 @@
 }
 
 .about-cta-title {
-  @apply text-3xl md:text-4xl font-extrabold text-white;
+  @apply text-4xl md:text-5xl font-extrabold text-white;
 }
 
 .about-cta-subtitle {
-  @apply text-base text-slate-300 leading-relaxed max-w-xl;
+  @apply text-lg text-slate-300 leading-relaxed max-w-xl;
 }
 
 /* ── FLIP CARDS (Mission & Vision) ── */
 .flip-cards-section {
-  @apply py-20 bg-slate-50;
+  @apply py-28 bg-slate-50;
 }
 .flip-cards-inner {
   @apply container mx-auto px-6 max-w-5xl flex flex-col gap-12;
@@ -330,7 +330,7 @@
 }
 .flip-card-front,
 .flip-card-back {
-  @apply absolute inset-0 w-full h-full rounded-2xl flex flex-col items-center justify-center gap-4 p-8 text-center;
+  @apply absolute inset-0 w-full h-full rounded-2xl flex flex-col items-center justify-center gap-6 p-10 text-center;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -348,16 +348,16 @@
   @apply bg-primary/10 text-primary;
 }
 .flip-card-label {
-  @apply text-[10px] uppercase tracking-widest font-bold opacity-60;
+  @apply text-xs uppercase tracking-widest font-bold opacity-60;
 }
 .flip-card-title {
-  @apply text-xl font-extrabold uppercase tracking-wide;
+  @apply text-2xl font-extrabold uppercase tracking-wide;
 }
 .flip-card-hint {
-  @apply text-xs opacity-50 mt-1;
+  @apply text-sm opacity-50 mt-1;
 }
 .flip-card-desc {
-  @apply text-base leading-relaxed font-medium;
+  @apply text-lg leading-relaxed font-medium;
 }
 
 /* ── STORY DUAL PHOTOS ── */
@@ -369,7 +369,10 @@
   height: 420px;
 }
 .about-story-photo-thumb {
-  @apply absolute -bottom-6 -right-6 w-40 h-28 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block;
+  @apply absolute -bottom-6 -right-6 w-40 h-28 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block z-10;
+}
+.about-story-photo-thumb-2 {
+  @apply absolute -top-6 -left-6 w-32 h-32 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block z-10;
 }
 
 /* ── PHOTO MARQUEE (news-ticker) ── */

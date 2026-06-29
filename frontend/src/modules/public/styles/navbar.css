@@ -37,7 +37,7 @@
 }
 
 .nav-item-link {
-  @apply text-base font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
+  @apply text-lg font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
 }
 
 .nav-item-link::after {
@@ -55,7 +55,7 @@
 
 /* Navbar CTA button */
 .nav-cta-btn {
-  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
+  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-base uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
 }
 
 /* Mobile Toggle Hamburger */
@@ -83,7 +83,7 @@
 }
 
 .mobile-nav-item {
-  @apply text-lg font-semibold tracking-wider text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5;
+  @apply text-xl font-semibold tracking-wider text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5;
 }
 
 .mobile-nav-item.nav-active-link {
@@ -96,7 +96,7 @@
 }
 
 .mobile-cta-btn {
-  @apply w-full text-center py-3.5 text-sm uppercase tracking-wider font-bold rounded;
+  @apply w-full text-center py-3.5 text-base uppercase tracking-wider font-bold rounded;
 }
 
 .mobile-cta-primary {
