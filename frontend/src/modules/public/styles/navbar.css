@@ -55,7 +55,7 @@
 
 /* Navbar CTA button */
 .nav-cta-btn {
-  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-base uppercase tracking-widest font-bold bg-accent text-primary hover:bg-accent-hover transition-all duration-300 rounded shadow-sm hover:shadow;
+  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-base uppercase tracking-widest font-bold bg-primary text-white hover:bg-primary-dark transition-all duration-300 rounded-lg shadow-sm hover:shadow;
 }
 
 /* Mobile Toggle Hamburger */
@@ -66,7 +66,7 @@
 /* Mobile Menu Panel Drawer */
 .mobile-menu-drawer {
   @apply fixed inset-y-0 right-0 w-full max-w-sm z-50 flex flex-col p-6 shadow-2xl;
-  background-color: var(--primary-color);
+  background-color: var(--primary-dark);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -88,7 +88,7 @@
 
 .mobile-nav-item.nav-active-link {
   color: var(--accent-color);
-  border-b-color: rgba(214, 175, 55, 0.3);
+  border-b-color: rgba(229, 57, 53, 0.3);
 }
 
 .mobile-nav-cta {
@@ -96,16 +96,16 @@
 }
 
 .mobile-cta-btn {
-  @apply w-full text-center py-3.5 text-base uppercase tracking-wider font-bold rounded;
+  @apply w-full text-center py-3.5 text-base uppercase tracking-wider font-bold rounded-lg;
 }
 
 .mobile-cta-primary {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #ffffff;
 }
 
 .mobile-cta-primary:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--primary-dark);
 }
 
 .mobile-cta-secondary {

@@ -4,7 +4,7 @@
    FOOTER
    ========================================== */
 .footer-wrapper {
-  background-color: var(--primary-dark);
+  background-color: var(--footer-bg);
   color: var(--text-light);
   @apply relative pt-20 pb-8;
 }
@@ -22,7 +22,7 @@
 }
 
 .footer-grid {
-  @apply container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12 max-w-6xl;
+  @apply container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-12 max-w-6xl;
 }
 
 /* ── Brand column ── */
@@ -35,7 +35,7 @@
 }
 
 .footer-brand-desc {
-  @apply text-base text-slate-400 leading-relaxed max-w-sm;
+  @apply text-base text-slate-300 leading-relaxed max-w-sm;
 }
 
 .footer-licensed-pill {
@@ -62,15 +62,15 @@
 }
 
 .footer-link-item {
-  @apply text-base text-slate-400 hover:text-accent transition-all duration-200 flex items-center gap-2;
+  @apply text-base text-slate-300 hover:text-primary transition-all duration-200 flex items-center gap-2;
 }
 
 .footer-link-arrow {
-  @apply text-accent/70 transition-transform duration-200 inline-block;
+  @apply text-primary/70 transition-transform duration-200 inline-block;
 }
 
 .footer-link-item:hover .footer-link-arrow {
-  @apply translate-x-1 text-accent;
+  @apply translate-x-1 text-primary;
 }
 
 /* ── Hours column ── */
@@ -79,7 +79,7 @@
 }
 
 .footer-hours-item {
-  @apply flex gap-3 items-start text-slate-400;
+  @apply flex gap-3 items-start text-slate-300;
 }
 
 .footer-hours-label {
@@ -92,7 +92,7 @@
 
 /* ── Contact column ── */
 .footer-contact-details {
-  @apply flex flex-col gap-4 text-base text-slate-400;
+  @apply flex flex-col gap-4 text-base text-slate-300;
 }
 
 .footer-contact-item {
@@ -104,7 +104,7 @@
 }
 
 .footer-contact-link {
-  @apply hover:text-accent transition-colors duration-200;
+  @apply hover:text-primary transition-colors duration-200;
 }
 
 /* ── Social icons ── */
@@ -114,19 +114,19 @@
 
 .footer-social-btn {
   @apply w-9 h-9 rounded-md flex items-center justify-center bg-white/5 border border-white/10 text-slate-400
-         hover:text-primary hover:bg-accent hover:border-accent hover:-translate-y-0.5
+         hover:text-white hover:bg-primary hover:border-primary hover:-translate-y-0.5
          transition-all duration-300;
 }
 
 /* ── Bottom bar ── */
 .footer-bottom-bar {
-  @apply container mx-auto px-6 max-w-6xl pt-6 mt-6 border-t border-white/10
+  @apply container mx-auto px-6 max-w-6xl pt-6 mt-6 border-t border-white/20
          flex flex-col md:flex-row items-center justify-between gap-3
-         text-sm text-slate-500;
+         text-sm text-slate-400;
 }
 
 .footer-copyright {
-  @apply text-slate-500;
+  @apply text-slate-400;
 }
 
 .footer-location-line {
@@ -134,17 +134,17 @@
 }
 
 .footer-back-top {
-  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/10
-         text-slate-400 hover:text-accent hover:border-accent/40 hover:bg-white/5
+  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/15
+         text-slate-300 hover:text-primary hover:border-primary/40 hover:bg-white/5
          transition-all duration-300 text-xs font-bold uppercase tracking-widest cursor-pointer;
 }
 
 /* ── Credit line ── */
 .footer-credit-line {
-  @apply container mx-auto px-6 max-w-6xl pt-5 mt-5 border-t border-white/5
-         text-center text-xs tracking-wider text-slate-600;
+  @apply container mx-auto px-6 max-w-6xl pt-5 mt-5 border-t border-white/15
+         text-center text-xs tracking-wider text-slate-500;
 }
 
 .footer-credit-brand {
-  @apply text-slate-400 font-semibold hover:text-accent transition-colors duration-200;
+  @apply text-slate-300 font-semibold hover:text-primary transition-colors duration-200;
 }

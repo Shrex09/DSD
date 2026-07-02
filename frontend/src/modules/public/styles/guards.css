@@ -2,7 +2,7 @@
 
 /* Guards page styling */
 .guards-header-hero {
-  @apply py-20 text-center text-white relative overflow-hidden;
+  @apply py-32 text-center text-white relative overflow-hidden;
   background-color: var(--primary-color);
   background-image: url("/images/guards/guard-assembly.jpg");
   background-size: cover;
@@ -12,7 +12,7 @@
 .guards-header-hero::before {
   content: "";
   @apply absolute inset-0 z-0;
-  background: linear-gradient(180deg, rgba(10, 17, 40, 0.65) 0%, rgba(10, 17, 40, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 62, 153, 0.65) 0%, rgba(0, 62, 153, 0.85) 100%);
 }
 
 .guards-header-container {
@@ -21,7 +21,7 @@
 
 /* Guard Showcase Grid */
 .guards-showcase-section {
-  @apply py-24 bg-brand-bg-light;
+  @apply py-32 bg-brand-bg-light;
 }
 
 .guards-showcase-grid {
@@ -29,7 +29,7 @@
 }
 
 .guard-roster-card {
-  @apply rounded overflow-hidden bg-white border border-slate-100 shadow-md text-left flex flex-col transition-all duration-300 hover:shadow-lg hover:border-slate-200;
+  @apply rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-sm text-left flex flex-col transition-all duration-300 hover:shadow-md hover:border-slate-200 hover:-translate-y-1;
 }
 
 .guard-avatar-box {
@@ -37,7 +37,7 @@
 }
 
 .guard-badge-pill {
-  @apply absolute top-4 right-4 px-2 py-1 rounded bg-accent text-[10px] font-bold uppercase tracking-wider text-primary shadow;
+  @apply absolute top-4 right-4 px-2 py-1 rounded bg-accent text-[10px] font-bold uppercase tracking-wider text-white shadow;
 }
 
 .guard-card-info {
@@ -82,7 +82,7 @@
 
 /* Qualifications vetting grid */
 .guards-qual-section {
-  @apply py-20 bg-brand-bg border-t border-slate-100;
+  @apply py-32 bg-brand-bg border-t border-slate-100;
 }
 
 .guards-qual-row {
@@ -98,7 +98,7 @@
 }
 
 .qual-item-card {
-  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-2 transition-colors duration-200 hover:bg-white hover:border-slate-200;
+  @apply p-6 rounded-2xl bg-white border border-[#E5E7EB] text-left flex flex-col gap-2 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5;
 }
 
 .qual-item-title {
@@ -111,7 +111,7 @@
 
 /* Training Section Grid */
 .guards-training-section {
-  @apply py-24 bg-brand-bg-light border-y border-slate-100;
+  @apply py-32 bg-brand-bg-light border-y border-slate-100;
 }
 
 .guards-training-grid {
@@ -119,7 +119,7 @@
 }
 
 .guards-training-card {
-  @apply p-6 rounded bg-white border border-slate-100 shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/15;
+  @apply p-6 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/20;
 }
 
 .guards-training-icon {
@@ -127,7 +127,7 @@
 }
 
 .guards-training-card:hover .guards-training-icon {
-  @apply bg-accent text-primary;
+  @apply bg-primary text-white;
 }
 
 .guards-training-title {
@@ -140,7 +140,7 @@
 
 /* Hiring Stages Timeline */
 .guards-hiring-section {
-  @apply py-20 bg-brand-bg;
+  @apply py-32 bg-brand-bg;
 }
 
 .guards-hiring-grid {
@@ -148,7 +148,7 @@
 }
 
 .hiring-stage-card {
-  @apply p-6 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-3 relative transition-all duration-300 hover:bg-white hover:shadow-md;
+  @apply p-6 rounded-2xl bg-white border border-[#E5E7EB] text-left flex flex-col gap-3 relative transition-all duration-300 hover:shadow-md hover:-translate-y-0.5;
 }
 
 .hiring-stage-num {

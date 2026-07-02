@@ -1,6 +1,7 @@
 import React from "react";
-import { Shield, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import SEO from "@/modules/public/components/common/SEO";
+import { companyConfig } from "@/config/company";
 
 /**
  * Maintenance mode page.
@@ -8,7 +9,7 @@ import SEO from "@/modules/public/components/common/SEO";
  */
 const Maintenance = (): React.JSX.Element => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-primary px-6 py-16 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#0B2E6F] px-6 py-16 overflow-hidden">
       <SEO
         title="Under Maintenance"
         description="The site is currently undergoing scheduled maintenance. We will be back shortly."
@@ -25,11 +26,8 @@ const Maintenance = (): React.JSX.Element => {
 
       <div className="relative z-10 max-w-md w-full text-center flex flex-col items-center gap-8">
         {/* Logo / Brand */}
-        <div className="flex items-center gap-3">
-          <Shield className="w-10 h-10 text-accent fill-accent/10" />
-          <span className="font-extrabold uppercase tracking-widest text-2xl text-white">
-            DSD<span className="text-accent">.</span>
-          </span>
+        <div className="flex items-center">
+          <img src={companyConfig.logos.light} alt="DSD Security Services Logo" className="h-16 w-auto object-contain" />
         </div>
 
         {/* Clock icon */}

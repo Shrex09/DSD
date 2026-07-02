@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Shield, Menu, X, Phone, ShieldCheck } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { companyConfig } from "@/config/company";
 import { NAV_LINKS } from "@/constants/navigation";
 import { ROUTES } from "@/constants/routes";
@@ -43,12 +43,8 @@ const Navbar = (): React.JSX.Element => {
       <header className={`navbar-header ${isScrolled ? "navbar-scrolled" : ""}`}>
         <div className="navbar-container">
           {/* Company brand logo */}
-          <Link to={ROUTES.HOME} className="nav-logo-link" onClick={closeMobileMenu}>
-            <Shield className="logo-icon-gold w-8 h-8 fill-accent/10" />
-            <span className="font-extrabold uppercase tracking-widest text-lg">
-              {companyConfig.shortName}
-              <span className="text-accent">.</span>
-            </span>
+          <Link to={ROUTES.HOME} className="nav-logo-link flex items-center" onClick={closeMobileMenu}>
+            <img src={companyConfig.logos.dark} alt="DSD Security Services Logo" className="h-[52px] w-auto object-contain" />
           </Link>
 
           {/* Desktop navigation links */}
@@ -124,12 +120,8 @@ const Navbar = (): React.JSX.Element => {
             >
               {/* Header inside mobile menu */}
               <div className="mobile-nav-logo">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="text-accent w-7 h-7" aria-hidden="true" />
-                  <span className="font-black tracking-widest text-white uppercase text-base">
-                    {companyConfig.shortName}
-                    <span className="text-accent">.</span>
-                  </span>
+                <div className="flex items-center">
+                  <img src={companyConfig.logos.light} alt="DSD Security Services Logo" className="h-10 w-auto object-contain" />
                 </div>
                 <button
                   className="text-slate-400 hover:text-white p-1"

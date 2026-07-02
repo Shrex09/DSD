@@ -12,7 +12,7 @@
 .about-header-hero::before {
   content: "";
   @apply absolute inset-0 z-0;
-  background: linear-gradient(180deg, rgba(10, 17, 40, 0.65) 0%, rgba(10, 17, 40, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 62, 153, 0.65) 0%, rgba(0, 62, 153, 0.85) 100%);
 }
 
 .about-header-container {
@@ -51,7 +51,7 @@
 }
 
 .about-value-card {
-  @apply p-6 rounded bg-white border border-slate-100 shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/10;
+  @apply p-6 rounded bg-white border border-slate-100 shadow-sm text-left flex flex-col gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/20;
 }
 
 .about-value-icon {
@@ -80,7 +80,7 @@
 }
 
 .about-team-card {
-  @apply rounded overflow-hidden bg-white border border-slate-100 shadow-sm text-left flex flex-col transition-all duration-300 hover:shadow-md hover:border-slate-200;
+  @apply rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-sm text-left flex flex-col transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-slate-200;
 }
 
 .about-team-avatar-box {
@@ -140,7 +140,7 @@
 
 .about-hero-overlay {
   @apply absolute inset-0 z-10;
-  background: linear-gradient(160deg, rgba(8,14,35,0.82) 0%, rgba(8,14,35,0.65) 100%);
+  background: linear-gradient(160deg, rgba(0, 62, 153, 0.82) 0%, rgba(0, 62, 153, 0.65) 100%);
 }
 
 .about-hero-content {
@@ -161,7 +161,7 @@
 
 /* 2. Story */
 .about-story-section {
-  @apply py-28 bg-white;
+  @apply py-32 bg-white;
 }
 
 .about-story-container {
@@ -191,7 +191,7 @@
 
 /* 3. Mission & Vision */
 .about-mv-section {
-  @apply py-28 bg-slate-50;
+  @apply py-32 bg-brand-bg-light;
 }
 
 .about-mv-inner {
@@ -199,7 +199,7 @@
 }
 
 .about-mv-card {
-  @apply rounded-2xl p-10 flex flex-col gap-4 shadow-sm border;
+  @apply rounded-2xl p-10 flex flex-col gap-4 shadow-sm border border-[#E5E7EB];
 }
 
 .about-mv-card.mission {
@@ -237,7 +237,7 @@
 
 /* 4. Core Values */
 .about-values-section-new {
-  @apply py-28 bg-white;
+  @apply py-32 bg-white;
 }
 
 .about-values-inner {
@@ -249,7 +249,7 @@
 }
 
 .about-value-card-new {
-  @apply flex flex-col gap-4 p-9 rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-accent/20;
+  @apply flex flex-col gap-4 p-9 rounded-2xl border border-[#E5E7EB] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/20;
 }
 
 .about-value-icon-new {
@@ -270,7 +270,7 @@
 
 /* 5. Certifications */
 .about-cert-section-new {
-  @apply py-28 bg-slate-50;
+  @apply py-32 bg-brand-bg-light;
 }
 
 .about-cert-inner {
@@ -282,7 +282,7 @@
 }
 
 .about-cert-card {
-  @apply flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm text-lg font-semibold text-slate-700 transition-all duration-300 hover:border-accent/30 hover:shadow-md;
+  @apply flex items-center gap-4 p-5 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm text-lg font-semibold text-slate-700 transition-all duration-300 hover:border-primary/20 hover:shadow-md hover:-translate-y-0.5;
 }
 
 .about-cert-icon {
@@ -291,7 +291,7 @@
 
 /* 6. CTA */
 .about-cta-section {
-  @apply py-28 bg-primary relative overflow-hidden;
+  @apply py-32 bg-primary-dark relative overflow-hidden;
 }
 
 .about-cta-inner {
@@ -308,7 +308,7 @@
 
 /* ── FLIP CARDS (Mission & Vision) ── */
 .flip-cards-section {
-  @apply py-28 bg-slate-50;
+  @apply py-28 bg-brand-bg;
 }
 .flip-cards-inner {
   @apply container mx-auto px-6 max-w-5xl flex flex-col gap-12;
@@ -338,7 +338,7 @@
   @apply bg-primary text-white;
 }
 .flip-card-back {
-  @apply bg-accent text-primary;
+  @apply bg-primary-light text-primary-dark;
   transform: rotateY(180deg);
 }
 .flip-card-icon {
