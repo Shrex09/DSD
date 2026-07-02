@@ -4,13 +4,15 @@
    FOOTER
    ========================================== */
 .footer-wrapper {
-  background-color: var(--footer-bg);
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 10%, rgba(23, 53, 122, 0.55) 0%, transparent 65%),
+    linear-gradient(180deg, #0b2e6f 0%, #081f4d 100%);
   color: var(--text-light);
-  @apply relative pt-20 pb-8;
+  @apply relative overflow-hidden pt-20 pb-8;
 }
 
 .footer-accent-strip {
-  @apply absolute top-0 left-0 w-full h-[2px];
+  @apply absolute top-0 left-0 w-full h-[2px] z-10;
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -21,8 +23,44 @@
   opacity: 0.6;
 }
 
+/* Faint oversized DSD watermark behind footer content */
+.footer-watermark {
+  position: absolute;
+  top: 50%;
+  right: -140px;
+  transform: translateY(-50%);
+  width: min(60vw, 620px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.04;
+}
+
+.footer-watermark img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 .footer-grid {
-  @apply container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-12 max-w-6xl;
+  @apply container mx-auto px-6 relative z-10 grid grid-cols-1 sm:grid-cols-2 mb-12 max-w-6xl;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.7fr 1fr 1.15fr 1.25fr;
+    gap: 4.5rem;
+  }
 }
 
 /* ── Brand column ── */
@@ -62,15 +100,26 @@
 }
 
 .footer-link-item {
-  @apply text-base text-slate-300 hover:text-primary transition-all duration-200 flex items-center gap-2;
+  @apply text-base text-slate-300 flex items-center gap-2;
+  transition:
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.footer-link-item:hover {
+  color: #ffffff;
+  transform: translateX(4px);
 }
 
 .footer-link-arrow {
-  @apply text-primary/70 transition-transform duration-200 inline-block;
+  color: rgba(229, 172, 36, 0.75);
+  @apply inline-block;
+  transition: transform 250ms ease, color 250ms ease;
 }
 
 .footer-link-item:hover .footer-link-arrow {
-  @apply translate-x-1 text-primary;
+  transform: translateX(3px);
+  color: var(--accent-color);
 }
 
 /* ── Hours column ── */
@@ -97,14 +146,29 @@
 
 .footer-contact-item {
   @apply flex gap-3 items-start leading-relaxed;
+  transition: color 250ms ease;
+}
+
+.footer-contact-item:hover .footer-contact-icon {
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(229, 172, 36, 0.55));
 }
 
 .footer-contact-icon {
-  @apply text-accent w-4 h-4 shrink-0 mt-1;
+  color: var(--accent-color);
+  @apply w-4 h-4 shrink-0 mt-1;
+  transition:
+    color 250ms ease,
+    filter 250ms ease;
 }
 
 .footer-contact-link {
-  @apply hover:text-primary transition-colors duration-200;
+  @apply transition-colors duration-200;
+  color: rgb(203, 213, 225);
+}
+
+.footer-contact-link:hover {
+  color: #ffffff;
 }
 
 /* ── Social icons ── */
@@ -113,16 +177,47 @@
 }
 
 .footer-social-btn {
-  @apply w-9 h-9 rounded-md flex items-center justify-center bg-white/5 border border-white/10 text-slate-400
-         hover:text-white hover:bg-primary hover:border-primary hover:-translate-y-0.5
-         transition-all duration-300;
+  @apply w-9 h-9 rounded-md flex items-center justify-center text-slate-400;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
 }
 
-/* ── Bottom bar ── */
+.footer-social-btn:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #1c3f8e 0%, #17357a 100%);
+  border-color: rgba(229, 172, 36, 0.5);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 18px -6px rgba(23, 53, 122, 0.55),
+    0 0 14px rgba(229, 172, 36, 0.25);
+}
+
+/* ── Bottom bar (gradient divider) ── */
 .footer-bottom-bar {
-  @apply container mx-auto px-6 max-w-6xl pt-6 mt-6 border-t border-white/20
+  @apply container mx-auto px-6 max-w-6xl relative z-10 pt-6 mt-6
          flex flex-col md:flex-row items-center justify-between gap-3
          text-sm text-slate-400;
+}
+
+.footer-bottom-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
 }
 
 .footer-copyright {
@@ -133,18 +228,60 @@
   @apply inline-flex items-center gap-1.5;
 }
 
+/* ── Back to top ── */
 .footer-back-top {
-  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/15
-         text-slate-300 hover:text-primary hover:border-primary/40 hover:bg-white/5
-         transition-all duration-300 text-xs font-bold uppercase tracking-widest cursor-pointer;
+  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-slate-300
+         text-xs font-bold uppercase tracking-widest cursor-pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  transition:
+    color 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease,
+    box-shadow 250ms ease;
 }
 
-/* ── Credit line ── */
+.footer-back-top:hover {
+  color: #ffffff;
+  border-color: rgba(229, 172, 36, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 14px -4px rgba(229, 172, 36, 0.3);
+}
+
+.footer-back-top svg {
+  transition: transform 300ms ease;
+}
+
+.footer-back-top:hover svg {
+  transform: translateY(-3px);
+}
+
+/* ── Credit line (gradient divider) ── */
 .footer-credit-line {
-  @apply container mx-auto px-6 max-w-6xl pt-5 mt-5 border-t border-white/15
+  @apply container mx-auto px-6 max-w-6xl relative z-10 pt-5 mt-5
          text-center text-xs tracking-wider text-slate-500;
 }
 
+.footer-credit-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+}
+
 .footer-credit-brand {
-  @apply text-slate-300 font-semibold hover:text-primary transition-colors duration-200;
+  @apply font-semibold transition-colors duration-200;
+  color: rgb(203, 213, 225);
+}
+
+.footer-credit-brand:hover {
+  color: var(--accent-color);
 }

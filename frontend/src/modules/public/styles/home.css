@@ -9,6 +9,39 @@
 
 .home-hero-video {
   @apply absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none select-none;
+  transition: opacity 1.2s ease-in-out;
+  will-change: opacity;
+}
+
+/* Crossfade shared by the video and the logo sequence layers */
+.home-hero-bg-visible {
+  opacity: 1;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.home-hero-bg-hidden {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.home-hero-logo-sequence {
+  background-color: var(--primary-dark, #04122b);
+}
+
+/* Slow, continuous Ken Burns zoom for the logo sequence */
+.home-hero-logo-kenburns {
+  animation: heroLogoKenBurns 5s ease-in-out forwards;
+  will-change: transform;
+  transform-origin: center;
+}
+
+@keyframes heroLogoKenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
 }
 
 .home-hero-overlay {
@@ -20,6 +53,19 @@
     rgba(0, 62, 153, 0.3) 75%,
     rgba(0, 62, 153, 0.1) 100%
   );
+}
+
+/* Premium, minimal blue glassmorphism layer for text readability */
+.home-hero-glass-overlay {
+  @apply absolute inset-0 z-[15] pointer-events-none;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 40, 110, 0.32) 0%,
+    rgba(0, 62, 153, 0.22) 45%,
+    rgba(0, 20, 60, 0.38) 100%
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .home-hero-container {
@@ -127,11 +173,28 @@
    3. ABOUT PREVIEW SECTION
    ========================================== */
 .about-preview-section {
-  @apply py-32 bg-brand-bg;
+  @apply relative overflow-hidden;
+  background-color: #f8fafc;
+  padding-top: 160px;
+  padding-bottom: 80px;
+}
+
+.about-preview-watermark {
+  @apply absolute pointer-events-none select-none z-0;
+  top: 50%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+}
+
+.about-preview-watermark img {
+  @apply object-contain;
+  width: min(85vw, 1100px);
+  height: auto;
 }
 
 .about-preview-container {
-  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10;
 }
 
 .about-preview-visual {
@@ -155,33 +218,17 @@
   @apply w-32 h-32 text-accent/25 animate-pulse-slow relative z-10;
 }
 
-.about-visual-overlay-card {
-  @apply absolute bottom-6 left-6 right-6 p-4 rounded bg-primary/95 backdrop-blur border border-white/10 flex items-center gap-4 text-left shadow-2xl z-10;
-}
-
-.about-visual-overlay-icon {
-  @apply text-accent w-10 h-10 shrink-0;
-}
-
 .about-preview-content {
   @apply lg:col-span-7 flex flex-col gap-4 text-left;
 }
 
-.section-tag-gold {
-  @apply text-sm font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-2;
-}
-
-.section-tag-gold::before {
-  content: "";
-  @apply w-6 h-0.5 bg-accent inline-block;
-}
-
-.section-headline-dark {
-  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-primary leading-tight;
-}
-
 .about-paragraph-text {
   @apply text-lg text-slate-600 leading-relaxed;
+  margin-bottom: 0.5rem;
+}
+
+.about-paragraph-text + .about-paragraph-text {
+  margin-top: 0.25rem;
 }
 
 /* .btn-inline-accent now lives in global.css */
@@ -190,11 +237,47 @@
    4. SERVICE PORTFOLIO SECTION
    ========================================== */
 .service-portfolio-section {
-  @apply py-32 bg-brand-bg;
+  @apply pb-32 bg-brand-bg relative;
+  padding-top: 56px;
+  border-top: 1px solid rgba(15, 42, 90, 0.06);
+}
+
+.service-portfolio-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(180deg, rgba(15, 42, 90, 0.025) 0%, rgba(15, 42, 90, 0) 100%);
+  pointer-events: none;
+}
+
+/* Softer navy scoped to the Services heading (matches About section palette) */
+.service-portfolio-section .section-headline-dark {
+  color: #17357a;
+}
+
+/* Soft radial glow behind the portfolio heading — draws focus, no decoration */
+.portfolio-header-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90vw, 900px);
+  height: 380px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(23, 53, 122, 0.07) 0%,
+    rgba(23, 53, 122, 0.03) 40%,
+    rgba(23, 53, 122, 0) 70%
+  );
 }
 
 .portfolio-header-box {
-  @apply text-center max-w-2xl mx-auto flex flex-col gap-3 mb-16;
+  @apply text-center max-w-2xl mx-auto flex flex-col gap-3 mb-16 relative z-10;
 }
 
 .portfolio-header-box .section-tag-gold {
@@ -214,77 +297,161 @@
   @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
+/* ── Premium image-based service card ── */
 .portfolio-card {
-  @apply relative rounded-2xl overflow-hidden shadow-sm bg-primary min-h-[400px] flex flex-col transition-all duration-500 hover:shadow-md hover:-translate-y-1;
+  @apply relative overflow-hidden flex flex-col bg-primary;
+  min-height: 460px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px -14px rgba(15, 42, 90, 0.28);
+  transition: box-shadow 400ms ease-in-out;
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 30px 60px -20px rgba(15, 42, 90, 0.42);
 }
 
 .portfolio-card-link-wrapper {
-  @apply absolute inset-0 w-full h-full flex flex-col justify-end;
+  @apply absolute inset-0 w-full h-full block;
 }
 
 .portfolio-card-bg-wrap {
   @apply absolute inset-0 w-full h-full z-0 overflow-hidden;
+  border-radius: 22px;
 }
 
 .portfolio-card-img {
-  @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+  @apply w-full h-full object-cover;
+  transition: transform 450ms ease-in-out;
+  will-change: transform;
 }
 
 .portfolio-card:hover .portfolio-card-img {
-  @apply scale-110;
+  transform: scale(1.05);
 }
 
+/* Base navy overlay — image stays visible */
 .portfolio-card-overlay {
-  @apply absolute inset-0 transition-opacity duration-300;
-  background: linear-gradient(
-    to top,
-    rgba(0, 57, 166, 0.95) 0%,
-    rgba(0, 57, 166, 0.6) 50%,
-    rgba(0, 57, 166, 0.1) 100%
-  );
+  @apply absolute inset-0;
+  background-color: rgba(15, 42, 90, 0.28);
+  transition: background-color 400ms ease-in-out;
 }
 
 .portfolio-card:hover .portfolio-card-overlay {
-  @apply opacity-90;
+  background-color: rgba(15, 42, 90, 0.42);
 }
 
-.portfolio-card-content {
-  @apply relative z-10 p-10 flex flex-col gap-4 text-left justify-end h-full;
+/* Bottom-to-top readability gradient */
+.portfolio-card-gradient {
+  @apply absolute inset-0 pointer-events-none;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(11, 30, 70, 0.55) 78%,
+    rgba(11, 30, 70, 0.8) 100%
+  );
 }
 
-.portfolio-card-title {
-  @apply text-2xl md:text-3xl font-bold uppercase tracking-wider text-white transition-colors duration-300;
+/* Resting title — sits bottom-left over the image */
+.portfolio-card-resting {
+  @apply absolute bottom-0 left-0 right-0 z-[2] p-7;
+  transition:
+    opacity 300ms ease-in-out,
+    transform 400ms ease-in-out;
 }
 
-.portfolio-card:hover .portfolio-card-title {
-  @apply text-primary-light;
+.portfolio-card:hover .portfolio-card-resting {
+  opacity: 0;
+  transform: translateY(16px);
 }
 
-.portfolio-card-desc {
-  @apply text-base leading-relaxed text-slate-300 transition-colors duration-300;
+.portfolio-card-title-rest {
+  @apply text-2xl md:text-[26px] font-bold text-white uppercase tracking-wider leading-tight;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.portfolio-card:hover .portfolio-card-desc {
-  @apply text-slate-200;
+/* Sliding navy content panel */
+.portfolio-card-panel {
+  @apply absolute bottom-0 left-0 right-0 z-[3] flex flex-col text-left overflow-hidden;
+  background: linear-gradient(180deg, #17357a 0%, #0f2557 100%);
+  transform: translateY(100%);
+  transition: transform 420ms cubic-bezier(0.65, 0, 0.35, 1);
+  border-radius: 0 0 22px 22px;
+  will-change: transform;
 }
 
-.portfolio-card-btn {
-  @apply inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-widest mt-2 transition-transform duration-300;
+.portfolio-card:hover .portfolio-card-panel {
+  transform: translateY(0);
 }
 
-.portfolio-card:hover .portfolio-card-btn {
-  @apply translate-x-1 text-accent-hover;
+.portfolio-card-panel-accent {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-color) 50%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+
+.portfolio-card-panel-inner {
+  @apply p-7 flex flex-col gap-3;
+}
+
+.portfolio-card-panel-icon {
+  @apply w-9 h-9 shrink-0;
+  color: var(--accent-color);
+}
+
+.portfolio-card-panel-title {
+  @apply text-xl md:text-2xl font-bold text-white uppercase tracking-wider leading-tight;
+}
+
+.portfolio-card-panel-desc {
+  @apply text-sm leading-relaxed;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.portfolio-card-panel-cta {
+  @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mt-1;
+  color: var(--accent-color);
+}
+
+.portfolio-card-panel-arrow {
+  transition: transform 300ms ease-in-out;
+}
+
+.portfolio-card:hover .portfolio-card-panel-arrow {
+  transform: translateX(4px);
 }
 
 /* ==========================================
    5. WHY CHOOSE US SECTION
    ========================================== */
 .why-choose-section {
-  @apply py-32 bg-brand-bg-light;
+  @apply py-32 relative overflow-hidden;
+  background-color: #f8fafc;
+}
+
+.why-choose-watermark {
+  position: absolute;
+  top: 50%;
+  right: -6%;
+  transform: translateY(-50%);
+  width: min(58vw, 720px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.why-choose-watermark img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .why-choose-container {
-  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center;
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10;
 }
 
 .why-choose-content {
@@ -292,66 +459,439 @@
 }
 
 .why-choose-grid {
-  @apply lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6;
+  @apply lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 relative;
+}
+
+/* Ultra-subtle network / dot pattern behind the cards */
+.why-choose-grid::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background-image: radial-gradient(rgba(23, 53, 122, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse at center, #000 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 50%, transparent 90%);
 }
 
 .why-choose-card {
-  @apply p-8 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col gap-4 text-left transition-all duration-300 hover:shadow-md hover:border-slate-200 hover:-translate-y-1;
+  @apply p-7 rounded-2xl bg-white flex flex-col gap-5 text-left relative overflow-hidden;
+  border: 1px solid rgba(15, 42, 90, 0.08);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.04),
+    0 10px 24px -14px rgba(15, 42, 90, 0.1);
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease;
+  z-index: 1;
+}
+
+/* Top-lighting highlight — subtle, adds depth. Alternate accents give per-card personality. */
+.why-choose-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(23, 53, 122, 0.16) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 250ms ease, background 250ms ease;
+}
+
+/* Cards 2 and 4 get a soft gold top-accent for subtle personality */
+.why-choose-card:nth-child(even)::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(229, 172, 36, 0.28) 50%,
+    transparent 100%
+  );
+}
+
+.why-choose-card:hover {
+  transform: translateY(-6px);
+  background-color: #fdfdff;
+  border-color: rgba(23, 53, 122, 0.4);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.05),
+    0 26px 52px -20px rgba(15, 42, 90, 0.32),
+    0 16px 32px -18px rgba(23, 53, 122, 0.22);
+}
+
+.why-choose-card:hover::before {
+  opacity: 1;
+}
+
+.why-choose-card-icon-wrap {
+  @apply flex items-center justify-center shrink-0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(23, 53, 122, 0.09) 0%,
+    rgba(23, 53, 122, 0.04) 100%
+  );
+  border: 1px solid rgba(23, 53, 122, 0.08);
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    color 250ms ease;
+}
+
+.why-choose-card:hover .why-choose-card-icon-wrap {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #17357a 0%, #0f2557 100%);
+  border-color: #17357a;
+  box-shadow:
+    0 10px 22px -10px rgba(23, 53, 122, 0.45),
+    0 4px 10px -4px rgba(23, 53, 122, 0.3);
 }
 
 .why-choose-card-icon {
-  @apply text-primary w-8 h-8;
+  @apply w-[26px] h-[26px];
+  color: #17357a;
+  transition: color 250ms ease;
+}
+
+.why-choose-card:hover .why-choose-card-icon {
+  color: #ffffff;
 }
 
 .why-choose-card-title {
-  @apply text-xl font-bold uppercase tracking-wider text-primary;
+  @apply text-xl font-bold uppercase tracking-wider;
+  color: #17357a;
+  transition: color 250ms ease;
+}
+
+.why-choose-card:hover .why-choose-card-title {
+  color: #0f2557;
 }
 
 .why-choose-card-desc {
   @apply text-base text-slate-500 leading-relaxed;
 }
 
+/* Softer navy scoped to the Why Choose Us section headline + CTA */
+.why-choose-section .section-headline-dark {
+  color: #17357a;
+}
+
+/* Premium gradient CTA with arrow slide */
+.why-choose-section .btn-glow-gold {
+  background: linear-gradient(135deg, #17357a 0%, #0f2557 100%);
+  box-shadow:
+    0 6px 16px rgba(23, 53, 122, 0.28),
+    0 2px 4px rgba(23, 53, 122, 0.14);
+  transition:
+    background 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+.why-choose-section .btn-glow-gold:hover {
+  background: linear-gradient(135deg, #1c3f8e 0%, #0b2350 100%);
+  box-shadow:
+    0 0 22px rgba(229, 172, 36, 0.4),
+    0 10px 22px rgba(23, 53, 122, 0.32);
+}
+
+.why-choose-cta-arrow {
+  transition: transform 250ms ease;
+}
+
+.why-choose-cta-btn:hover .why-choose-cta-arrow {
+  transform: translateX(4px);
+}
+
 /* ==========================================
    6. STATISTICS SECTION
    ========================================== */
+/* Compact premium trust strip on deep navy */
 .stats-section {
-  @apply relative py-32 overflow-hidden;
-  background-color: var(--secondary-color);
+  @apply relative overflow-hidden;
+  padding: 116px 0 60px;
+  background: linear-gradient(180deg, #1e3a6e 0%, #17357a 100%);
 }
 
-.stats-grid-wrapper {
-  @apply container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 text-center;
+/* Clean 3-stop transition into the navy strip — no blur/fog */
+.stats-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f6f9ff 45%,
+    rgba(30, 58, 110, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.stat-item-box {
-  @apply flex flex-col items-center gap-3 p-8 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+.stats-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 90% at 50% 50%,
+    rgba(59, 130, 246, 0.18) 0%,
+    rgba(59, 130, 246, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.stat-icon {
-  @apply text-primary w-10 h-10 mb-2;
+/* Barely-there SVG grain so the navy doesn't read as a flat fill */
+.stats-bg-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.02;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
 }
 
-.stat-number {
-  @apply text-5xl md:text-6xl font-black text-primary tracking-tight;
+/* Large monochrome shield watermark — softer, larger, mostly off-canvas */
+.stats-shield-watermark {
+  position: absolute;
+  right: -520px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 780px;
+  height: 780px;
+  color: #ffffff;
+  opacity: 0.025;
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.stat-label {
-  @apply text-base md:text-lg font-bold uppercase tracking-wider text-slate-600;
+.stats-shield-watermark svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1023px) {
+  .stats-shield-watermark {
+    width: 640px;
+    height: 640px;
+    right: -440px;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-shield-watermark {
+    width: 500px;
+    height: 500px;
+    right: -340px;
+    opacity: 0.03;
+    filter: blur(4px);
+  }
+}
+
+/* Tiny settle after the count-up finishes — soft ease, no bounce */
+@keyframes countUpSettle {
+  0% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.count-up-settle {
+  display: inline-block;
+  animation: countUpSettle 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+.stats-container {
+  @apply container mx-auto px-6 relative z-10 flex flex-col items-center;
+  gap: 18px;
+}
+
+.stats-eyebrow {
+  @apply text-xs md:text-sm font-bold uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent-color);
+  position: relative;
+  padding: 0 46px;
+}
+
+.stats-eyebrow {
+  padding: 0 78px;
+}
+
+.stats-eyebrow::before,
+.stats-eyebrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: var(--accent-color);
+  opacity: 0.7;
+}
+
+.stats-eyebrow::before {
+  left: 0;
+}
+
+.stats-eyebrow::after {
+  right: 0;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 1100px;
+  align-items: center;
+}
+
+.stats-cell {
+  @apply flex flex-col items-center text-center relative;
+  padding: 0 24px;
+}
+
+.stats-cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+.stats-cell-icon {
+  color: rgba(255, 255, 255, 0.9);
+  width: 24px;
+  height: 24px;
+  margin-bottom: 6px;
+}
+
+.stats-cell-num {
+  @apply font-black text-white tracking-tight leading-none;
+  font-size: 40px;
+}
+
+@media (min-width: 768px) {
+  .stats-cell-num {
+    font-size: 48px;
+  }
+}
+
+.stats-cell-label {
+  @apply font-bold uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  margin-top: 6px;
+}
+
+@media (min-width: 768px) {
+  .stats-cell-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+  .stats-cell:nth-child(2n)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .stats-section {
+    padding: 32px 0 36px;
+  }
+  .stats-strip {
+    grid-template-columns: 1fr;
+    row-gap: 22px;
+  }
+  .stats-cell::after {
+    display: none;
+  }
 }
 
 /* ==========================================
-   7. TESTIMONIALS SECTION
+   7. TESTIMONIALS SECTION (matches About / Why Choose Us palette)
    ========================================== */
 .testimonials-section {
-  @apply py-32 bg-brand-bg;
+  @apply py-32;
+  background-color: #f8fafc;
 }
 
 .testimonials-grid-wrapper {
-  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10;
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8;
 }
 
 .testimonial-card {
-  @apply p-10 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm flex flex-col gap-8 text-left relative transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  @apply p-8 rounded-2xl bg-white flex flex-col gap-6 text-left relative overflow-hidden;
+  border: 1px solid rgba(15, 42, 90, 0.08);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.04),
+    0 10px 24px -14px rgba(15, 42, 90, 0.1);
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(23, 53, 122, 0.18);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.05),
+    0 20px 42px -18px rgba(15, 42, 90, 0.22),
+    0 14px 28px -18px rgba(23, 53, 122, 0.14);
+}
+
+.testimonial-source {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 22px;
+  height: 22px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.testimonial-source-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .testimonial-stars {
@@ -359,38 +899,118 @@
 }
 
 .testimonial-quote {
-  @apply text-lg text-slate-600 italic leading-relaxed flex-grow;
+  @apply text-[15px] md:text-base leading-relaxed flex-grow;
+  color: #334155;
+  font-style: normal;
+}
+
+.testimonial-read-more {
+  @apply ml-1 text-xs font-semibold uppercase tracking-wider;
+  color: #17357a;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+
+.testimonial-read-more:hover {
+  color: #0f2557;
+  text-decoration: underline;
 }
 
 .testimonial-author-box {
-  @apply flex items-center gap-3 border-t border-slate-100 pt-4;
+  @apply flex items-center gap-3 pt-5;
+  border-top: 1px solid rgba(15, 42, 90, 0.08);
 }
 
 .testimonial-avatar-placeholder,
 .testimonial-avatar-initials {
-  @apply w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold text-sm text-white uppercase shrink-0;
-  border: 1px solid rgba(0, 87, 255, 0.4);
+  @apply w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm text-white uppercase shrink-0;
+  background: linear-gradient(135deg, #17357a 0%, #0f2557 100%);
+  border: 1px solid rgba(23, 53, 122, 0.25);
+  box-shadow: 0 4px 10px -4px rgba(23, 53, 122, 0.35);
+}
+
+.testimonial-author-meta {
+  @apply flex flex-col;
+  min-width: 0;
 }
 
 .testimonial-author-name {
-  @apply text-lg font-bold text-primary;
+  @apply text-base font-bold;
+  color: #17357a;
+  line-height: 1.2;
 }
 
 .testimonial-author-role {
-  @apply text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5;
+  @apply text-[11px] font-bold uppercase tracking-wider mt-0.5;
+  color: rgba(15, 42, 90, 0.55);
+}
+
+.testimonial-author-date {
+  @apply text-[11px] mt-0.5;
+  color: rgba(15, 42, 90, 0.4);
+}
+
+/* Softer navy scoped to the testimonials section headline */
+.testimonials-section .section-headline-dark {
+  color: #17357a;
 }
 
 /* ==========================================
    9. FINAL CTA BANNER
    ========================================== */
 .cta-banner-section {
-  @apply py-28 text-center text-white relative overflow-hidden;
-  background-color: var(--primary-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  @apply relative overflow-hidden text-center text-white;
+  padding: 108px 0 96px;
+  margin-top: -52px;
+  z-index: 5;
+  border-radius: 32px 32px 0 0;
+  background:
+    radial-gradient(ellipse 90% 120% at 50% 0%, rgba(28, 63, 142, 0.9) 0%, rgba(15, 42, 90, 0.98) 55%, #0b2e6f 100%);
+  box-shadow: 0 -22px 44px -20px rgba(0, 0, 0, 0.22);
+}
+
+.cta-banner-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(78vw, 780px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.04;
+}
+
+.cta-banner-watermark img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cta-banner-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80vw, 700px);
+  height: 320px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(229, 172, 36, 0.08) 0%,
+    rgba(229, 172, 36, 0.03) 40%,
+    transparent 70%
+  );
 }
 
 .cta-banner-container {
-  @apply container mx-auto px-6 relative z-10 max-w-3xl flex flex-col items-center gap-6;
+  @apply container mx-auto px-6 relative z-10 max-w-3xl flex flex-col items-center;
+  gap: 22px;
 }
 
 .cta-banner-title {
@@ -399,10 +1019,12 @@
 
 .cta-banner-subtitle {
   @apply text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed;
+  margin-top: 4px;
 }
 
 .cta-banner-group {
-  @apply flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto justify-center;
+  @apply flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center;
+  margin-top: 14px;
 }
 
 /* ==========================================
@@ -441,19 +1063,76 @@
    ========================================== */
 .home-about-img-wrap {
   @apply relative w-full max-w-md;
+  animation: aboutImgFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes aboutImgFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
 .home-about-main-img {
-  @apply w-full rounded-2xl object-cover shadow-xl;
+  @apply w-full rounded-2xl object-cover;
   height: 400px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow:
+    0 30px 60px -25px rgba(15, 42, 90, 0.35),
+    0 16px 30px -18px rgba(15, 42, 90, 0.22),
+    0 0 0 4px rgba(59, 130, 246, 0.04);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+.home-about-img-wrap:hover .home-about-main-img {
+  transform: scale(1.03);
+  box-shadow:
+    0 38px 70px -25px rgba(15, 42, 90, 0.4),
+    0 20px 38px -18px rgba(15, 42, 90, 0.28),
+    0 0 0 4px rgba(59, 130, 246, 0.06);
 }
 
 .home-about-float-img {
   @apply absolute -bottom-8 -right-8 w-44 h-36 rounded-xl object-cover shadow-2xl border-4 border-white hidden lg:block;
 }
 
+/* Glassmorphism floating info card over the image (blue-tinted, brand-aligned) */
 .about-visual-overlay-card {
-  @apply absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-primary/95 backdrop-blur border border-white/10 flex items-center gap-4 text-left shadow-2xl z-10;
+  @apply absolute left-5 right-5 flex items-center gap-3 text-left z-10;
+  bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(226, 236, 255, 0.72) 100%
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 12px 32px rgba(15, 42, 90, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.about-visual-overlay-icon {
+  @apply flex items-center justify-center shrink-0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #17357a 0%, #0b2e6f 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 46, 111, 0.3);
+}
+
+.about-visual-overlay-title {
+  @apply text-[10px] uppercase tracking-widest font-bold;
+  color: #17357a;
+}
+
+.about-visual-overlay-detail {
+  @apply text-[12px] font-semibold;
+  color: #0b2e6f;
 }
 
 .home-about-stat-row {
@@ -462,6 +1141,16 @@
 
 .home-about-stat-pill {
   @apply flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-white border border-[#E5E7EB];
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.home-about-stat-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px -16px rgba(15, 42, 90, 0.28);
+}
+
+.home-about-stat-icon {
+  @apply w-4 h-4 text-primary mb-1 opacity-80;
 }
 
 .home-about-stat-num {
@@ -470,4 +1159,39 @@
 
 .home-about-stat-label {
   @apply text-xs uppercase tracking-widest text-slate-500 font-semibold;
+}
+
+/* CTA arrow animation (scoped to about-preview CTA only) */
+.about-cta-arrow {
+  transition: transform 0.3s ease;
+}
+
+.about-cta-btn:hover .about-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Softer navy blue scoped to the About Preview section (easier on the eyes) */
+.about-preview-section .home-about-stat-num,
+.about-preview-section :is(h1, h2, h3).text-primary,
+.about-preview-section .section-headline-dark {
+  color: #17357a;
+}
+
+.about-preview-section .btn-glow-gold {
+  background-color: #17357a;
+  box-shadow: 0 4px 12px rgba(23, 53, 122, 0.22);
+}
+
+.about-preview-section .btn-glow-gold:hover {
+  background-color: #0f2557;
+  box-shadow: 0 0 20px rgba(229, 172, 36, 0.5), 0 4px 12px rgba(23, 53, 122, 0.28);
+}
+
+.about-preview-section .home-about-stat-icon {
+  color: #17357a;
+}
+
+/* Extra breathing room between the "About Our Company" badge and the section heading */
+.about-preview-section .section-tag-gold {
+  margin-bottom: 10px;
 }

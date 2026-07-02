@@ -28,6 +28,7 @@ interface ServicePortfolioCard {
   description: string;
   imageBg: string;
   linkTo: string;
+  icon?: string;
 }
 
 interface ServicePortfolioContent {
@@ -155,6 +156,7 @@ export const HOME_CONTENT: HomeContent = {
           "Professional trained security personnel for commercial, industrial, residential, institutional and corporate environments.",
         imageBg: "https://images.unsplash.com/photo-1485230405346-71acb9518d9c?auto=format&fit=crop&w=600&q=80",
         linkTo: "/services#security-services",
+        icon: "ShieldCheck",
       },
       {
         id: "bouncer-services",
@@ -163,6 +165,7 @@ export const HOME_CONTENT: HomeContent = {
           "Professional event security and crowd management for hotels, clubs, weddings, VIP events and private functions.",
         imageBg: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
         linkTo: "/services#bouncer-services",
+        icon: "Users",
       },
       {
         id: "housekeeping-services",
@@ -171,6 +174,7 @@ export const HOME_CONTENT: HomeContent = {
           "Reliable housekeeping and facility support services for offices, commercial buildings and residential properties.",
         imageBg: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80",
         linkTo: "/services#housekeeping-services",
+        icon: "Sparkles",
       },
     ],
   },
@@ -311,6 +315,8 @@ export const HOME_CONTENT: HomeContent = {
         author: "Rajesh Patil",
         role: "Society Chairman, Sangli",
         rating: 5,
+        date: "2 months ago",
+        source: "google",
       },
       {
         id: "rev-2",
@@ -319,6 +325,8 @@ export const HOME_CONTENT: HomeContent = {
         author: "Sneha Kulkarni",
         role: "Event Manager, Sangli",
         rating: 5,
+        date: "5 months ago",
+        source: "google",
       },
       {
         id: "rev-3",
@@ -327,6 +335,8 @@ export const HOME_CONTENT: HomeContent = {
         author: "Mahesh Desai",
         role: "Operations Head, Vishrambag",
         rating: 5,
+        date: "8 months ago",
+        source: "google",
       },
     ],
   },

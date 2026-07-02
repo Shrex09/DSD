@@ -28,10 +28,15 @@ interface LeadershipContent {
   members: LeadershipMember[];
 }
 
+interface CertificationItem {
+  title: string;
+  description: string;
+}
+
 interface CertificationsContent {
   badge: string;
   title: string;
-  items: string[];
+  items: CertificationItem[];
 }
 
 interface AboutContent {
@@ -111,11 +116,26 @@ export const ABOUT_CONTENT: AboutContent = {
     badge: "Why Trust Us",
     title: "Built on Accountability",
     items: [
-      "Licensed security agency operating in Maharashtra",
-      "Trained & uniformed security personnel",
-      "24/7 operations and rapid response capability",
-      "Serving 500+ clients across Sangli and surrounding regions",
-      "6+ years of professional security experience",
+      {
+        title: "Licensed & Compliant",
+        description:
+          "Fully authorised to operate as a private security agency in Maharashtra, with all statutory registrations in order.",
+      },
+      {
+        title: "Verified Personnel",
+        description:
+          "Every officer undergoes background verification, uniform discipline training, and post-order briefing before deployment.",
+      },
+      {
+        title: "Transparent Operations",
+        description:
+          "Signed shift logs, incident reports, and supervisor check-ins keep every deployment fully accountable.",
+      },
+      {
+        title: "Rooted Locally",
+        description:
+          "Headquartered in Vishrambag, Sangli — familiar with every zone, neighbourhood, and route we protect.",
+      },
     ],
   },
 };

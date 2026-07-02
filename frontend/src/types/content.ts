@@ -26,6 +26,8 @@ export interface Testimonial {
   author: string;
   role: string;
   rating: number;
+  date?: string;
+  source?: "google" | "manual";
 }
 
 export interface IndustryCard {

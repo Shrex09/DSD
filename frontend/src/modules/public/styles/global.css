@@ -85,6 +85,20 @@
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
+/* Shared SectionHeader typography (used across every page) */
+.section-tag-gold {
+  @apply text-sm font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-2;
+}
+
+.section-tag-gold::before {
+  content: "";
+  @apply w-6 h-0.5 bg-accent inline-block;
+}
+
+.section-headline-dark {
+  @apply text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-primary leading-tight;
+}
+
 /* Shared CTA buttons (used across Home, About, Services) */
 .btn-glow-gold {
   @apply px-7 py-3.5 bg-primary hover:bg-primary-dark text-white font-bold uppercase tracking-widest text-base rounded-lg transition-all duration-300 inline-flex items-center justify-center gap-2 hover:-translate-y-0.5 select-none;

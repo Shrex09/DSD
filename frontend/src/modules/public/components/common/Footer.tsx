@@ -66,11 +66,20 @@ const Footer = (): React.JSX.Element => {
       {/* Thin gold accent line at very top */}
       <div className="footer-accent-strip" aria-hidden="true" />
 
+      {/* Faint oversized DSD watermark */}
+      <div className="footer-watermark" aria-hidden="true">
+        <img src="/logos/logo-hero-clean.png" alt="" />
+      </div>
+
       <div className="footer-grid">
         {/* Column 1: Brand */}
         <div className="footer-brand-col">
           <Link to="/" className="footer-brand-logo flex items-center mb-2" aria-label="DSD Home">
-            <img src={companyConfig.logos.light} alt="DSD Security Services Logo" className="h-16 w-auto object-contain" />
+            <img
+              src="/logos/logo-hero-clean.png"
+              alt="DSD Security Services Logo"
+              className="h-20 w-auto object-contain"
+            />
           </Link>
 
           <p className="footer-brand-desc">

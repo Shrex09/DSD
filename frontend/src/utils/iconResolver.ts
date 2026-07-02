@@ -24,6 +24,7 @@ import {
   ShieldAlert,
   Menu,
   X,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -57,6 +58,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   ShieldAlert,
   Menu,
   X,
+  Sparkles,
 };
 
 /**
