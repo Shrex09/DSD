@@ -15,10 +15,10 @@
   @apply absolute inset-0 z-10;
   background: linear-gradient(
     105deg,
-    rgba(8, 14, 35, 0.92) 0%,
-    rgba(8, 14, 35, 0.78) 40%,
-    rgba(8, 14, 35, 0.3) 75%,
-    rgba(8, 14, 35, 0.1) 100%
+    rgba(0, 62, 153, 0.92) 0%,
+    rgba(0, 62, 153, 0.78) 40%,
+    rgba(0, 62, 153, 0.3) 75%,
+    rgba(0, 62, 153, 0.1) 100%
   );
 }
 
@@ -127,7 +127,7 @@
    3. ABOUT PREVIEW SECTION
    ========================================== */
 .about-preview-section {
-  @apply py-28 bg-brand-bg;
+  @apply py-32 bg-brand-bg;
 }
 
 .about-preview-container {
@@ -148,7 +148,7 @@
 .about-visual-box::before {
   content: "";
   @apply absolute inset-0 z-0;
-  background: linear-gradient(180deg, rgba(10, 17, 40, 0.2) 0%, rgba(10, 17, 40, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(0, 62, 153, 0.2) 0%, rgba(0, 62, 153, 0.6) 100%);
 }
 
 .about-visual-shield {
@@ -190,7 +190,7 @@
    4. SERVICE PORTFOLIO SECTION
    ========================================== */
 .service-portfolio-section {
-  @apply py-28 bg-brand-bg-light;
+  @apply py-32 bg-brand-bg;
 }
 
 .portfolio-header-box {
@@ -215,7 +215,7 @@
 }
 
 .portfolio-card {
-  @apply relative rounded overflow-hidden shadow-md bg-primary min-h-[400px] flex flex-col transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+  @apply relative rounded-2xl overflow-hidden shadow-sm bg-primary min-h-[400px] flex flex-col transition-all duration-500 hover:shadow-md hover:-translate-y-1;
 }
 
 .portfolio-card-link-wrapper {
@@ -238,9 +238,9 @@
   @apply absolute inset-0 transition-opacity duration-300;
   background: linear-gradient(
     to top,
-    rgba(8, 14, 35, 0.95) 0%,
-    rgba(8, 14, 35, 0.6) 50%,
-    rgba(8, 14, 35, 0.1) 100%
+    rgba(0, 57, 166, 0.95) 0%,
+    rgba(0, 57, 166, 0.6) 50%,
+    rgba(0, 57, 166, 0.1) 100%
   );
 }
 
@@ -257,7 +257,7 @@
 }
 
 .portfolio-card:hover .portfolio-card-title {
-  @apply text-accent;
+  @apply text-primary-light;
 }
 
 .portfolio-card-desc {
@@ -280,7 +280,7 @@
    5. WHY CHOOSE US SECTION
    ========================================== */
 .why-choose-section {
-  @apply py-28 bg-brand-bg;
+  @apply py-32 bg-brand-bg-light;
 }
 
 .why-choose-container {
@@ -296,11 +296,11 @@
 }
 
 .why-choose-card {
-  @apply p-8 rounded bg-slate-50 border border-slate-100 flex flex-col gap-4 text-left transition-all duration-300 hover:bg-white hover:shadow-md hover:border-slate-200;
+  @apply p-8 rounded-2xl bg-white border border-[#E5E7EB] flex flex-col gap-4 text-left transition-all duration-300 hover:shadow-md hover:border-slate-200 hover:-translate-y-1;
 }
 
 .why-choose-card-icon {
-  @apply text-accent w-8 h-8;
+  @apply text-primary w-8 h-8;
 }
 
 .why-choose-card-title {
@@ -315,43 +315,43 @@
    6. STATISTICS SECTION
    ========================================== */
 .stats-section {
-  @apply relative py-28 overflow-hidden;
-  background-color: var(--primary-color);
+  @apply relative py-32 overflow-hidden;
+  background-color: var(--secondary-color);
 }
 
 .stats-grid-wrapper {
-  @apply container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 text-center;
+  @apply container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 text-center;
 }
 
 .stat-item-box {
-  @apply flex flex-col items-center gap-2;
+  @apply flex flex-col items-center gap-3 p-8 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
 }
 
 .stat-icon {
-  @apply text-accent/30 w-10 h-10 mb-2;
+  @apply text-primary w-10 h-10 mb-2;
 }
 
 .stat-number {
-  @apply text-5xl md:text-6xl font-black text-white tracking-tight;
+  @apply text-5xl md:text-6xl font-black text-primary tracking-tight;
 }
 
 .stat-label {
-  @apply text-base md:text-lg font-bold uppercase tracking-wider text-slate-400;
+  @apply text-base md:text-lg font-bold uppercase tracking-wider text-slate-600;
 }
 
 /* ==========================================
    7. TESTIMONIALS SECTION
    ========================================== */
 .testimonials-section {
-  @apply py-28 bg-brand-bg-light;
+  @apply py-32 bg-brand-bg;
 }
 
 .testimonials-grid-wrapper {
-  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8;
+  @apply container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10;
 }
 
 .testimonial-card {
-  @apply p-10 rounded bg-white border border-slate-100 shadow-sm flex flex-col gap-8 text-left relative transition-all duration-300 hover:shadow-md;
+  @apply p-10 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm flex flex-col gap-8 text-left relative transition-all duration-300 hover:shadow-md hover:-translate-y-1;
 }
 
 .testimonial-stars {
@@ -369,7 +369,7 @@
 .testimonial-avatar-placeholder,
 .testimonial-avatar-initials {
   @apply w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold text-sm text-white uppercase shrink-0;
-  border: 1px solid rgba(214, 175, 55, 0.4);
+  border: 1px solid rgba(0, 87, 255, 0.4);
 }
 
 .testimonial-author-name {
@@ -409,23 +409,23 @@
    10. INDUSTRIES WE PROTECT
    ========================================== */
 .industries-protect-section {
-  @apply py-28 bg-brand-bg;
+  @apply py-32 bg-brand-bg;
 }
 
 .industries-grid-wrapper {
-  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12;
+  @apply container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12;
 }
 
 .industry-card-item {
-  @apply p-8 rounded bg-slate-50 border border-slate-100 text-left flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md hover:border-accent/15;
+  @apply p-8 rounded-2xl bg-white border border-[#E5E7EB] text-left flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/20;
 }
 
 .industry-card-icon-box {
-  @apply p-3 bg-primary/5 text-primary rounded-sm w-fit transition-colors duration-300;
+  @apply p-3 bg-primary/5 text-primary rounded-xl w-fit transition-colors duration-300;
 }
 
 .industry-card-item:hover .industry-card-icon-box {
-  @apply bg-accent text-primary;
+  @apply bg-primary text-white;
 }
 
 .industry-card-title {
@@ -461,7 +461,7 @@
 }
 
 .home-about-stat-pill {
-  @apply flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-100;
+  @apply flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-white border border-[#E5E7EB];
 }
 
 .home-about-stat-num {

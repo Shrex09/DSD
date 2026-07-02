@@ -114,7 +114,7 @@ const Home = (): React.JSX.Element => {
       {/* ==========================================
          1. HERO SECTION (Redesigned Corporate Presentation)
          ========================================== */}
-      <section className="home-hero bg-[#080e23]">
+      <section className="home-hero bg-primary-dark">
         {/* background video loop (merged sequential playback) */}
         <video
           ref={videoRef}
@@ -126,15 +126,41 @@ const Home = (): React.JSX.Element => {
           className="home-hero-video absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none select-none"
         />
 
+        {/* Subtle background watermark */}
+        <div
+          className="absolute inset-0 opacity-[0.06] flex items-center justify-center select-none pointer-events-none z-0"
+          aria-hidden="true"
+        >
+          <img
+            src={companyConfig.logos.light}
+            alt=""
+            className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] object-contain"
+          />
+        </div>
+
         <div className="home-hero-overlay" aria-hidden="true" />
 
         <div className="home-hero-container">
+          {/* Logo above the hero title */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-2 flex items-center"
+          >
+            <img
+              src={companyConfig.logos.light}
+              alt="DSD Official Logo"
+              className="h-[105px] w-auto object-contain select-none"
+            />
+          </motion.div>
+
           {/* Small lightweight label */}
           <motion.span
             className="hero-label-uppercase"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             Professional Security Services
           </motion.span>

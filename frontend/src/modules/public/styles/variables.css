@@ -1,22 +1,24 @@
 :root {
   /* Color Palette - Security / Corporate Premium Theme */
-  --primary-color: #0a1128; /* Deep Navy Blue */
-  --primary-light: #1c2541; /* Medium Navy Blue */
-  --primary-dark: #000814; /* Pitch Dark Navy */
+  --primary-color: #0057FF; /* Primary Blue - vibrant corporate blue */
+  --primary-light: #f2f7ff; /* Light Blue */
+  --primary-dark: #0b2e6f; /* Dark Navy - extracted from brand logo */
 
-  --secondary-color: #f4f5f7; /* Light Slate Gray */
+  --secondary-color: #f4f8ff; /* Very Light Blue background */
   --secondary-dark: #e2e8f0; /* Border Gray */
 
-  --accent-color: #d4af37; /* Gold Accent */
-  --accent-hover: #aa800b; /* Darker Gold */
-  --accent-light: #f3e5ab; /* Soft Light Gold */
+  --accent-color: #e5ac24; /* Official Gold Accent */
+  --accent-hover: #cb971c; /* Gold Hover Accent */
+  --accent-light: #fdf3d0; /* Soft Light Gold */
+  --silver-color: #b0aba0; /* Silver/Beige Accent */
 
   --bg-color: #ffffff; /* Pure White */
-  --bg-light: #f8fafc; /* Off-White */
+  --bg-light: #f8fafc; /* Soft Gray background */
+  --footer-bg: #0b2e6f; /* Dark Navy background */
 
-  --text-color: #1e293b; /* Slate Dark Text */
-  --text-muted: #64748b; /* Gray Text */
-  --text-light: #f8fafc; /* Light Gray Text for Navy Bg */
+  --text-color: #2d3748; /* Slate Dark Text for high contrast body */
+  --text-muted: #5b6472; /* Secondary slate text */
+  --text-light: #f8fafc; /* Light Gray Text */
   --text-white: #ffffff; /* White Text */
 
   /* Layout and Styling Helpers */

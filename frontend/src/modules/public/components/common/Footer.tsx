@@ -69,12 +69,8 @@ const Footer = (): React.JSX.Element => {
       <div className="footer-grid">
         {/* Column 1: Brand */}
         <div className="footer-brand-col">
-          <Link to="/" className="footer-brand-logo">
-            <ShieldCheck className="text-accent w-7 h-7 fill-accent/10" aria-hidden="true" />
-            <span>
-              {companyConfig.shortName}
-              <span className="text-accent">.</span>
-            </span>
+          <Link to="/" className="footer-brand-logo flex items-center mb-2" aria-label="DSD Home">
+            <img src={companyConfig.logos.light} alt="DSD Security Services Logo" className="h-16 w-auto object-contain" />
           </Link>
 
           <p className="footer-brand-desc">
