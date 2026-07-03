@@ -28,7 +28,7 @@ const Loader = ({ fullScreen = false, size = "md" }: LoaderProps): React.JSX.Ele
             {/* Soft gold/blue glow behind the logo */}
             <div className="absolute w-32 h-32 rounded-full bg-primary/10 blur-2xl animate-pulse-slow" />
             <img
-              src="/logos/logo-for-dark-bg.png"
+              src="/logos/logo-hero-clean.png"
               alt="DSD Official Logo"
               className="h-24 w-auto object-contain relative z-10 animate-pulse-slow"
               style={{

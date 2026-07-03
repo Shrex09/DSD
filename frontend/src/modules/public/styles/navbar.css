@@ -37,7 +37,11 @@
 }
 
 .nav-item-link {
-  @apply text-lg font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600 hover:text-primary;
+  @apply text-lg font-semibold tracking-wide transition-all duration-200 relative pb-1.5 text-slate-600;
+}
+
+.nav-item-link:hover {
+  color: #17357a;
 }
 
 .nav-item-link::after {
@@ -46,7 +50,8 @@
 }
 
 .nav-item-link.nav-active-link {
-  @apply text-primary font-bold;
+  @apply font-bold;
+  color: #17357a;
 }
 
 .nav-item-link.nav-active-link::after {
@@ -55,12 +60,18 @@
 
 /* Navbar CTA button */
 .nav-cta-btn {
-  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-base uppercase tracking-widest font-bold bg-primary text-white hover:bg-primary-dark transition-all duration-300 rounded-lg shadow-sm hover:shadow;
+  @apply hidden md:inline-flex items-center justify-center px-6 py-2.5 text-base uppercase tracking-widest font-bold text-white transition-all duration-300 rounded-lg shadow-sm hover:shadow;
+  background-color: #17357a;
+}
+
+.nav-cta-btn:hover {
+  background-color: #0f2557;
 }
 
 /* Mobile Toggle Hamburger */
 .mobile-toggle-btn {
-  @apply lg:hidden text-primary hover:text-accent p-1 transition-colors duration-200;
+  @apply lg:hidden hover:text-accent p-1 transition-colors duration-200;
+  color: #17357a;
 }
 
 /* Mobile Menu Panel Drawer */
@@ -100,12 +111,12 @@
 }
 
 .mobile-cta-primary {
-  background-color: var(--primary-color);
+  background-color: #17357a;
   color: #ffffff;
 }
 
 .mobile-cta-primary:hover {
-  background-color: var(--primary-dark);
+  background-color: #0f2557;
 }
 
 .mobile-cta-secondary {
