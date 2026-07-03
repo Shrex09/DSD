@@ -54,6 +54,27 @@ const CATEGORIES = [
   },
 ];
 
+/** Max tilt in degrees applied to a card as the pointer moves across it */
+const TILT_MAX_DEG = 6;
+
+/** Rotates a card toward the pointer for a subtle premium 3D depth effect */
+const handleTilt = (e: React.MouseEvent<HTMLDivElement>): void => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const px = (e.clientX - rect.left) / rect.width; // 0 → 1 (left → right)
+  const py = (e.clientY - rect.top) / rect.height; // 0 → 1 (top → bottom)
+  card.style.setProperty("--tilt-y", `${(px - 0.5) * 2 * TILT_MAX_DEG}deg`);
+  card.style.setProperty("--tilt-x", `${(0.5 - py) * 2 * TILT_MAX_DEG}deg`);
+};
+
+/** Resets a card back to flat when the pointer leaves */
+const resetTilt = (e: React.MouseEvent<HTMLDivElement>): void => {
+  const card = e.currentTarget;
+  card.style.setProperty("--tilt-x", "0deg");
+  card.style.setProperty("--tilt-y", "0deg");
+};
+
 const Services = (): React.JSX.Element => {
   const content = SERVICES_CONTENT;
   const { hash } = useLocation();
@@ -113,39 +134,50 @@ const Services = (): React.JSX.Element => {
                 viewport={{ once: true, margin: "-50px" }}
               >
                 {categoryItems.map((item) => (
-                  <motion.div key={item.id} className="service-catalog-card" variants={fadeInUp}>
-                    {/* Card Image */}
-                    <div className="service-card-image-wrap">
-                      <img
-                        src={item.imageBg}
-                        alt={item.title}
-                        className="service-card-img"
-                        loading="lazy"
-                        onError={(e) => {
-                          // Fallback if image path is not yet present
-                          e.currentTarget.src =
-                            "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80";
-                        }}
-                      />
-                      <div className="service-card-image-overlay" />
-                    </div>
+                  <motion.div
+                    key={item.id}
+                    className="service-card-motion"
+                    variants={fadeInUp}
+                    onMouseMove={handleTilt}
+                    onMouseLeave={resetTilt}
+                  >
+                    <div className="service-catalog-card">
+                      {/* Card Image */}
+                      <div className="service-card-image-wrap">
+                        <img
+                          src={item.imageBg}
+                          alt={item.title}
+                          className="service-card-img"
+                          loading="lazy"
+                          onError={(e) => {
+                            // Fallback if image path is not yet present
+                            e.currentTarget.src =
+                              "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80";
+                          }}
+                        />
+                        <div className="service-card-image-overlay" />
+                      </div>
 
-                    {/* Card Details */}
-                    <div className="service-card-details">
-                      <h3 className="service-card-title">{item.title}</h3>
-                      <p className="service-card-desc">{item.shortDescription}</p>
+                      {/* Card Details */}
+                      <div className="service-card-details">
+                        <h3 className="service-card-title">{item.title}</h3>
+                        <p className="service-card-desc">{item.shortDescription}</p>
 
-                      <Link
-                        to={`${ROUTES.CONTACT}?service=${encodeURIComponent(
-                          item.title
-                        )}&message=${encodeURIComponent(
-                          `Hi, I am interested in inquiring about your ${item.title}. Please provide more details.`
-                        )}`}
-                        className="service-card-enquire-btn btn-glow-gold"
-                      >
-                        <span>Enquire Now</span>
-                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </Link>
+                        <Link
+                          to={`${ROUTES.CONTACT}?service=${encodeURIComponent(
+                            item.title
+                          )}&message=${encodeURIComponent(
+                            `Hi, I am interested in inquiring about your ${item.title}. Please provide more details.`
+                          )}`}
+                          className="service-card-enquire-btn"
+                        >
+                          <span>Enquire Now</span>
+                          <ArrowRight
+                            className="service-card-enquire-arrow w-3.5 h-3.5"
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

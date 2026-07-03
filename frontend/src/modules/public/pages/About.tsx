@@ -103,6 +103,7 @@ const About = (): React.JSX.Element => {
           />
         </motion.div>
         <div className="about-hero-overlay" aria-hidden="true" />
+        <div className="about-hero-glow" aria-hidden="true" />
         <motion.div
           className="about-hero-side-logo"
           initial={{ opacity: 0, x: 40 }}
@@ -227,14 +228,37 @@ const About = (): React.JSX.Element => {
             viewport={{ once: true, margin: "-100px" }}
           >
             {missionVisionCards.map((card) => (
-              <motion.div key={card.id} className="about-mv-card-new" variants={fadeInUp}>
-                <div className="about-mv-card-accent" aria-hidden="true" />
-                <div className="about-mv-card-watermark" aria-hidden="true">
-                  <img src={HERO_LOGO} alt="" />
+              <motion.div
+                key={card.id}
+                className="about-mv-flip-card"
+                variants={fadeInUp}
+                tabIndex={0}
+                aria-label={`${card.label}: ${card.description}`}
+              >
+                <div className="about-mv-flip-inner">
+                  {/* Front face */}
+                  <div className="about-mv-flip-face about-mv-flip-front" aria-hidden="true">
+                    <div className="about-mv-card-accent" />
+                    <div className="about-mv-card-watermark">
+                      <img src={HERO_LOGO} alt="" />
+                    </div>
+                    <div className="about-mv-icon-wrap">{card.icon}</div>
+                    <h3 className="about-mv-flip-title">{card.label}</h3>
+                    <span className="about-mv-flip-hint">
+                      Hover to explore
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                  {/* Back face */}
+                  <div className="about-mv-flip-face about-mv-flip-back" aria-hidden="true">
+                    <div className="about-mv-card-accent" />
+                    <div className="about-mv-card-watermark">
+                      <img src={HERO_LOGO} alt="" />
+                    </div>
+                    <span className="about-mv-label">{card.label}</span>
+                    <p className="about-mv-flip-desc">{card.description}</p>
+                  </div>
                 </div>
-                <div className="about-mv-icon-wrap">{card.icon}</div>
-                <span className="about-mv-label">{card.label}</span>
-                <p className="about-mv-desc">{card.description}</p>
               </motion.div>
             ))}
           </motion.div>

@@ -88,7 +88,8 @@ const Contact = (): React.JSX.Element => {
       {/* ── HERO ── */}
       <section className="contact-hero">
         <div className="contact-hero-overlay" />
-        <img src="/images/guards/guard-assembly.jpg" alt="" className="contact-hero-bg" />
+        <img src="/images/hero/hero-main.jpg" alt="" className="contact-hero-bg" />
+        <div className="contact-hero-glow" aria-hidden="true" />
         <div className="contact-hero-content">
           <motion.span
             className="contact-hero-badge"
@@ -158,6 +159,8 @@ const Contact = (): React.JSX.Element => {
 
       {/* ── FORM + INFO ── */}
       <section className="contact-body">
+        {/* Large decorative DSD logo watermark embedded in the section background */}
+        <div className="contact-watermark" aria-hidden="true" />
         <div className="contact-body-grid">
 
           {/* FORM */}

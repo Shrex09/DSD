@@ -15,6 +15,35 @@
   background: linear-gradient(180deg, rgba(0, 62, 153, 0.65) 0%, rgba(0, 62, 153, 0.85) 100%);
 }
 
+/* Floating DSD logo in the top-right corner — sits above the glow layer,
+   clearly visible (matches the About hero logo) */
+.services-header-hero::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  right: 40px;
+  width: 92px;
+  height: 92px;
+  z-index: 20;
+  background-image: url("/logos/logo-hero-clean.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .services-header-hero::after {
+    top: 20px;
+    right: 20px;
+    width: 62px;
+    height: 62px;
+    opacity: 0.9;
+  }
+}
+
 .services-header-container {
   @apply container mx-auto px-6 relative z-10 max-w-2xl flex flex-col items-center gap-4;
 }
@@ -28,12 +57,62 @@
   @apply py-32 bg-white;
 }
 
+/* Section + FAQ headings in the deep navy (matches the enquire buttons) */
+.services-category-section .section-headline-dark,
+.faq-section .section-headline-dark {
+  color: #17357a;
+}
+
 .services-catalog-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
 }
 
+/* Wrapper holds the entrance animation; the inner card handles the 3D tilt */
+.service-card-motion {
+  height: 100%;
+  perspective: 1100px;
+}
+
 .service-catalog-card {
-  @apply rounded-2xl overflow-hidden border border-[#E5E7EB] shadow-sm bg-white flex flex-col transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-primary/20;
+  @apply relative rounded-2xl overflow-hidden border border-[#E5E7EB] shadow-sm bg-white flex flex-col;
+  height: 100%;
+  transform:
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    translateY(var(--lift, 0px));
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+/* Gold accent line that sweeps across the top edge on hover */
+.service-catalog-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 3;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-color) 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 450ms ease;
+}
+
+.service-catalog-card:hover {
+  --lift: -6px;
+  border-color: rgba(23, 53, 122, 0.22);
+  box-shadow:
+    0 28px 54px -20px rgba(15, 42, 90, 0.4),
+    0 14px 28px -16px rgba(23, 53, 122, 0.26);
+}
+
+.service-catalog-card:hover::before {
+  transform: scaleX(1);
 }
 
 .service-card-image-wrap {
@@ -56,12 +135,56 @@
   @apply opacity-0;
 }
 
+/* Soft navy gradient at the base of the image for depth */
+.service-card-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, rgba(11, 46, 111, 0.3) 100%);
+  opacity: 0.85;
+  transition: opacity 350ms ease;
+}
+
+.service-catalog-card:hover .service-card-image-wrap::after {
+  opacity: 1;
+}
+
+/* Diagonal glass sheen that fades in over the image on hover */
+.service-card-image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0) 38%
+  );
+  opacity: 0;
+  transition: opacity 450ms ease;
+}
+
+.service-catalog-card:hover .service-card-image-wrap::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-catalog-card {
+    transition: box-shadow 350ms ease, border-color 350ms ease;
+    transform: translateY(var(--lift, 0px));
+  }
+}
+
 .service-card-details {
-  @apply p-6 flex flex-col flex-grow gap-2 text-left;
+  @apply relative p-6 flex flex-col flex-grow gap-2 text-left;
 }
 
 .service-card-title {
-  @apply text-lg font-bold uppercase tracking-wider text-primary transition-colors duration-300;
+  @apply text-lg font-bold uppercase tracking-wider transition-colors duration-300;
+  color: #17357a;
 }
 
 .service-catalog-card:hover .service-card-title {
@@ -72,13 +195,32 @@
   @apply text-sm leading-relaxed text-slate-500 mb-4 flex-grow line-clamp-2;
 }
 
+/* Enquire button — deep navy gradient (the darker blue used for text),
+   gold glow and sliding arrow on hover */
 .service-card-enquire-btn {
-  @apply w-full py-3.5 mt-auto flex items-center justify-center gap-2 text-xs font-bold text-white uppercase tracking-widest bg-primary rounded-lg transition-all duration-300 hover:bg-primary-dark;
-  box-shadow: 0 4px 12px rgba(0, 87, 255, 0.15);
+  @apply w-full py-3.5 mt-auto flex items-center justify-center gap-2 text-xs font-bold text-white uppercase tracking-widest rounded-lg;
+  background: linear-gradient(135deg, #17357a 0%, #0f2557 100%);
+  box-shadow: 0 4px 12px rgba(15, 42, 90, 0.2);
+  transition:
+    background 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease;
 }
 
-.service-catalog-card:hover .service-card-enquire-btn {
-  box-shadow: 0 6px 16px rgba(0, 87, 255, 0.35);
+.service-card-enquire-btn:hover {
+  background: linear-gradient(135deg, #1c3f8e 0%, #0b2350 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(229, 172, 36, 0.4),
+    0 8px 18px rgba(15, 42, 90, 0.3);
+}
+
+.service-card-enquire-arrow {
+  transition: transform 300ms ease;
+}
+
+.service-card-enquire-btn:hover .service-card-enquire-arrow {
+  transform: translateX(4px);
 }
 
 /* FAQs Accordion Grid */
@@ -95,7 +237,8 @@
 }
 
 .faq-card-question {
-  @apply text-sm font-bold text-primary flex gap-2 items-start leading-snug;
+  @apply text-sm font-bold flex gap-2 items-start leading-snug;
+  color: #17357a;
 }
 
 .faq-card-answer {
