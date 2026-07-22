@@ -846,6 +846,120 @@
 }
 
 /* ==========================================
+   6b. CLIENTS MARQUEE (Trusted By)
+   ========================================== */
+.clients-section {
+  @apply relative overflow-hidden;
+  padding: 72px 0 64px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 42, 90, 0.06);
+}
+
+.clients-container {
+  @apply container mx-auto px-6;
+}
+
+.clients-header {
+  @apply flex flex-col items-center text-center mb-10;
+}
+
+.clients-eyebrow {
+  @apply uppercase tracking-[0.22em] text-xs font-semibold mb-2;
+  color: #b8892f;
+}
+
+.clients-title {
+  @apply text-2xl md:text-3xl font-semibold;
+  color: #0f2a5a;
+  letter-spacing: -0.01em;
+}
+
+.clients-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: clients-scroll 32s linear infinite;
+}
+
+.clients-marquee:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.clients-logo-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96px;
+  padding: 0 12px;
+}
+
+.clients-logo-img {
+  max-height: 100%;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: transform 220ms ease;
+  user-select: none;
+}
+
+.clients-logo-wrap:hover .clients-logo-img {
+  transform: scale(1.06);
+}
+
+@keyframes clients-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-track {
+    animation-duration: 90s;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 56px 0 48px;
+  }
+  .clients-logo-wrap {
+    height: 72px;
+  }
+  .clients-logo-img {
+    max-width: 140px;
+  }
+  .clients-track {
+    gap: 40px;
+    animation-duration: 26s;
+  }
+}
+
+/* ==========================================
    7. TESTIMONIALS SECTION (matches About / Why Choose Us palette)
    ========================================== */
 .testimonials-section {

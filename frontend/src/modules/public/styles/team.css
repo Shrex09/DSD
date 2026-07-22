@@ -1,0 +1,428 @@
+@reference "./global.css";
+
+/* ==========================================
+   TEAM PAGE — hierarchical org chart
+   ========================================== */
+
+/* ---------- HERO ---------- */
+.team-hero-section {
+  @apply relative overflow-hidden;
+  padding: 120px 0 80px;
+  background: linear-gradient(180deg, #0f2a5a 0%, #17357a 100%);
+  color: #ffffff;
+}
+
+.team-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 90% at 50% 30%,
+    rgba(59, 130, 246, 0.18) 0%,
+    rgba(59, 130, 246, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.team-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(184, 137, 47, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.team-hero-container {
+  @apply container mx-auto px-6 relative z-10 flex flex-col items-center text-center;
+}
+
+.team-hero-badge {
+  @apply uppercase tracking-[0.22em] text-xs font-semibold mb-3;
+  color: #e0b256;
+}
+
+.team-hero-title {
+  @apply text-3xl md:text-5xl font-black mb-4;
+  letter-spacing: -0.015em;
+}
+
+.team-hero-subtitle {
+  @apply text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed;
+}
+
+/* ---------- ORG SECTION ---------- */
+.team-org-section {
+  @apply relative;
+  padding: 80px 0 96px;
+  background: #f8fafc;
+}
+
+.team-org-header {
+  @apply container mx-auto px-6 mb-12;
+}
+
+/* Horizontal scroll wrapper so wide trees don't overflow the viewport on tablet */
+.team-org-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 16px 40px;
+  scrollbar-width: thin;
+}
+
+.team-org-tree {
+  display: flex;
+  justify-content: center;
+  min-width: max-content;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- TREE LISTS ---------- */
+.team-root-list,
+.team-children {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-root-list {
+  display: flex;
+  justify-content: center;
+}
+
+.team-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Children row (desktop) — siblings side by side */
+.team-children {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 44px;
+  position: relative;
+}
+
+/* ---------- CONNECTORS (desktop) ---------- */
+
+/* Vertical stub down from parent card into the gap above children */
+.team-node:has(> .team-children) > .team-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  width: 2px;
+  height: 22px;
+  background: #c9d3e3;
+  transform: translateX(-1px);
+}
+
+/* Per-child: vertical stub from horizontal down to card top */
+.team-children > .team-node::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 2px;
+  height: 22px;
+  background: #c9d3e3;
+  transform: translateX(-1px);
+}
+
+/* Per-child: horizontal segment; first/last are trimmed to their center */
+.team-children > .team-node::after {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #c9d3e3;
+}
+.team-children > .team-node:first-child::after {
+  left: 50%;
+}
+.team-children > .team-node:last-child::after {
+  right: 50%;
+}
+.team-children > .team-node:only-child::after {
+  display: none;
+}
+
+/* ---------- CARDS ---------- */
+.team-card {
+  position: relative;
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 42, 90, 0.08);
+  border-radius: 16px;
+  padding: 22px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.04),
+    0 10px 24px -14px rgba(15, 42, 90, 0.1);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.team-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(184, 137, 47, 0.35);
+  box-shadow:
+    0 4px 8px rgba(15, 42, 90, 0.06),
+    0 18px 40px -18px rgba(15, 42, 90, 0.2);
+}
+
+/* Toggle button (chevron) */
+.team-toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(15, 42, 90, 0.06);
+  color: #0f2a5a;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    transform 220ms ease;
+}
+.team-toggle-btn:hover {
+  background: rgba(184, 137, 47, 0.15);
+  color: #b8892f;
+}
+.team-toggle-open {
+  transform: rotate(180deg);
+}
+
+/* Avatar */
+.team-avatar-wrap {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #eaf0fa 0%, #f7f4ec 100%);
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 0 0 2px rgba(184, 137, 47, 0.25),
+    0 6px 14px -6px rgba(15, 42, 90, 0.25);
+}
+.team-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 24px;
+  color: #0f2a5a;
+  letter-spacing: 0.03em;
+}
+
+/* Text */
+.team-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f2a5a;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+.team-designation {
+  font-size: 13px;
+  font-weight: 600;
+  color: #b8892f;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.team-qualification {
+  font-size: 11.5px;
+  color: #64748b;
+  margin: 0 0 8px;
+  line-height: 1.35;
+  font-style: italic;
+}
+.team-department-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0f2a5a;
+  background: rgba(15, 42, 90, 0.06);
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ---------- GROUP CARDS (Operations / Training buckets) ---------- */
+.team-card-group {
+  width: 200px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #0f2a5a 0%, #17357a 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow:
+    0 6px 20px -10px rgba(15, 42, 90, 0.4);
+}
+.team-card-group:hover {
+  border-color: rgba(184, 137, 47, 0.6);
+}
+.team-card-group .team-toggle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+.team-card-group .team-toggle-btn:hover {
+  background: rgba(224, 178, 86, 0.4);
+  color: #ffffff;
+}
+.team-group-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(224, 178, 86, 0.2);
+  color: #e0b256;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.team-group-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.team-group-sub {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* ---------- MOBILE: collapse tree to vertical accordion ---------- */
+@media (max-width: 768px) {
+  .team-hero-section {
+    padding: 96px 0 56px;
+  }
+
+  .team-org-section {
+    padding: 56px 0 72px;
+  }
+
+  .team-org-scroll {
+    overflow-x: visible;
+    padding: 8px 0 24px;
+  }
+
+  .team-org-tree {
+    min-width: 0;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .team-root-list {
+    width: 100%;
+  }
+
+  /* Vertical stack — no side-by-side */
+  .team-children {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-top: 12px;
+    padding-left: 20px;
+    border-left: 2px dashed rgba(15, 42, 90, 0.15);
+    margin-left: 24px;
+  }
+
+  /* Hide all desktop connectors on mobile — dashed vertical rule replaces them */
+  .team-node:has(> .team-children) > .team-card::after,
+  .team-children > .team-node::before,
+  .team-children > .team-node::after {
+    display: none;
+  }
+
+  .team-node {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .team-card,
+  .team-card-group {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .team-avatar-wrap {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .team-avatar-fallback {
+    font-size: 18px;
+  }
+
+  .team-name,
+  .team-designation,
+  .team-qualification,
+  .team-department-badge,
+  .team-group-title,
+  .team-group-sub {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .team-department-badge {
+    align-self: flex-start;
+  }
+
+  .team-card-group .team-group-icon {
+    margin-bottom: 0;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .team-toggle-btn {
+    position: static;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-toggle-btn {
+    transition: none;
+  }
+  .team-card:hover {
+    transform: none;
+  }
+}

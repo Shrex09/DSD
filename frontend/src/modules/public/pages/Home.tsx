@@ -613,6 +613,51 @@ const Home = (): React.JSX.Element => {
       )}
 
       {/* ==========================================
+         6b. CLIENTS MARQUEE (Trusted By)
+         ========================================== */}
+      <section className="clients-section" aria-labelledby="clients-heading">
+        <div className="clients-container">
+          <motion.div
+            className="clients-header"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="clients-eyebrow">Our Clients</span>
+            <h2 id="clients-heading" className="clients-title">
+              Trusted by leading organizations
+            </h2>
+          </motion.div>
+
+          <div
+            className="clients-marquee"
+            role="list"
+            aria-label="Clients we serve"
+          >
+            <div className="clients-track">
+              {[1, 2, 3, 4,1, 2, 3, 4].map((n, idx) => (
+                <div
+                  key={`${n}-${idx}`}
+                  className="clients-logo-wrap"
+                  role="listitem"
+                  aria-hidden={idx >= 4 ? "true" : undefined}
+                >
+                  <img
+                    src={`/images/clients/${n}.jpeg`}
+                    alt={idx < 4 ? `Client ${n}` : ""}
+                    className="clients-logo-img"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
          7. TESTIMONIALS SECTION
          ========================================== */}
       {content.testimonials.reviews && content.testimonials.reviews.length > 0 && (

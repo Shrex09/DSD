@@ -7,6 +7,7 @@ export const ROUTES = {
   ABOUT: "/about",
   SERVICES: "/services",
   GUARDS: "/guards",
+  TEAM: "/team",
   CONTACT: "/contact",
   // Error pages
   FORBIDDEN: "/403",

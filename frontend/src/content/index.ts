@@ -11,3 +11,4 @@ export * from "./guards";
 export * from "./home";
 export * from "./servicesCatalog";
 export * from "./services";
+export * from "./team";
