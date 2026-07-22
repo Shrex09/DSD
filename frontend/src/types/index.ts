@@ -13,3 +13,4 @@ export * from "./content";
 export * from "./guard";
 export * from "./navigation";
 export * from "./service";
+export * from "./team";

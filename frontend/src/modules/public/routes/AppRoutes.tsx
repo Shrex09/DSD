@@ -9,6 +9,7 @@ import { ROUTES } from "@/constants";
 const Home = lazy(() => import("@/modules/public/pages/Home"));
 const About = lazy(() => import("@/modules/public/pages/About"));
 const Services = lazy(() => import("@/modules/public/pages/Services"));
+const Team = lazy(() => import("@/modules/public/pages/Team"));
 const Contact = lazy(() => import("@/modules/public/pages/Contact"));
 const NotFound = lazy(() => import("@/modules/public/pages/NotFound"));
 const Forbidden = lazy(() => import("@/modules/public/pages/errors/Forbidden"));
@@ -28,6 +29,7 @@ const AppRoutes = (): React.JSX.Element => {
           <Route index element={<Home />} />
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.SERVICES} element={<Services />} />
+          <Route path={ROUTES.TEAM} element={<Team />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
 
           {/* Error pages (accessible via direct navigation) */}

@@ -5,12 +5,14 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Home", path: ROUTES.HOME },
   { label: "About Us", path: ROUTES.ABOUT },
   { label: "Services", path: ROUTES.SERVICES },
+  { label: "Our Team", path: ROUTES.TEAM },
   { label: "Contact Us", path: ROUTES.CONTACT },
 ];
 
 export const FOOTER_QUICK_LINKS: NavLink[] = [
   { label: "About Our Company", path: ROUTES.ABOUT },
   { label: "Security Services", path: ROUTES.SERVICES },
+  { label: "Our Team", path: ROUTES.TEAM },
   { label: "Get In Touch", path: ROUTES.CONTACT },
 ];
 
