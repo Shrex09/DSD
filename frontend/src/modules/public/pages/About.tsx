@@ -121,7 +121,7 @@ const About = (): React.JSX.Element => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Est. 2018 · Sangli, Maharashtra
+              Est. 2013 · Sangli, Maharashtra
             </motion.span>
             <motion.h1
               className="about-hero-title"
@@ -190,7 +190,7 @@ const About = (): React.JSX.Element => {
               />
               <div className="about-story-badge-pill">
                 <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
-                <span>Serving since 2018</span>
+                <span>Serving since 2013</span>
               </div>
             </motion.div>
           </motion.div>

@@ -183,7 +183,7 @@ export const HOME_CONTENT: HomeContent = {
     badge: "Why Choose Us",
     title: "Trusted Security, Proven Results",
     subtitle:
-      "DSD Security Services has been protecting businesses, residences, and events across Sangli since 2018 — with trained, uniformed personnel and round-the-clock support.",
+      "DSD Security Services has been protecting businesses, residences, and events across Sangli since 2013 — with trained, uniformed personnel and round-the-clock support.",
     cards: [
       {
         id: "why-1",
@@ -229,7 +229,7 @@ export const HOME_CONTENT: HomeContent = {
       {
         id: "stat-2",
         value: "500+",
-        label: "Clients Served",
+        label: "Total Security Guards",
         icon: "UserCheck",
       },
       {

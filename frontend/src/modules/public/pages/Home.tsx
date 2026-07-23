@@ -418,7 +418,7 @@ const Home = (): React.JSX.Element => {
               <motion.div className="home-about-stat-pill" variants={fadeInUp}>
                 <Users className="home-about-stat-icon" aria-hidden="true" />
                 <span className="home-about-stat-num">500+</span>
-                <span className="home-about-stat-label">Clients Served</span>
+                <span className="home-about-stat-label">Total Security Guards</span>
               </motion.div>
               <motion.div className="home-about-stat-pill" variants={fadeInUp}>
                 <Clock className="home-about-stat-icon" aria-hidden="true" />
