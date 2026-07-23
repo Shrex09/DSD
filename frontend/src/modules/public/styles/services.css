@@ -67,6 +67,48 @@
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
 }
 
+/* Mobile responsiveness for service cards */
+@media (max-width: 767px) {
+  .services-category-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .services-catalog-grid {
+    gap: 20px;
+  }
+
+  .service-catalog-card {
+    max-width: 100%;
+  }
+
+  .service-card-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-card-details {
+    padding: 16px;
+  }
+
+  .service-card-title {
+    font-size: 15px;
+  }
+
+  .service-card-enquire-btn {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .faq-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .faq-grid {
+    gap: 16px;
+  }
+}
+
 /* Wrapper holds the entrance animation; the inner card handles the 3D tilt */
 .service-card-motion {
   height: 100%;

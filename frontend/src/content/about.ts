@@ -52,7 +52,7 @@ export const ABOUT_CONTENT: AboutContent = {
     badge: "Our Story",
     title: "A Legacy of Trust and Vigilance",
     paragraphs: [
-      "DSD Security Services was established in 2018 in Vishrambag, Sangli, with a simple but powerful purpose — to provide reliable, professional security that people and businesses can truly count on.",
+      "DSD Security Services was established in 2013 in Vishrambag, Sangli, with a simple but powerful purpose — to provide reliable, professional security that people and businesses can truly count on.",
       "What started as a small team has grown into a trusted agency serving 500+ clients across Sangli and surrounding regions. We offer security guard services, bouncer services, and housekeeping — all delivered by trained, uniformed, and disciplined personnel.",
       "We remain committed to our founding principles: accountability, discipline, and genuine care for the safety of every client we serve.",
     ],

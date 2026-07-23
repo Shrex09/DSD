@@ -737,6 +737,11 @@
     gap: 18px;
   }
 
+  .team-executive-grid {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .team-card-featured {
     padding: 32px 22px 26px;
   }
@@ -756,12 +761,25 @@
 @media (max-width: 480px) {
   .team-panel-members {
     grid-template-columns: 1fr;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
   .team-executive-panel { padding: 32px 16px; }
   .team-panel { padding: 32px 16px 28px; }
+
+  .team-executive-grid {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .team-card,
+  .team-card-profile,
+  .team-card-featured,
+  .team-card-wide {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* ---------- REDUCED MOTION ---------- */

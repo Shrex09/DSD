@@ -4,13 +4,13 @@ export const companyConfig: CompanyConfig = {
   name: "DSD Security Services",
   shortName: "DSD",
   tagline: "Premium Security & Protection Services",
-  foundedYear: 2018,
+  foundedYear: 2013,
   description:
     "DSD Security Services is a leading provider of elite security solutions, offering tailored guarding, patrol, CCTV monitoring, and emergency response services to protect your assets and peace of mind.",
 
   contact: {
     address: "Shop No. 1, Near Dandekar Hall, S.T. Colony, Vishrambag, Sangli – 416415",
-    phone: "9665510514 / 8890488427",
+    phone: "9665510514 / 9890488427",
     phoneRaw: "9665510514",
     email: "dsd9665@gmail.com",
     supportEmail: "dsd9665@gmail.com",

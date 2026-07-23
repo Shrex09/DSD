@@ -35,7 +35,7 @@ export const CONTACT_CONTENT: ContactContent = {
     badge: "Our Office",
     title: "Headquarters",
     address: "Shop No. 1, Near Dandekar Hall, S.T. Colony, Vishrambag, Sangli – 416415",
-    phone: "9665510514 / 8890488427",
+    phone: "9665510514 / 9890488427",
     email: "dsd9665@gmail.com",
     hours: "24/7 Operations",
     officeHours: "Office: Mon – Sat, 9:00 AM – 6:00 PM",

@@ -141,6 +141,30 @@
   @apply w-1.5 h-1.5 bg-accent rounded-full animate-ping mt-1;
 }
 
+/* Mobile-only: strengthen overlay and text contrast so hero text stays readable
+   against the background video/image on narrow screens. Desktop is unaffected. */
+@media (max-width: 767px) {
+  .home-hero-overlay {
+    background: linear-gradient(
+      105deg,
+      rgba(0, 30, 100, 0.97) 0%,
+      rgba(0, 50, 140, 0.93) 50%,
+      rgba(0, 30, 100, 0.88) 100%
+    );
+  }
+
+  .hero-company-name,
+  .hero-tagline-lead {
+    text-shadow: 0 2px 12px rgba(0, 10, 40, 0.7);
+  }
+
+  .hero-description-short {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 10, 40, 0.6);
+  }
+}
+
+
 /* ==========================================
    2. FLOATING TRUST INDICATORS (Hero bottom overlap)
    ========================================== */
