@@ -52,7 +52,7 @@ const Footer = (): React.JSX.Element => {
 
           <p className="footer-brand-desc">
             Professional security, bouncer, and housekeeping services across Sangli and surrounding
-            regions. Trusted by 500+ clients since {companyConfig.foundedYear}.
+            regions. Trusted by 100+ clients since {companyConfig.foundedYear}.
           </p>
 
           <span className="footer-licensed-pill">
