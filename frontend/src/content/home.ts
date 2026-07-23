@@ -204,7 +204,7 @@ export const HOME_CONTENT: HomeContent = {
         icon: "MapPin",
         title: "Local Expertise",
         description:
-          "Based in Sangli, we understand the local environment and have been serving clients across the region for 6+ years.",
+          "Based in Sangli, we understand the local environment and have been serving clients across the region for 12+ years.",
       },
       {
         id: "why-4",
@@ -222,7 +222,7 @@ export const HOME_CONTENT: HomeContent = {
     items: [
       {
         id: "stat-1",
-        value: "6+",
+        value: "12+",
         label: "Years in Business",
         icon: "Award",
       },

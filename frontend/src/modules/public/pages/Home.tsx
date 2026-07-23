@@ -412,7 +412,7 @@ const Home = (): React.JSX.Element => {
             >
               <motion.div className="home-about-stat-pill" variants={fadeInUp}>
                 <Award className="home-about-stat-icon" aria-hidden="true" />
-                <span className="home-about-stat-num">6+</span>
+                <span className="home-about-stat-num">12+</span>
                 <span className="home-about-stat-label">Years Experience</span>
               </motion.div>
               <motion.div className="home-about-stat-pill" variants={fadeInUp}>
