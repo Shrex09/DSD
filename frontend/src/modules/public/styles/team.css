@@ -1,260 +1,647 @@
 @reference "./global.css";
 
 /* ==========================================
-   TEAM PAGE — hierarchical org chart
+   TEAM PAGE — sectioned leadership layout.
+   Every section is centered. Alternating
+   glass panels, blue gradients, and blurred
+   DSD watermarks give the page rhythm.
+   No tree, no connectors.
    ========================================== */
 
-/* ---------- HERO ---------- */
+/* ---------- HERO (matches About page structure) ---------- */
 .team-hero-section {
-  @apply relative overflow-hidden;
-  padding: 120px 0 80px;
-  background: linear-gradient(180deg, #0f2a5a 0%, #17357a 100%);
-  color: #ffffff;
+  @apply relative w-full flex items-center justify-center overflow-hidden py-32;
+  background-color: var(--primary-color);
+}
+
+.team-hero-bg-wrap {
+  position: absolute;
+  top: -8%;
+  bottom: -8%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 0;
+  will-change: transform;
+}
+
+.team-hero-bg-img {
+  @apply w-full h-full object-cover object-center;
+  transform-origin: center center;
+  animation: teamHeroKenBurns 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes teamHeroKenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
 
 .team-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 60% 90% at 50% 30%,
-    rgba(59, 130, 246, 0.18) 0%,
-    rgba(59, 130, 246, 0) 70%
+  @apply absolute inset-0 z-[1];
+  background: linear-gradient(
+    180deg,
+    rgba(0, 62, 153, 0.65) 0%,
+    rgba(0, 62, 153, 0.85) 100%
   );
-  pointer-events: none;
 }
 
 .team-hero-glow {
+  @apply absolute inset-0 z-[2] pointer-events-none;
+  background: radial-gradient(ellipse at center, var(--primary-light), transparent 70%);
+  opacity: 0.4;
+}
+
+.team-hero-side-logo {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(184, 137, 47, 0.05) 100%
-  );
+  top: 44px;
+  right: 44px;
+  z-index: 2;
   pointer-events: none;
+  user-select: none;
+  opacity: 0.55;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+}
+.team-hero-side-logo img {
+  width: 96px;
+  height: auto;
+  object-fit: contain;
 }
 
-.team-hero-container {
-  @apply container mx-auto px-6 relative z-10 flex flex-col items-center text-center;
+@media (max-width: 767px) {
+  .team-hero-side-logo {
+    top: 24px;
+    right: 20px;
+    opacity: 0.45;
+  }
+  .team-hero-side-logo img { width: 64px; }
 }
 
-.team-hero-badge {
-  @apply uppercase tracking-[0.22em] text-xs font-semibold mb-3;
-  color: #e0b256;
+.team-hero-content {
+  @apply relative z-10 w-full flex flex-col items-center text-center;
+}
+
+.team-hero-glass-panel {
+  @apply container mx-auto px-6 relative z-10 max-w-2xl flex flex-col items-center gap-4;
+}
+
+.team-hero-eyebrow {
+  @apply px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-full;
+  background: rgba(229, 172, 36, 0.1);
+  border: 1px solid rgba(229, 172, 36, 0.2);
+  color: var(--accent-color);
 }
 
 .team-hero-title {
-  @apply text-3xl md:text-5xl font-black mb-4;
-  letter-spacing: -0.015em;
+  @apply text-3xl md:text-5xl font-black text-white tracking-wider uppercase;
 }
-
+.team-hero-title-alt {
+  color: #ffffff;
+}
 .team-hero-subtitle {
-  @apply text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed;
+  @apply text-sm md:text-base text-slate-300 max-w-lg leading-relaxed;
 }
 
-/* ---------- ORG SECTION ---------- */
-.team-org-section {
-  @apply relative;
-  padding: 80px 0 96px;
-  background: #f8fafc;
+.team-hero-scroll {
+  @apply absolute left-1/2 z-[3] flex flex-col items-center gap-2 text-xs font-semibold uppercase;
+  bottom: 28px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.24em;
+}
+.team-hero-scroll-icon {
+  animation: teamScrollBounce 2s ease-in-out infinite;
+  color: var(--accent-color);
+}
+@keyframes teamScrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%      { transform: translateY(6px); opacity: 1; }
 }
 
-.team-org-header {
-  @apply container mx-auto px-6 mb-12;
+/* ==========================================
+   BODY — shared background field.
+   Individual sections layer their own
+   watermarks / gradients on top of this.
+   ========================================== */
+.team-body {
+  @apply relative overflow-hidden;
+  padding: 96px 0 120px;
+  background:
+    radial-gradient(ellipse 90% 60% at 10% 0%,   rgba(0, 87, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 90% 100%, rgba(229, 172, 36, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, #f5f8fd 0%, #eaf0fa 100%);
 }
 
-/* Horizontal scroll wrapper so wide trees don't overflow the viewport on tablet */
-.team-org-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 8px 16px 40px;
-  scrollbar-width: thin;
+.team-body-glow {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+}
+.team-body-glow-top    { top: -160px; left: -160px; background: rgba(0, 87, 255, 0.15); }
+.team-body-glow-mid    { top: 40%;    right: -180px; background: rgba(11, 46, 111, 0.12); }
+.team-body-glow-bottom { bottom: -220px; left: 20%;  background: rgba(229, 172, 36, 0.10); }
+
+/* ---------- SECTION HEADER (shared) ---------- */
+.team-section-header {
+  @apply container mx-auto px-6 relative z-10;
+  margin-bottom: 48px;
 }
 
-.team-org-tree {
+/* Provide vertical rhythm between the big sections */
+.team-executive-section,
+.team-dept-overview-section {
+  position: relative;
+  z-index: 1;
+}
+.team-dept-overview-section { margin-top: 112px; }
+.team-department-panels {
+  position: relative;
+  z-index: 1;
+  margin-top: 112px;
   display: flex;
-  justify-content: center;
-  min-width: max-content;
-  margin: 0 auto;
-  padding: 0 24px;
+  flex-direction: column;
+  gap: 88px;
 }
 
-/* ---------- TREE LISTS ---------- */
-.team-root-list,
-.team-children {
-  list-style: none;
-  padding: 0;
+/* ==========================================
+   EXECUTIVE PANEL — wide glass panel,
+   centered, blue gradient + DSD watermark
+   ========================================== */
+.team-executive-panel {
+  position: relative;
+  margin: 0 auto;
+  width: min(1120px, calc(100% - 48px));
+  padding: 72px 56px;
+  border-radius: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.72) 0%, rgba(232, 240, 255, 0.6) 100%);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(0, 87, 255, 0.14);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.05),
+    0 30px 60px -30px rgba(15, 42, 90, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.team-executive-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 340px));
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   DEPARTMENT OVERVIEW — 3 dept cards row,
+   centered, middle spotlighted
+   ========================================== */
+.team-dept-overview-grid {
+  @apply container mx-auto px-6 relative z-10;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 260px));
+  gap: 28px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.team-card-dept-overview {
+  padding: 32px 22px 26px;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 62, 153, 0.96) 0%,
+    rgba(11, 46, 111, 0.98) 60%,
+    rgba(4, 18, 43, 0.98) 100%
+  );
+  border: 1px solid rgba(140, 172, 235, 0.28);
+  color: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(6, 18, 45, 0.2),
+    0 22px 44px -18px rgba(6, 18, 45, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.team-card-dept-overview:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 172, 36, 0.5);
+  box-shadow:
+    0 1px 2px rgba(6, 18, 45, 0.25),
+    0 30px 60px -18px rgba(6, 18, 45, 0.6),
+    0 0 44px rgba(229, 172, 36, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Middle card — radial blue glow for visual focus */
+.team-card-dept-highlighted {
+  position: relative;
+}
+.team-card-dept-highlighted::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 87, 255, 0.35) 0%,
+    rgba(0, 87, 255, 0.12) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.team-dept-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, rgba(229, 172, 36, 0.24) 0%, rgba(229, 172, 36, 0.08) 100%);
+  border: 1px solid rgba(229, 172, 36, 0.4);
+  color: var(--accent-color);
+  box-shadow:
+    0 4px 14px -6px rgba(6, 18, 45, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.team-dept-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.team-dept-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(229, 172, 36, 0.9);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   DEPARTMENT PANELS (HR, Ops, Training)
+   ========================================== */
+.team-panel {
+  position: relative;
+  margin: 0 auto;
+  width: min(1180px, calc(100% - 48px));
+  padding: 64px 56px 56px;
+  border-radius: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.7) 0%, rgba(230, 238, 252, 0.58) 100%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(0, 87, 255, 0.12);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.05),
+    0 28px 60px -30px rgba(15, 42, 90, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Panel heading — icon + name + tagline */
+.team-panel-heading {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 87, 255, 0.12);
+}
+
+.team-department-marker {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 62, 153, 0.98) 0%,
+    rgba(11, 46, 111, 0.98) 100%
+  );
+  color: var(--accent-color);
+  border: 1px solid rgba(229, 172, 36, 0.4);
+  box-shadow:
+    0 8px 22px -10px rgba(6, 18, 45, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+}
+
+.team-department-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.team-department-eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.team-department-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0b2e6f;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 
-.team-root-list {
-  display: flex;
-  justify-content: center;
+.team-department-tagline {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.45;
+  margin: 4px 0 0;
+  max-width: 640px;
 }
 
-.team-node {
+/* Members grid — centered, wider cards */
+.team-panel-members {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Children row (desktop) — siblings side by side */
-.team-children {
-  display: flex;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  gap: 28px;
   justify-content: center;
-  gap: 40px;
-  padding-top: 44px;
+  align-items: stretch;
+}
+
+/* ---------- Panel variants: watermark / gradient / decorative ---------- */
+.team-panel-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.04;
+  filter: blur(1.5px);
+  width: min(70%, 640px);
+  aspect-ratio: 1 / 1;
+}
+.team-panel-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(0, 87, 255, 0.4));
+}
+
+/* Blue → transparent gradient (used by the Training panel) */
+.team-panel-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%,  rgba(0, 87, 255, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 100% 100%, rgba(0, 87, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(0, 87, 255, 0.09) 0%, rgba(0, 87, 255, 0) 100%);
+}
+
+/* Soft decorative bloom (used by Exec + HR panels) */
+.team-panel-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 10% 100%, rgba(229, 172, 36, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 90% 0%,   rgba(0, 87, 255, 0.10) 0%, transparent 55%);
+}
+
+/* Training panel — deeper glass with cool tint */
+.team-panel-gradient ~ .team-panel-members,
+.team-panel-gradient ~ .team-panel-heading {
   position: relative;
+  z-index: 2;
 }
 
-/* ---------- CONNECTORS (desktop) ---------- */
-
-/* Vertical stub down from parent card into the gap above children */
-.team-node:has(> .team-children) > .team-card::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -22px;
-  width: 2px;
-  height: 22px;
-  background: #c9d3e3;
-  transform: translateX(-1px);
-}
-
-/* Per-child: vertical stub from horizontal down to card top */
-.team-children > .team-node::before {
-  content: "";
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  width: 2px;
-  height: 22px;
-  background: #c9d3e3;
-  transform: translateX(-1px);
-}
-
-/* Per-child: horizontal segment; first/last are trimmed to their center */
-.team-children > .team-node::after {
-  content: "";
-  position: absolute;
-  top: -22px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #c9d3e3;
-}
-.team-children > .team-node:first-child::after {
-  left: 50%;
-}
-.team-children > .team-node:last-child::after {
-  right: 50%;
-}
-.team-children > .team-node:only-child::after {
-  display: none;
-}
-
-/* ---------- CARDS ---------- */
+/* ==========================================
+   PROFILE CARD (person)
+   ========================================== */
 .team-card {
+  --mx: 50%;
+  --my: 50%;
   position: relative;
-  width: 220px;
-  background: #ffffff;
-  border: 1px solid rgba(15, 42, 90, 0.08);
-  border-radius: 16px;
-  padding: 22px 18px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow:
-    0 1px 2px rgba(15, 42, 90, 0.04),
-    0 10px 24px -14px rgba(15, 42, 90, 0.1);
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 380ms ease,
+    border-color 380ms ease;
 }
 
-.team-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(184, 137, 47, 0.35);
-  box-shadow:
-    0 4px 8px rgba(15, 42, 90, 0.06),
-    0 18px 40px -18px rgba(15, 42, 90, 0.2);
-}
-
-/* Toggle button (chevron) */
-.team-toggle-btn {
+/* Cursor-follow spotlight — this page's unique interaction */
+.team-card-spotlight {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: rgba(15, 42, 90, 0.06);
-  color: #0f2a5a;
-  border: none;
-  cursor: pointer;
-  transition:
-    background 180ms ease,
-    transform 220ms ease;
+  inset: -1px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    rgba(229, 172, 36, 0.3) 0%,
+    rgba(0, 87, 255, 0.2) 32%,
+    transparent 65%
+  );
+  transition: opacity 320ms ease;
 }
-.team-toggle-btn:hover {
-  background: rgba(184, 137, 47, 0.15);
-  color: #b8892f;
+.team-card:hover .team-card-spotlight { opacity: 1; }
+
+/* Animated conic border, revealed on hover */
+.team-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  z-index: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 87, 255, 0) 0deg,
+    rgba(0, 87, 255, 0.55) 60deg,
+    rgba(229, 172, 36, 0.5) 180deg,
+    rgba(0, 87, 255, 0.55) 300deg,
+    rgba(0, 87, 255, 0) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 380ms ease;
 }
-.team-toggle-open {
-  transform: rotate(180deg);
+.team-card:hover .team-card-border {
+  opacity: 1;
+  animation: teamBorderRotate 6s linear infinite;
+}
+@keyframes teamBorderRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.team-card > *:not(.team-card-spotlight):not(.team-card-border) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Profile card ---------- */
+.team-card-profile {
+  padding: 32px 22px 26px;
+  height: 100%;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(238, 245, 255, 0.8) 100%
+  );
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(0, 87, 255, 0.14);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.05),
+    0 18px 40px -22px rgba(15, 42, 90, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.team-card-profile:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 87, 255, 0.28);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.06),
+    0 30px 56px -22px rgba(15, 42, 90, 0.32),
+    0 0 44px rgba(0, 87, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* Wider variant (used inside dept panels) */
+.team-card-wide {
+  padding: 36px 26px 28px;
+}
+.team-card-wide .team-avatar-wrap {
+  width: 116px;
+  height: 116px;
+}
+
+/* Featured (executive) — larger, stronger presence */
+.team-card-featured {
+  padding: 44px 30px 34px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(228, 238, 255, 0.86) 100%
+  );
+  border: 1px solid rgba(0, 87, 255, 0.22);
+  box-shadow:
+    0 1px 2px rgba(15, 42, 90, 0.06),
+    0 26px 56px -22px rgba(15, 42, 90, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.team-card-featured .team-avatar-wrap {
+  width: 140px;
+  height: 140px;
+}
+.team-card-featured .team-name {
+  font-size: 20px;
+}
+.team-card-featured .team-designation {
+  font-size: 14px;
 }
 
 /* Avatar */
 .team-avatar-wrap {
-  width: 88px;
-  height: 88px;
+  position: relative;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #eaf0fa 0%, #f7f4ec 100%);
-  border: 3px solid #ffffff;
+  margin-bottom: 16px;
+  padding: 3px;
+  background: linear-gradient(135deg, #0057ff 0%, #0b2e6f 60%, #e5ac24 130%);
   box-shadow:
-    0 0 0 2px rgba(184, 137, 47, 0.25),
-    0 6px 14px -6px rgba(15, 42, 90, 0.25);
+    0 10px 26px -12px rgba(15, 42, 90, 0.4),
+    0 0 0 4px rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
 }
-.team-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.team-avatar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 87, 255, 0.25) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 320ms ease;
+  pointer-events: none;
+  z-index: -1;
 }
+.team-card-profile:hover .team-avatar-ring { opacity: 1; }
+
+.team-avatar-img,
 .team-avatar-fallback {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: #ffffff;
+}
+.team-avatar-fallback {
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 24px;
-  color: #0f2a5a;
+  font-size: 26px;
+  color: #0b2e6f;
+  background: linear-gradient(135deg, #eaf0fa 0%, #f7faff 100%);
   letter-spacing: 0.03em;
 }
 
 /* Text */
 .team-name {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  color: #0f2a5a;
+  color: #0b2e6f;
   line-height: 1.25;
   margin: 0 0 4px;
+  letter-spacing: -0.005em;
 }
 .team-designation {
   font-size: 13px;
   font-weight: 600;
-  color: #b8892f;
+  color: var(--accent-color);
   margin: 0 0 4px;
   line-height: 1.3;
+  letter-spacing: 0.01em;
 }
 .team-qualification {
   font-size: 11.5px;
@@ -267,162 +654,126 @@
   display: inline-block;
   font-size: 10.5px;
   font-weight: 700;
-  color: #0f2a5a;
-  background: rgba(15, 42, 90, 0.06);
-  padding: 3px 10px;
+  color: #0b2e6f;
+  background: rgba(0, 87, 255, 0.08);
+  border: 1px solid rgba(0, 87, 255, 0.14);
+  padding: 4px 12px;
   border-radius: 999px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: auto;
+}
+.team-card-profile > .team-department-badge {
+  margin-top: 12px;
 }
 
-/* ---------- GROUP CARDS (Operations / Training buckets) ---------- */
-.team-card-group {
-  width: 200px;
-  padding: 16px 18px;
-  background: linear-gradient(135deg, #0f2a5a 0%, #17357a 100%);
-  border-color: transparent;
-  color: #ffffff;
-  box-shadow:
-    0 6px 20px -10px rgba(15, 42, 90, 0.4);
-}
-.team-card-group:hover {
-  border-color: rgba(184, 137, 47, 0.6);
-}
-.team-card-group .team-toggle-btn {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-}
-.team-card-group .team-toggle-btn:hover {
-  background: rgba(224, 178, 86, 0.4);
-  color: #ffffff;
-}
-.team-group-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: rgba(224, 178, 86, 0.2);
-  color: #e0b256;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-.team-group-title {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.team-group-sub {
-  font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 2px;
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1100px) {
+  .team-executive-panel { padding: 56px 40px; }
+  .team-panel { padding: 52px 40px 44px; }
 }
 
-/* ---------- MOBILE: collapse tree to vertical accordion ---------- */
-@media (max-width: 768px) {
-  .team-hero-section {
-    padding: 96px 0 56px;
+@media (max-width: 900px) {
+  .team-body { padding: 72px 0 96px; }
+  .team-dept-overview-section { margin-top: 88px; }
+  .team-department-panels { margin-top: 88px; gap: 64px; }
+
+  .team-executive-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 24px;
+  }
+  .team-dept-overview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .team-panel-members {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    gap: 22px;
+  }
+}
+
+@media (max-width: 720px) {
+  .team-body { padding: 60px 0 80px; }
+  .team-section-header { margin-bottom: 32px; }
+
+  .team-executive-panel {
+    padding: 40px 22px;
+    border-radius: 24px;
+    width: calc(100% - 24px);
+  }
+  .team-panel {
+    padding: 40px 22px 36px;
+    border-radius: 24px;
+    width: calc(100% - 24px);
   }
 
-  .team-org-section {
-    padding: 56px 0 72px;
-  }
-
-  .team-org-scroll {
-    overflow-x: visible;
-    padding: 8px 0 24px;
-  }
-
-  .team-org-tree {
-    min-width: 0;
-    width: 100%;
-    padding: 0 16px;
-  }
-
-  .team-root-list {
-    width: 100%;
-  }
-
-  /* Vertical stack — no side-by-side */
-  .team-children {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding-top: 12px;
-    padding-left: 20px;
-    border-left: 2px dashed rgba(15, 42, 90, 0.15);
-    margin-left: 24px;
-  }
-
-  /* Hide all desktop connectors on mobile — dashed vertical rule replaces them */
-  .team-node:has(> .team-children) > .team-card::after,
-  .team-children > .team-node::before,
-  .team-children > .team-node::after {
-    display: none;
-  }
-
-  .team-node {
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .team-card,
-  .team-card-group {
-    width: 100%;
-    flex-direction: row;
-    text-align: left;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-  }
-
-  .team-avatar-wrap {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-
-  .team-avatar-fallback {
-    font-size: 18px;
-  }
-
-  .team-name,
-  .team-designation,
-  .team-qualification,
-  .team-department-badge,
-  .team-group-title,
-  .team-group-sub {
-    text-align: left;
-    margin-left: 0;
-  }
-
-  .team-department-badge {
-    align-self: flex-start;
-  }
-
-  .team-card-group .team-group-icon {
-    margin-bottom: 0;
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-  }
-
-  .team-toggle-btn {
-    position: static;
+  .team-dept-overview-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
     margin-left: auto;
-    flex-shrink: 0;
+    margin-right: auto;
+    gap: 16px;
   }
+
+  .team-panel-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+  }
+  .team-department-marker {
+    width: 44px;
+    height: 44px;
+  }
+  .team-department-name { font-size: 20px; }
+  .team-department-tagline { font-size: 12.5px; }
+
+  .team-panel-members {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+    gap: 18px;
+  }
+
+  .team-card-featured {
+    padding: 32px 22px 26px;
+  }
+  .team-card-featured .team-avatar-wrap {
+    width: 120px;
+    height: 120px;
+  }
+  .team-card-wide {
+    padding: 30px 20px 24px;
+  }
+  .team-card-wide .team-avatar-wrap {
+    width: 104px;
+    height: 104px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-panel-members {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .team-executive-panel { padding: 32px 16px; }
+  .team-panel { padding: 32px 16px 28px; }
 }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
   .team-card,
-  .team-toggle-btn {
+  .team-card-spotlight,
+  .team-card-border,
+  .team-avatar-ring {
     transition: none;
+    animation: none;
   }
-  .team-card:hover {
-    transform: none;
-  }
+  .team-card:hover { transform: none; }
+  .team-hero-bg-img,
+  .team-hero-scroll-icon { animation: none; }
 }
