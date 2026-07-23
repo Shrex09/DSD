@@ -151,6 +151,14 @@
   margin-bottom: 48px;
 }
 
+/* Match section headline colour used across About / Home sections
+   (see .about-story-section .section-headline-dark) — same navy, not
+   the brighter --primary-color blue. */
+.team-executive-section .section-headline-dark,
+.team-dept-overview-section .section-headline-dark {
+  color: #17357a;
+}
+
 /* Provide vertical rhythm between the big sections */
 .team-executive-section,
 .team-dept-overview-section {
@@ -174,7 +182,7 @@
 .team-executive-panel {
   position: relative;
   margin: 0 auto;
-  width: min(1120px, calc(100% - 48px));
+  width: min(1240px, calc(100% - 48px));
   padding: 72px 56px;
   border-radius: 32px;
   overflow: hidden;
@@ -194,7 +202,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 340px));
+  grid-template-columns: repeat(3, minmax(0, 340px));
   gap: 40px;
   justify-content: center;
   align-items: stretch;

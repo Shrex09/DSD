@@ -19,10 +19,8 @@ export const companyConfig: CompanyConfig = {
   },
 
   socials: {
-    facebook: "#",
-    twitter: "#",
-    linkedin: "#",
-    instagram: "#",
+    instagram:
+      "https://www.instagram.com/dsd_security_services_2015?igsh=MTdkaWVjbWpnenh1dw==",
   },
 
   logos: {
