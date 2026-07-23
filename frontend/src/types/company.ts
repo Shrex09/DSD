@@ -13,9 +13,6 @@ export interface CompanyContact {
 }
 
 export interface CompanySocials {
-  facebook: string;
-  twitter: string;
-  linkedin: string;
   instagram: string;
 }
 

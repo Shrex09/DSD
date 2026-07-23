@@ -22,9 +22,16 @@ export const EXECUTIVE_LEADERSHIP: TeamMember[] = [
     id: "coo",
     name: "Mr. Dheeraj D. Deshmukh",
     designation: "Chief Operating Officer",
-    qualification: "B.Tech, DAC, MBA",
+    qualification: "B.Tech, CDAC, MBA",
     department: "Management",
     image: `${IMG}/MR.Dhiraj Deshmukh.jpeg`,
+  },
+  {
+    id: "director-pune",
+    name: "Mr. Dhairyasheel S. Deshmukh",
+    designation: "Director (Pune Division)",
+    department: "Management",
+    image: `${IMG}/Mr.Dhairyasheel .S. Deshmukh .jpeg`,
   },
 ];
 
