@@ -636,22 +636,26 @@ const Home = (): React.JSX.Element => {
             aria-label="Clients we serve"
           >
             <div className="clients-track">
-              {[1, 2, 3, 4,1, 2, 3, 4].map((n, idx) => (
-                <div
-                  key={`${n}-${idx}`}
-                  className="clients-logo-wrap"
-                  role="listitem"
-                  aria-hidden={idx >= 4 ? "true" : undefined}
-                >
-                  <img
-                    src={`/images/clients/${n}.jpeg`}
-                    alt={idx < 4 ? `Client ${n}` : ""}
-                    className="clients-logo-img"
-                    loading="lazy"
-                    draggable={false}
-                  />
-                </div>
-              ))}
+              {(() => {
+                const logos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+                const doubled = [...logos, ...logos];
+                return doubled.map((n, idx) => (
+                  <div
+                    key={`${n}-${idx}`}
+                    className="clients-logo-wrap"
+                    role="listitem"
+                    aria-hidden={idx >= logos.length ? "true" : undefined}
+                  >
+                    <img
+                      src={`/images/clients/${n}.jpeg`}
+                      alt={idx < logos.length ? `Client ${n}` : ""}
+                      className="clients-logo-img"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </div>
+                ));
+              })()}
             </div>
           </div>
         </div>
