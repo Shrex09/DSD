@@ -593,7 +593,7 @@ const Home = (): React.JSX.Element => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <span className="stats-eyebrow">Trusted by 500+ Clients</span>
+            <span className="stats-eyebrow">Trusted by 100+ Clients</span>
             <div className="stats-strip">
               {content.statistics.items.map((stat) => {
                 const Icon = resolveIcon(stat.icon);
