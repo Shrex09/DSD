@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dsd-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "E:/DSD-1/frontend", "run", "dev"],
+      "port": 5173,
+      "autoPort": true
+    },
+    {
+      "name": "flutter-web",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5175", "--directory", "E:/cuts/mobile/build/web"],
+      "port": 5175
+    }
+  ]
+}

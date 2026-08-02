@@ -164,7 +164,14 @@ const Footer = (): React.JSX.Element => {
       {/* Credit line */}
       <p className="footer-credit-line">
         Designed &amp; Developed by{" "}
-        <span className="footer-credit-brand">Infernos IT Solutions</span>
+        <a
+          href="https://www.infernos.co.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-credit-brand"
+        >
+          Infernos IT Solutions
+        </a>
       </p>
     </footer>
   );
