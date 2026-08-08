@@ -325,4 +325,48 @@ export const SERVICES_CATALOG: ServiceCatalogItem[] = [
     category: "housekeeping",
     slug: "daily-cleaning-services",
   },
+
+  // ==========================================
+  // 4. GUNMAN SECURITY SERVICES
+  // ==========================================
+  {
+    id: "bank-gunman",
+    title: "Bank Armed Gunman",
+    shortDescription:
+      "Licensed armed gunmen posted at bank branches, ATM refills, and vault operations.",
+    imageBg:
+      "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?auto=format&fit=crop&w=800&q=80",
+    category: "gunman",
+    slug: "bank-armed-gunman",
+  },
+  {
+    id: "cash-in-transit-gunman",
+    title: "Cash-in-Transit Gunman",
+    shortDescription:
+      "Armed protection details for cash vans, valuables transport, and courier escorts.",
+    imageBg:
+      "https://images.unsplash.com/photo-1580983230712-4f36446a1c6a?auto=format&fit=crop&w=800&q=80",
+    category: "gunman",
+    slug: "cash-in-transit-gunman",
+  },
+  {
+    id: "jewellery-vault-gunman",
+    title: "Jewellery & Vault Gunman",
+    shortDescription:
+      "Trained firearm personnel deployed to jewellery showrooms, storage vaults, and high-value retail.",
+    imageBg:
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+    category: "gunman",
+    slug: "jewellery-vault-gunman",
+  },
+  {
+    id: "vip-armed-escort",
+    title: "VIP Armed Escort",
+    shortDescription:
+      "Close-protection armed officers for VIPs, executives, and high-risk personal safety details.",
+    imageBg:
+      "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+    category: "gunman",
+    slug: "vip-armed-escort",
+  },
 ];

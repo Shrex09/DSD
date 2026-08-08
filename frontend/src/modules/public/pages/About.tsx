@@ -139,7 +139,7 @@ const About = (): React.JSX.Element => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.35 }}
             >
-              Protecting businesses, communities, and peace of mind for over six years.
+              Protecting businesses, communities, and peace of mind for over 12 years.
             </motion.p>
           </div>
         </motion.div>

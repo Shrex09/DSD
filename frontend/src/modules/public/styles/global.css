@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
 @import "variables.css";
 @import "tailwindcss";
 
@@ -83,6 +82,28 @@
 @keyframes marqueeLeftScroll {
   0%   { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/*
+ * Cross-device safety net for animated content.
+ * If the user has reduced motion enabled OR JavaScript fails, Framer
+ * Motion won't run the `whileInView` transition that flips
+ * opacity: 0 -> 1, and content would stay invisible. Force it visible
+ * so text and images never disappear in production.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html.no-js [style*="opacity:0"],
+html.no-js [style*="opacity: 0"] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Shared SectionHeader typography (used across every page) */

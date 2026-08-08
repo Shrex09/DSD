@@ -52,6 +52,14 @@ const CATEGORIES = [
     description:
       "Reliable housekeeping and facility support services for offices, commercial buildings and residential properties.",
   },
+  {
+    id: "gunman-security-services",
+    key: "gunman",
+    badge: "Armed Protection",
+    title: "Gunman Security Services",
+    description:
+      "Licensed and trained armed gunmen for banks, cash-in-transit, jewellery vaults, and high-risk protective assignments.",
+  },
 ];
 
 /** Max tilt in degrees applied to a card as the pointer moves across it */
