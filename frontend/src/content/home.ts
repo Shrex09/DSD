@@ -163,7 +163,7 @@ export const HOME_CONTENT: HomeContent = {
         title: "Bouncer Services",
         description:
           "Professional event security and crowd management for hotels, clubs, weddings, VIP events and private functions.",
-        imageBg: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
+        imageBg: "/images/gallery/bouncer.png",
         linkTo: "/services#bouncer-services",
         icon: "Users",
       },
@@ -175,6 +175,15 @@ export const HOME_CONTENT: HomeContent = {
         imageBg: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80",
         linkTo: "/services#housekeeping-services",
         icon: "Sparkles",
+      },
+      {
+        id: "gunman-security-services",
+        title: "Gunman Security Services",
+        description:
+          "Licensed armed gunmen for banks, cash escorts, jewellery vaults and high-risk assignments requiring trained firearm personnel.",
+        imageBg: "/images/gallery/gunman.png",
+        linkTo: "/services#gunman-security-services",
+        icon: "ShieldAlert",
       },
     ],
   },
