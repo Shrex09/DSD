@@ -25,7 +25,7 @@ const PageHero = ({
     <section className={`relative ${className}`}>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--primary-light),transparent_70%)] opacity-40" />
       <div className={containerClassName}>
-        <span className="px-4 py-1 text-xs font-bold uppercase tracking-widest bg-accent/10 border border-accent/20 text-accent rounded-full">
+        <span className="page-hero-badge px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
           {badge}
         </span>
         <h1 className="text-3xl md:text-5xl font-black uppercase tracking-wider">{title}</h1>
