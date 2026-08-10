@@ -77,7 +77,10 @@
 }
 
 .footer-licensed-pill {
-  @apply inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full bg-accent/10 border border-accent/25 text-accent text-xs font-bold uppercase tracking-widest;
+  @apply inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest;
+  background-color: rgba(229, 172, 36, 0.12);
+  border: 1px solid rgba(229, 172, 36, 0.3);
+  color: #e5ac24;
 }
 
 /* ── Column generic ── */

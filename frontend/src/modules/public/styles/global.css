@@ -144,3 +144,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Shared badge pill used by PageHero / contact-hero-badge / footer-licensed-pill.
+   Explicit rgba() instead of Tailwind's opacity syntax so old browsers without
+   color-mix() support don't collapse the background to a solid accent bar
+   (which would render the same-colored text invisible). */
+.page-hero-badge {
+  background-color: rgba(229, 172, 36, 0.12);
+  border: 1px solid rgba(229, 172, 36, 0.28);
+  color: #e5ac24;
+}

@@ -149,7 +149,13 @@
 }
 
 .hero-trust-card {
-  @apply p-5 rounded bg-primary-light/20 backdrop-blur-md border border-white/5 flex flex-col items-start gap-1.5 text-left transition-all duration-300 hover:bg-primary-light/30 hover:border-white/10;
+  @apply p-5 rounded backdrop-blur-md flex flex-col items-start gap-1.5 text-left transition-all duration-300;
+  background-color: rgba(242, 247, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.hero-trust-card:hover {
+  background-color: rgba(242, 247, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .trust-card-icon-gold {
@@ -1157,7 +1163,8 @@
 }
 
 .industry-card-icon-box {
-  @apply p-3 bg-primary/5 text-primary rounded-xl w-fit transition-colors duration-300;
+  @apply p-3 text-primary rounded-xl w-fit transition-colors duration-300;
+  background-color: rgba(0, 87, 255, 0.05);
 }
 
 .industry-card-item:hover .industry-card-icon-box {
