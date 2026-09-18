@@ -101,7 +101,9 @@
 }
 
 html.no-js [style*="opacity:0"],
-html.no-js [style*="opacity: 0"] {
+html.no-js [style*="opacity: 0"],
+html.is-bot [style*="opacity:0"],
+html.is-bot [style*="opacity: 0"] {
   opacity: 1 !important;
   transform: none !important;
 }
