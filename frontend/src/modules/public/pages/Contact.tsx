@@ -83,7 +83,10 @@ const Contact = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="Contact Us - DSD Security Services" />
+      <SEO
+        title="Contact Us – Get a Free Security Consultation"
+        description="Contact DSD Security Services, Vishrambag, Sangli. Call 9665510514 / 9890488427 or send an enquiry for security guards, bouncers or housekeeping staff."
+      />
 
       {/* ── HERO ── */}
       <section className="contact-hero">

@@ -26,7 +26,7 @@ export const companyConfig: CompanyConfig = {
   logos: {
     light: "/logos/logo-hero-clean.png", // Transparent logo for dark backgrounds (footer, drawer)
     dark: "/logos/logo-for-light-bg.png",  // For light backgrounds (white navbar)
-    favicon: "/favicon/favicon.ico",
+    favicon: "/favicon.ico",
   },
 
   cta: {

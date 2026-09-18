@@ -12,6 +12,8 @@ export interface LoaderProps {
 export interface SEOProps {
   title?: string;
   description?: string;
+  /** Hide the page from search engines (error pages, etc.) */
+  noindex?: boolean;
 }
 
 /** Props for inline custom SVG icon components */

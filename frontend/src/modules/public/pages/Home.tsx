@@ -214,7 +214,10 @@ const Home = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="Premium Security Guard & Protection Services" />
+      <SEO
+        title="Security Guard Services in Sangli"
+        description="DSD Security Services, Sangli – trusted security guards, bouncers, event security, housekeeping and CCTV monitoring for homes, businesses and factories across Maharashtra. 24/7 operations since 2013."
+      />
 
       {/* ==========================================
          1. HERO SECTION (Redesigned Corporate Presentation)

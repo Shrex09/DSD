@@ -12,6 +12,7 @@ const ServerError = (): React.JSX.Element => {
   return (
     <div className="relative min-h-[75vh] flex flex-col items-center justify-center bg-primary px-6 py-16 overflow-hidden">
       <SEO
+        noindex
         title="Server Error (500)"
         description="An internal server error occurred. Our team has been notified."
       />

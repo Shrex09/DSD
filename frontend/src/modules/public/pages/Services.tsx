@@ -104,7 +104,10 @@ const Services = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="Services - Security, Bouncers & Housekeeping Solutions" />
+      <SEO
+        title="Security Guards, Bouncers & Housekeeping Services"
+        description="Security guard services, bouncers and event security, housekeeping, CCTV monitoring, residential and industrial/factory security in Sangli and across Maharashtra."
+      />
 
       {/* ==========================================
          1. PAGE HERO

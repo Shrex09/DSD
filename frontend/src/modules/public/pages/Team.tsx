@@ -194,7 +194,10 @@ const Team = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="Our Team - Leadership & Operations" />
+      <SEO
+        title="Our Team – Leadership & Operations"
+        description="Meet the directors, branch heads and operations team behind DSD Security Services across Sangli, Miraj, Ishwarpur, Kolhapur and Pune."
+      />
 
       {/* ── HERO ── */}
       <section className="team-hero-section" ref={heroRef}>

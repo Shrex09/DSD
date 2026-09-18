@@ -90,7 +90,10 @@ const About = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="About Us - Our Story, Mission & Leadership" />
+      <SEO
+        title="About Us – Trusted Security Agency Since 2013"
+        description="Learn about DSD Security Services, a Sangli-based security agency since 2013 – our story, mission, leadership and commitment to trained, verified security personnel."
+      />
 
       {/* ── 1. STORYTELLING HERO ── */}
       <section className="about-hero-section" ref={heroRef}>

@@ -7,7 +7,8 @@ export const contactService = {
    */
   submitInquiry: async (inquiryData: InquiryPayload): Promise<SubmitResponse> => {
     try {
-      const response = await api.post<SubmitResponse>("/contact", inquiryData);
+      // Always same-origin: served by the Vite dev middleware locally and a Vercel function in production
+      const response = await api.post<SubmitResponse>("/api/contact", inquiryData, { baseURL: "/" });
       return response.data;
     } catch (error: any) {
       console.error("Error submitting contact inquiry:", error);

@@ -11,6 +11,7 @@ const Maintenance = (): React.JSX.Element => {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#0B2E6F] px-6 py-16 overflow-hidden">
       <SEO
+        noindex
         title="Under Maintenance"
         description="The site is currently undergoing scheduled maintenance. We will be back shortly."
       />

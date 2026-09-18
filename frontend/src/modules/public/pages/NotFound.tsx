@@ -12,7 +12,8 @@ const NotFound = (): React.JSX.Element => {
   return (
     <div className="relative min-h-[75vh] flex flex-col items-center justify-center bg-primary px-6 py-16 overflow-hidden">
       <SEO
-        title="Access Restricted (404)"
+        noindex
+        title="Page Not Found (404)"
         description="The page you are looking for does not exist or has been relocated."
       />
 

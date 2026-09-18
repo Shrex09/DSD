@@ -67,7 +67,7 @@ const Guards = (): React.JSX.Element => {
 
   return (
     <div className="flex flex-col w-full">
-      <SEO title="Our Security Guards - Vetted & Trained Personnel" />
+      <SEO title="Our Security Guards – Vetted & Trained Personnel" />
 
       {/* ==========================================
          1. PAGE HERO

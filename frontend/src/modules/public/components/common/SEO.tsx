@@ -1,30 +1,60 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { companyConfig } from "@/config/company";
+import { SITE_URL } from "@/config/seo";
 import type { SEOProps } from "@/types";
 
+/** Finds (or creates) a <meta>/<link> tag in <head> and sets one attribute on it. */
+const setHeadTag = (selector: string, create: () => HTMLElement, attr: string, value: string) => {
+  let el = document.head.querySelector<HTMLElement>(selector);
+  if (!el) {
+    el = create();
+    document.head.appendChild(el);
+  }
+  el.setAttribute(attr, value);
+};
+
+const setMeta = (key: "name" | "property", id: string, content: string) =>
+  setHeadTag(
+    `meta[${key}="${id}"]`,
+    () => {
+      const meta = document.createElement("meta");
+      meta.setAttribute(key, id);
+      return meta;
+    },
+    "content",
+    content
+  );
+
 /**
- * Dynamically updates the document title and meta description.
+ * Updates the document title, description, canonical URL and social-preview
+ * tags for the current route. Static defaults live in index.html so crawlers
+ * that don't run JavaScript (WhatsApp, Facebook) still get a good preview.
  * Returns null — renders nothing in the DOM.
- *
- * @param title       - Page-specific title suffix (e.g. "About Us")
- * @param description - Page-specific meta description for SEO
  */
-const SEO = ({ title, description }: SEOProps): null => {
+const SEO = ({ title, description, noindex = false }: SEOProps): null => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    // Always show the brand name in the tab — page-specific titles are kept
-    // only for accessibility/SEO via the meta description below.
-    document.title = companyConfig.name;
+    const fullTitle = title ? `${title} | ${companyConfig.name}` : companyConfig.name;
+    const desc = description ?? companyConfig.description;
+    const url = `${SITE_URL}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`;
 
-    // Manage meta description tag
-    let metaDescription = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement("meta");
-      metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
-    }
-
-    metaDescription.content = description ?? companyConfig.description;
-  }, [title, description]);
+    document.title = fullTitle;
+    setMeta("name", "description", desc);
+    setMeta("name", "robots", noindex ? "noindex, follow" : "index, follow");
+    setMeta("property", "og:title", fullTitle);
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:url", url);
+    setMeta("name", "twitter:title", fullTitle);
+    setMeta("name", "twitter:description", desc);
+    setHeadTag(
+      'link[rel="canonical"]',
+      () => Object.assign(document.createElement("link"), { rel: "canonical" }),
+      "href",
+      url
+    );
+  }, [title, description, noindex, pathname]);
 
   return null;
 };
