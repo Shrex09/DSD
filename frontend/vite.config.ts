@@ -29,6 +29,8 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
     plugins: [tailwindcss(), react(), contactApiPlugin(env)],
+    // manifest is read by scripts/prerender.mjs to link each page's CSS/JS chunks
+    build: { manifest: true },
     resolve: {
       alias: {
         "@": resolve(__dirname, "./src"),

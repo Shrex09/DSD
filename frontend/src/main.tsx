@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
 import "./modules/public/styles/global.css";
 
@@ -12,8 +12,15 @@ if (!rootElement) {
   );
 }
 
-createRoot(rootElement).render(
+const app = (
   <StrictMode>
     <App />
   </StrictMode>
 );
+
+// Pre-rendered pages (see scripts/prerender.mjs) arrive with HTML already in #root
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, app);
+} else {
+  createRoot(rootElement).render(app);
+}
